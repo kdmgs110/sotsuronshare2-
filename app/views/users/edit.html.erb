@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-12">
+        <h2 align="center">Updating <%=@user.name%></h2>
+        <%= form_for(@user) do |f| %>
+            <div class="form-group">
+            <h2>プロフィール</h2>
+                <div><textarea name="user[bio]" class="form-control" placeholder="Bio" width="100%"><%=@user.bio%></textarea></div>
+            <h2>専攻</h2>
+            <%= f.select :major,([
+            [""],
+            ["アメリカ研究 American Studies"],
+            ["文化人類学 Anthropology"],
+            ["アジア研究 Asian Studies"],
+            ["生物学 Biology"],
+            ["経営学 Business"],
+            ["比較教育 Comperative Education"],
+            ["化学 Chemistory"],
+            ["教育学 Education"],
+            ["教育・メディア・社会 Education, Media, and Society"],
+            ["環境学 Environmental Studies"],
+            ["グローバル研究 Global Studies"],
+            ["ジェンダー・セクシャリティー研究 Gender and Sexuality Studies"],
+            ["歴史学 History"],
+            ["国際関係学 International Relations"],
+            ["情報科学 Information Science"],
+            ["日本研究 Japan Studies"],
+            ["法学 Law"],
+            ["言語教育 Language Education"],
+            ["文学 Literatures"],
+            ["言語学 Linguistics"],
+            ["メディア・コミュニケーション・文化 Media, Communication, and Culture"],
+            ["数学 Mathematics"],
+            ["音楽 Music"],
+            ["音楽 Music"],
+            ["平和研究 Peace Studies"],
+            ["哲学・宗教学 Philosophy and Religion"],
+            ["物理学 Physics"],
+            ["政治学 Politics"],
+            ["公共政策 Public Policy"],
+            ["心理学 Psychology"],
+            ]) %>
+            <h2>論文名</h2>
+                <div><textarea name="user[thesisName]" class="form-control" placeholder="thesisName" width="100%"><%=@user.thesisName%></textarea></div>
+            <h2>抄訳（Summary)</h2>
+                <div><textarea name="user[abstract]" class="form-control" placeholder="Abstract" width="100%"><%=@user.abstract%></textarea></div>
+            </div>
+            <h2>論文ファイル</h2>
+                <%= f.file_field :attachment %>
+            <input type="submit" value="Submit" class="btn btn-primary"/>
+        <% end %>
+    </div>
+</div>

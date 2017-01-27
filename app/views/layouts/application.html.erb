@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>卒論</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<ul class="nav nav-tabs">
+  <% if current_user %>
+    <li role="presentation" class="active"><%= link_to current_user.name, user_path(current_user.id)%></a></li>
+    <li role="presentation"><%= link_to "ユーザーを探す", users_path %></li>
+    <li role="presentation"><%= link_to "プロフィールを編集",edit_user_path(current_user.id) %></li>
+    <li role="presentation"><%= link_to "ログアウト", logout_path %> </li>
+  <% else %>
+    <li role="presentation"><%= link_to "ログイン", login_path %></li>
+  <% end %>
+</ul>
+
+<%= yield %>
+</div>
+</body>
+</html>
