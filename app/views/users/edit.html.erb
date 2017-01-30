@@ -1,10 +1,10 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3 col-sm-12">
-        <h2 align="center">Updating <%=@user.name%></h2>
+        <h2 align="center">編集：<%=@user.name%></h2>
         <%= form_for(@user) do |f| %>
             <div class="form-group">
-            <h2>プロフィール</h2>
-                <div><textarea name="user[bio]" class="form-control" placeholder="Bio" width="100%"><%=@user.bio%></textarea></div>
+            <h2>興味・関心</h2>
+                <div><textarea name="user[bio]" class="form-control" placeholder="日本の多様性教育に興味があります。" width="100%"><%=@user.bio%></textarea></div>
             <h2>専攻</h2>
             <%= f.select :major,([
             [""],
@@ -40,13 +40,13 @@
             ["心理学 Psychology"],
             ]) %>
             <h2>論文名</h2>
-                <div><textarea name="user[thesisName]" class="form-control" placeholder="thesisName" width="100%"><%=@user.thesisName%></textarea></div>
-            <h2>抄訳（Summary)</h2>
-                <div><textarea name="user[abstract]" class="form-control" placeholder="Abstract" width="100%"><%=@user.abstract%></textarea></div>
+                <div><textarea name="user[thesisName]" class="form-control" placeholder="公教育と多様性：出稼ぎ労働者と職業選択について" width="100%"><%=@user.thesisName%></textarea></div>
+            <h2>どんな内容か</h2>
+                <div><textarea name="user[abstract]" class="form-control" placeholder="出稼ぎ労働者の子供が日本社会に適合するまでの困難を、統計分析によって明らかにしました。" width="100%"><%=@user.abstract%></textarea></div>
             </div>
-            <h2>論文ファイル</h2>
+            <h2>論文ファイル</h2><small>PDFファイルのみ対応しています。</small>
                 <%= f.file_field :attachment %>
-            <input type="submit" value="Submit" class="btn btn-primary"/>
+            <h2><input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block"/></h2>
         <% end %>
     </div>
 </div>
