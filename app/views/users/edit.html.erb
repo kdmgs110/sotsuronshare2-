@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3 col-sm-12">
-        <h2 align="center">編集：<%=@user.name%></h2>
+        <h2 align="center">Updating <%=@user.name%></h2>
         <%= form_for(@user) do |f| %>
             <div class="form-group">
             <h2>興味・関心</h2>
@@ -44,9 +44,16 @@
             <h2>どんな内容か</h2>
                 <div><textarea name="user[abstract]" class="form-control" placeholder="出稼ぎ労働者の子供が日本社会に適合するまでの困難を、統計分析によって明らかにしました。" width="100%"><%=@user.abstract%></textarea></div>
             </div>
-            <h2>論文ファイル</h2><small>PDFファイルのみ対応しています。</small>
+            <h2>論文ファイル</h2><small>PDFファイルのみ対応しています。WordのPDF化は下の動画を確認してください。</small>
                 <%= f.file_field :attachment %>
             <h2><input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block"/></h2>
         <% end %>
+            <h2>WordファイルをPDFにする場合</h2>
+            <ul>
+                <li>「PDF」形式で保存したいファイルを開き、「ファイル」タブをクリック</li>
+                <li>保存したいフォルダーを決めます。</li>
+                <li>「名前を付けて保存」画面が表示されるので「ファイルの種類」を「PDF(*.pdf)」に変更して「ファイル名」を決めます</li>
+                <li>「保存」ボタンをクリック。</li>
+            </ul>
     </div>
 </div>

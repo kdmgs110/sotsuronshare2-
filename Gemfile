@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+#検索機能ransacck 
+gem "ransack"
+
+#ページネーション
+gem 'will_paginate', github: 'jonatack/will_paginate'
+
 #Facebook Login 
 
 gem 'omniauth'

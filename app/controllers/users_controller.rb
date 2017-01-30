@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
 before_action :correct_user, only: [:edit, :update]
+before_filter :set_search
  
   def index
-    @users = User.all
+    @q        = User.search(params[:q])
+    @products = @q.result(distinct: true)
   end
   
   def show

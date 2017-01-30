@@ -22,3 +22,27 @@
   <% else %> <!-- もしcurrent_userがプロフィールを編集していなかったら、編集するように注意する -->
     <h2>プロフィールを編集しましょう！上のタブから「プロフィールを編集」を押してください。</h2>
   <% end %>
+<div class="row">
+  <% if current_user.attachment.present? %> <!-- もしcurrentuserがファイルをアップロードしていたら -->
+    <% @users.each do |user| %>
+      <% if user.attachment.present? %>　<!-- もしユーザーがPDFファイルを編集済みの場合、プロフィールが表示される -->
+          <div class="col-sm-6 col-md-4 user_profile">
+            <div class="thumbnail">
+              <img src="<%=user.avatar_url%>" alt="Avatar" style="width:100px;" class="img-circle">
+              <div class="caption ">
+                <h3><%=user.name%><small>参考になった：<%= user.get_upvotes.size %></small></h3>
+                <h3>自己紹介</h3>
+                <div><%= user.bio %></div>
+                <h3>専攻</h3>
+                <div><%= user.major %></div>
+                <h3>論文名</h3>
+                <div><%= user.thesisName %></div>
+                <p style="text-align:center; padding-top:15px;"><a href="<%=user_path(user)%>" class="btn btn-block btn-primary" role="button">詳細を見る</a></p>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
+  <% else %> <!-- もしcurrent_userがプロフィールを編集していなかったら、編集するように注意する -->
+    <h2>プロフィールを編集しましょう！上のタブから「プロフィールを編集」を押してください。</h2>
+  <% end %>
