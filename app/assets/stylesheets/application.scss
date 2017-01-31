@@ -15,6 +15,7 @@
  */
 @import "bootstrap-sprockets";
 @import"bootstrap";
+@import "font-awesome";
 
 
 
@@ -23,12 +24,17 @@
     font-size:18px;
 }
 
+.title{
+    font-family: "Nico Moji";
+}
+
 .nav{
  font-size:20px;   
 }
 
 .user_profile{
     height:auto;
+    margin-top:10px;
 }
 
 h2{
@@ -48,7 +54,7 @@ h3{
 }
 
 .content{
-    background-color:#f8f8f8;
+    background-color:#F0F0F0;
 }
 
 .topPagesBackground{

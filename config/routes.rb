@@ -70,4 +70,11 @@ Rails.application.routes.draw do
     resources :upvotes, only: :create
     resources :downvotes, only: :create
   end
+  
+  resources :users do
+  member do
+    put "like", to: "users#upvote"
+    put "dislike", to: "users#downvote"
+        end
+  end
 end

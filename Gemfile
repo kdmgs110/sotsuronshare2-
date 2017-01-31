@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#font-awesome 
+gem "font-awesome-rails"
+
 #検索機能ransacck 
 gem "ransack"
 

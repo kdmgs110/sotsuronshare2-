@@ -28,14 +28,14 @@ before_filter :set_search
   def upvote
     @user = User.find(params[:id])
     @user.upvote_by current_user
-    redirect_to back
+    redirect_to users_path
   end
   
   
   def downvote
     @user = User.find(params[:id])
     @user.downvote_by current_user
-    redirect_to back
+    redirect_to users_path
   end
    
   
@@ -50,7 +50,7 @@ before_filter :set_search
     end
     
     def user_params
-      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major)
+      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username)
     end
   
 end

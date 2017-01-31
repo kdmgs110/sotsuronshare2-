@@ -26,10 +26,7 @@ class User < ActiveRecord::Base
   def friends
    @friends = facebook.get_connections("me", "friends")
   end
-
-  
-  
-
-  
-  
 end
+
+  
+  
