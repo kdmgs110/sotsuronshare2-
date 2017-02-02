@@ -36,17 +36,54 @@ body{
     background-color:#33cccc;
 }
 
-/* ***************** TABBAR SETTING ******************/
+/* ***************** TABBAR SETTING @application.html.erb ******************/
 
 #search_box{
     background-color:#ffe6b3;
     padding:20px 0;
+  
 } 
 
-.user_profile{
+
+/****** USER PROFILE @index.html.erb ***********************/
+#user_profile{
     height:auto;
+    padding:10px;
+    background-color:#ffff99;
+    border:1px solid #eee;
+    margin-bottom:10px;
     margin-top:10px;
 }
+h2 #profile-header{
+    margin-bottom:30px;
+    font-size:40px;
+}
+.profile-left{
+    padding-bottom:5px;
+    border-bottom:1px solid #eee;
+}
+#profile-abstract{
+    padding:10px 10px 40px 10px;
+    height:auto;
+    background-color:#eee;
+}
+.clip-button{
+    background-color:blue;
+    color:white;
+    padding:5px;
+    margin:20px 0;
+    text-align:center;
+}
+
+/********detail @show.html.erb ***********************/
+
+.detail-abstract{
+    padding:10px 10px 40px 10px;
+    height:auto;
+    background-color:#eee;
+}
+
+/********detail @show.html.erb ***********************/
 
 h2{
     color:4b77be;
