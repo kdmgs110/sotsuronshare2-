@@ -8,55 +8,92 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<ul class="nav nav-tabs">
-  <% if current_user %>
-    <li role="presentation" class="active title"><%= link_to "卒論Share", root_path %></li>
-    <li role="presentation"><%= link_to "ユーザーを探す", users_path %></li>
-    <li role="presentation"><%= link_to "プロフィールを編集",edit_user_path(current_user.id) %></li>
-    <li role="presentation"><%= link_to "ログアウト", logout_path %> </li>
-    <%= search_form_for @q do |f| %>
-      <li  class=" nav navbar-right "role="presentation">
-      <%= f.select :major_cont,([
-            [""],
-            ["アメリカ研究 American Studies"],
-            ["文化人類学 Anthropology"],
-            ["アジア研究 Asian Studies"],
-            ["生物学 Biology"],
-            ["経営学 Business"],
-            ["比較教育 Comperative Education"],
-            ["化学 Chemistory"],
-            ["教育学 Education"],
-            ["教育・メディア・社会 Education, Media, and Society"],
-            ["環境学 Environmental Studies"],
-            ["グローバル研究 Global Studies"],
-            ["ジェンダー・セクシャリティー研究 Gender and Sexuality Studies"],
-            ["歴史学 History"],
-            ["国際関係学 International Relations"],
-            ["情報科学 Information Science"],
-            ["日本研究 Japan Studies"],
-            ["法学 Law"],
-            ["言語教育 Language Education"],
-            ["文学 Literatures"],
-            ["言語学 Linguistics"],
-            ["メディア・コミュニケーション・文化 Media, Communication, and Culture"],
-            ["数学 Mathematics"],
-            ["音楽 Music"],
-            ["音楽 Music"],
-            ["平和研究 Peace Studies"],
-            ["哲学・宗教学 Philosophy and Religion"],
-            ["物理学 Physics"],
-            ["政治学 Politics"],
-            ["公共政策 Public Policy"],
-            ["心理学 Psychology"],
-            ]) %>
-        <%= f.submit %></li>
-    <% end %>
-  <% else %>
-    <li role="presentation"><%= link_to "ログイン", login_path %></li>
-  <% end %>
-</ul>
+
+<!-- HEADER + NAVBAR AREA --------------------------------------------------->
+<div class="container">　<!--navbar container -->
+  <div class="row">
+    <div class="col-ms-12 col-md-12" id="nav-all">
+      <a class="navbar-brand nav nav-tabs"><%= link_to "卒論Share", root_path %></a>
+      <ul class="nav nav-tabs navbar-right">
+        <% if current_user %>
+          <li role="presentation" ><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i></a></li>  
+          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus"></i></li>
+            <ul class="dropdown-menu">
+              <li><%= link_to "編集",edit_user_path(current_user.id) %></li>
+              <li><%= link_to "ログアウト", logout_path %></li>
+            </ul>
+          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify" aria-hidden="true"></i><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "編集",edit_user_path(current_user.id) %></li>
+              <li><%= link_to "ログアウト", logout_path %></li>
+            </ul>
+        <% else %>
+          <li role="presentation"><%= link_to "ログイン", login_path %></li>
+        <% end %>  
+      </ul>
+    </div> <!-- id = "nav-all" -->      
+  </div> <!--row -->  
+<div><!--container -->
+
+<!-- HEADER + NAVBAR AREA --------------------------------------------------->
+
+<!-- Added TAB-CONTENT AREA --------------------------------------------------->
+
+<div class="container">
+  <div class="row tab-content">
+    <div class="col-sm-12 col-md-12 tab-pane fade" role="tabpanel" id="search_box">
+      <%= search_form_for @q do |f| %>
+            <!-- 卒業したかを選ぶタグ-->
+            <div>卒業：<%= f.select :graduate_cont,([
+              [""],
+              ["卒業済み"],
+              ["学部生"]
+            ])%>
+            </div>
+            <!-- メジャーを選ぶタグ-->
+            <div>専攻：
+            <%= f.select :major_cont,([
+                  [""],
+                  ["アメリカ研究 American Studies"],
+                  ["文化人類学 Anthropology"],
+                  ["アジア研究 Asian Studies"],
+                  ["生物学 Biology"],
+                  ["経営学 Business"],
+                  ["比較教育 Comperative Education"],
+                  ["化学 Chemistory"],
+                  ["教育学 Education"],
+                  ["教育・メディア・社会 Education, Media, and Society"],
+                  ["環境学 Environmental Studies"],
+                  ["グローバル研究 Global Studies"],
+                  ["ジェンダー・セクシャリティー研究 Gender and Sexuality Studies"],
+                  ["歴史学 History"],
+                  ["国際関係学 International Relations"],
+                  ["情報科学 Information Science"],
+                  ["日本研究 Japan Studies"],
+                  ["法学 Law"],
+                  ["言語教育 Language Education"],
+                  ["文学 Literatures"],
+                  ["言語学 Linguistics"],
+                  ["メディア・コミュニケーション・文化 Media, Communication, and Culture"],
+                  ["数学 Mathematics"],
+                  ["音楽 Music"],
+                  ["音楽 Music"],
+                  ["平和研究 Peace Studies"],
+                  ["哲学・宗教学 Philosophy and Religion"],
+                  ["物理学 Physics"],
+                  ["政治学 Politics"],
+                  ["公共政策 Public Policy"],
+                  ["心理学 Psychology"],
+                  ]) %>
+            </div>
+              <%= f.submit %></li>
+          <% end %>
+    </div> <!-- search_box -->
+  </div> <!-- row tab-content-->
+</div> <!-- container -->
+
+<!-- Added TAB-CONTENT AREA --------------------------------------------------->
 
 <%= yield %>
-</div>
 </body>
 </html>

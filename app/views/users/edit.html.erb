@@ -4,6 +4,12 @@
         <h2>ユーザー名</h2><small>ユーザー名を入力してください。変更することができます。</small>
             <div class="form-group">
                 <div><textarea name="user[username]" class="form-control" placeholder="ニックネーム" width="100%"><%=@user.username%></textarea></div>
+            <h2>ステータス</h2><small卒業したか、まだ学部生か教えてください</small>
+                <%= f.select :graduate,([
+                [""],
+                ["卒業済み"],
+                ["学部生"],
+                ]) %>
             <h2>興味・関心</h2><small>興味のある分野について教えてください。</small>
                 <div><textarea name="user[bio]" class="form-control" placeholder="日本の多様性教育に興味があります。" width="100%"><%=@user.bio%></textarea></div>
             <h2>論文の分野</h2><small>あなたの論文の分野について教えてください。</small>

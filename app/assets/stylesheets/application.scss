@@ -17,20 +17,31 @@
 @import"bootstrap";
 @import "font-awesome";
 
-
-
+/* ***************** Common CSS ******************/
 *{
     font-family:arial;
     font-size:18px;
 }
-
-.title{
-    font-family: "Nico Moji";
+.container{
+    max-width: 100%;
 }
-
+body{
+    max-width:100%;
+}
+/* ***************** HEADER + NAVBAR ******************/
 .nav{
- font-size:20px;   
+ font-size:40px;   
 }
+#nav-all{
+    background-color:#33cccc;
+}
+
+/* ***************** TABBAR SETTING ******************/
+
+#search_box{
+    background-color:#ffe6b3;
+    padding:20px 0;
+} 
 
 .user_profile{
     height:auto;
@@ -44,13 +55,6 @@ h2{
 h3{
     padding-top:20px;
     border-top:solid #e0e0e0 1px;
-}
-
-
-.container {
-    
-    line-height:24px;
-    font-size:16px;
 }
 
 .content{

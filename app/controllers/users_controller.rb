@@ -50,7 +50,7 @@ before_filter :set_search
     end
     
     def user_params
-      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username)
+      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username, :graduate)
     end
   
 end

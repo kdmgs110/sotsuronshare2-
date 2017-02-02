@@ -10,12 +10,14 @@
                 <div class="btn btn-primary" href="#"><i class="fa fa-thumbs-o-up"></i> <%= @user.get_downvotes.size %>　ネタだネ</div>
             <% end %>
             <% if @user == current_user %><p><a href="<%=edit_user_path(@user.id)%>" class="btn btn-primary" role="button">編集する</a></p><%end%>
+            <h3>ステータス</h3>
+            <div><%= @user.graduate %></div>
             <h3>興味・関心</h3>
-            <h3>論文の分野</h3><small>あなたの論文の分野について教えてください。</small>
+            <h3>論文の分野</h3>
             <div><%= @user.major %></div>
             <h3>論文のタイトル</h3>
             <div><%= @user.thesisName %></div>
-            <h3>なぜ書いたか</h3><small>あなたの論文を紹介してください</small>
+            <h3>なぜ書いたか</h3>
             <div><%= @user.abstract %></div>
         </div>
         

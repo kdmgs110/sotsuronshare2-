@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131015059) do
+ActiveRecord::Schema.define(version: 20170202100515) do
 
   create_table "static_pages", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170131015059) do
     t.string   "nick"
     t.string   "nickname"
     t.string   "username",         default: "ユーザーネームを編集してください。"
+    t.string   "graduate"
   end
 
   create_table "votes", force: :cascade do |t|
