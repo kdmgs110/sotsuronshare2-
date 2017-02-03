@@ -17,7 +17,7 @@ gem "font-awesome-rails"
 gem "ransack"
 
 #ページネーション
-gem 'will_paginate', github: 'jonatack/will_paginate'
+gem 'will_paginate'
 
 #Facebook Login 
 
