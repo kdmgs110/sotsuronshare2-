@@ -1,9 +1,11 @@
 <div class="row">
     <% @users.each do |user| %>
       <div class="col-sm-12 col-md-12" id="user_profile"> <!-- User Profile ----------------------------->
+          
           <div class ="col-sm-12 col-md-12"> <!-- 論文のタイトル -->
             <h2 id="profile-header"><a href="<%=user_path(user)%>" role="button"><%= user.thesisName %></a></h2>
           </div>
+          
           <div class="col-sm-3 col-md-3" > <!-- ユーザーの属性 -->
             <div class="profile-left">名前：<%=user.username %></div>
             <div class="profile-left"><i class="fa fa-bookmark" aria-hidden="true"></i>:<%= user.get_upvotes.size %></div>
@@ -17,8 +19,9 @@
           </div>
           
           <div class="row">
-            <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 clip-button"> クリップする</div>
+            <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 clip-button"><%= link_to" クリップする",like_user_path(user),method: :put %> </div>
           </div>
+          
       </div> <!-- User Profile ----------------------------->
     <% end %>
 </div><!-- row ----------------------------->

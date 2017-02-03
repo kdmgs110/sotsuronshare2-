@@ -25,8 +25,11 @@ before_filter :set_search
     end
   end
   
+  def clip
+    @user = User.all
+  end
+  
   def upvote
-    @user = User.find(params[:id])
     @user.upvote_by current_user
     redirect_to users_path
   end

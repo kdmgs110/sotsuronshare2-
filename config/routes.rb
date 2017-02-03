@@ -73,6 +73,7 @@ Rails.application.routes.draw do
   
   resources :users do
   member do
+    get 'clip', to: "users#clip"
     put "like", to: "users#upvote"
     put "dislike", to: "users#downvote"
         end
