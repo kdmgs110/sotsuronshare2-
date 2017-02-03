@@ -12,6 +12,11 @@ before_filter :set_search
     @user = User.find(params[:id])
   end
   
+  def create
+    @friend = User.find(params[:id])
+    @addfriends = current_user.friend_request(@friend)
+  end
+  
   def edit
     @user = User.find(params[:id])
   end  

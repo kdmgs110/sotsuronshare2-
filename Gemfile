@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+#friends
+gem 'has_friendship'
+
+#Follow
+
+gem 'acts_as_follower'
+
 #To See Heroku Errorss 
 gem 'rails_12factor', group: :production
 
