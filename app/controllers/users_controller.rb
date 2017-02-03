@@ -13,8 +13,9 @@ before_filter :set_search
   end
   
   def create
-    @friend = User.find(params[:id])
+    @user = User.find(params[:id])
     @addfriends = current_user.friend_request(@friend)
+    redirect_to users_path
   end
   
   def edit
