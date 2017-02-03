@@ -1,0 +1,38 @@
+91a136fc82b605cbc3f72d3290921a22af636b55		branch '2-3-stable' of https://github.com/jonatack/will_paginate
+78cc807c5fdd479580836820e2af37c0913bc11b		branch '3-0-stable' of https://github.com/jonatack/will_paginate
+880690621e22c6c2feda9b59dd87e7110572bbe0		branch 'gh-pages' of https://github.com/jonatack/will_paginate
+3c861498bdbc643638c1f25bdbe67f93d03be79b		branch 'master' of https://github.com/jonatack/will_paginate
+b7b0c6b62730397355ba665647b2fdf51d60d3c3		branch 'mongoid' of https://github.com/jonatack/will_paginate
+94de8c93973c2ac4fa27f75c2b03b135ed854264	not-for-merge	tag '2.1.0' of https://github.com/jonatack/will_paginate
+6f7b109fdb623e5d8943ea31591e29588b9fb942	not-for-merge	tag '2.2.0' of https://github.com/jonatack/will_paginate
+5c7af8ff92d2c23b70d013384fab8582831d7ce2	not-for-merge	tag '2.2.1' of https://github.com/jonatack/will_paginate
+e793935dedb0df1754bc1c96fca3122332ae1c3f	not-for-merge	tag '2.2.2' of https://github.com/jonatack/will_paginate
+8f799bd58bcc013ff156f7bf74a647c0ccbf9cbb	not-for-merge	tag '2.2.3' of https://github.com/jonatack/will_paginate
+9c8570b7fc8bcfa76125eace338dd614e6a4ea99	not-for-merge	tag '2.3.0' of https://github.com/jonatack/will_paginate
+bccdd3c24b35594b3c13fe8b98448f7e26efef2a	not-for-merge	tag '2.3.1' of https://github.com/jonatack/will_paginate
+53bfd5db8d825d1c05896e94ea8fca93f15419e0	not-for-merge	tag '2.3.2' of https://github.com/jonatack/will_paginate
+81b5677b668ee564588cc66a966e452cf589f651	not-for-merge	tag '2.3.3' of https://github.com/jonatack/will_paginate
+b0b51b83bd47001a2ac8dab2fd82a88267de82dc	not-for-merge	tag '2.3.4' of https://github.com/jonatack/will_paginate
+3d05ed1ecc7339f715d90f8bec7b377a4c09bf4e	not-for-merge	tag '2.3.5' of https://github.com/jonatack/will_paginate
+a293556ae682fdd6ba3bb59affcae246b2e444ee	not-for-merge	tag '2.3.6' of https://github.com/jonatack/will_paginate
+ced4147431da3bac2336d3168f15d64b32d76dcf	not-for-merge	tag 'v2.3.10' of https://github.com/jonatack/will_paginate
+ee2238208d931c3a8c20295906209e5d37459402	not-for-merge	tag 'v2.3.11' of https://github.com/jonatack/will_paginate
+051f9bcd4efdf6387f8baaa525502065eaeb488a	not-for-merge	tag 'v2.3.12' of https://github.com/jonatack/will_paginate
+c4ed410a68f31461e5fec01244aad8f16a3b6345	not-for-merge	tag 'v2.3.13' of https://github.com/jonatack/will_paginate
+485957cfb3c284ac5308db3c3429990170bd280d	not-for-merge	tag 'v2.3.14' of https://github.com/jonatack/will_paginate
+e03e3ed87b5ff01b62cb63108d649160e3029d84	not-for-merge	tag 'v2.3.15' of https://github.com/jonatack/will_paginate
+8414adafc01dc2883d6172b1497b08187ce0b780	not-for-merge	tag 'v2.3.16' of https://github.com/jonatack/will_paginate
+26d3c3bdfd03f64a98b06eafeb523f5ba44c6c02	not-for-merge	tag 'v2.3.7' of https://github.com/jonatack/will_paginate
+d4d4dcfe715f255b3d4b1241b102814ca9da05d8	not-for-merge	tag 'v2.3.8' of https://github.com/jonatack/will_paginate
+55bd34e39cb19afc4396638f352de3ad3fd80261	not-for-merge	tag 'v2.3.9' of https://github.com/jonatack/will_paginate
+4916f379efaf00807193978d5816fa437a9d9c6e	not-for-merge	tag 'v3.0.0' of https://github.com/jonatack/will_paginate
+8385a1b3d1825b7ad345ee15282d44ab10a9fb62	not-for-merge	tag 'v3.0.1' of https://github.com/jonatack/will_paginate
+5f756d678b12931cb8162b0c396326a1fd0c8312	not-for-merge	tag 'v3.0.2' of https://github.com/jonatack/will_paginate
+71f793e1f4f23cafd144e95982f8a80ef6368d97	not-for-merge	tag 'v3.0.3' of https://github.com/jonatack/will_paginate
+6dcd6915a5e1a538aea9cd9596707af48dff6578	not-for-merge	tag 'v3.0.4' of https://github.com/jonatack/will_paginate
+2c5f1ed4e5e4c2a68f21c3588a375c8d60ab94a0	not-for-merge	tag 'v3.0.5' of https://github.com/jonatack/will_paginate
+fef4f5bdf1f3b51af00d2ac5b86b387f40dede37	not-for-merge	tag 'v3.0.6' of https://github.com/jonatack/will_paginate
+78cc807c5fdd479580836820e2af37c0913bc11b	not-for-merge	tag 'v3.0.7' of https://github.com/jonatack/will_paginate
+a4844a4c637458fa0222bcd52991e455c68087ac	not-for-merge	tag 'v3.0.pre' of https://github.com/jonatack/will_paginate
+4d8d14c57cfd397362156abf6cefd1c0b71c8dba	not-for-merge	tag 'v3.0.pre2' of https://github.com/jonatack/will_paginate
+af6ec16d65eca4195f35a6a232163aa7b6726b4c	not-for-merge	tag 'v3.0.pre4' of https://github.com/jonatack/will_paginate
