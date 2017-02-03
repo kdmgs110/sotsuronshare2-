@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#To See Heroku Errorss 
+gem 'rails_12factor', group: :production
+
 #font-awesome 
 gem "font-awesome-rails"
 
