@@ -26,19 +26,19 @@ before_filter :set_search
   end
   
   def clip
-    @user = User.all
+    @user = current_user.votes.up.for_type(User).votables
   end
   
   def upvote
+    @user = User.find(params[:id])
     @user.upvote_by current_user
     redirect_to users_path
   end
   
-  
   def downvote
     @user = User.find(params[:id])
     @user.downvote_by current_user
-    redirect_to users_path
+    redirect_to clip_user_path
   end
    
   
