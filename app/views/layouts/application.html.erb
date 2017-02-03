@@ -10,7 +10,9 @@
 <body>
 
 <!-- HEADER + NAVBAR AREA --------------------------------------------------->
-<%= link_to "クリップ",clip_user_path(current_user.id) %>
+<% if current_user %>
+  <%= link_to "クリップ",clip_user_path(current_user.id) %>
+<% end %>
 <div class="container">　<!--navbar container -->
   <div class="row">
     <div class="col-ms-12 col-md-12" id="nav-all">
