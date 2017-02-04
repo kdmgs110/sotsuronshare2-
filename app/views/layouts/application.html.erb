@@ -9,15 +9,15 @@
 </head>
 <body>
 <!-- HEADER + NAVBAR AREA --------------------------------------------------->
-<div class="container-fluid">　<!--navbar container -->
+<div class="container-fluid">　<!--whole container -->
   <div class="row">
-    <div class="col-ms-12 col-md-12" id="nav-all">
+    <div class="col-ms-12 col-md-12 navbar-fixed-top" id="nav-all">
       <a class="navbar-brand nav nav-tabs"><%= link_to "卒論Share", users_path %></a>
       <ul class="nav nav-tabs navbar-right">
         <% if current_user %>
-          <li role="presentation"><%= current_user.username %></li>
           <li role="presentation"><%= image_tag current_user.avatar_url, :size => "40x40" %></li>
-          <li role="presentation" ><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+          <li role="presentation"><%= link_to edit_user_path(current_user)do%><%= current_user.name %><% end %></li>
+          <li role="presentation"><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i></a></li>
           <li role="presentation"><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>(<%= current_user.votes_for.size %>)<% end %></li>
           <li role="presentation"><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i><% end %></li>
           <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i><span class="caret"></span></a>
@@ -37,7 +37,7 @@
 
 <!-- Added TAB-CONTENT AREA --------------------------------------------------->
   <div class="row tab-content">
-    <div class="col-sm-12 col-md-12 tab-pane fade" role="tabpanel" id="search_box">
+    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 tab-pane fade" role="tabpanel" id="search_box">
       <%= search_form_for @q do |f| %>
             <!-- 卒業したかを選ぶタグ-->
             <div>卒業：<%= f.select :graduate_cont,([

@@ -22,35 +22,57 @@
     font-family:arial;
     font-size:18px;
 }
+a:link{
+    text-decoration:none;
+    color : #000000;
+}
+a:visited{
+    text-decoration:none;
+    color : #000000;
+}
+
 
 body{
     max-width:100%;
+    background-color:#e9ebee;
 }
 /* ***************** HEADER + NAVBAR ******************/
-.nav{
- font-size:40px;   
-}
 #nav-all{
-    background-color:#33cccc;
+    background-color:#00B0BC;
+    font-size:30px;
+    text-decoration:none;
 }
 
+#nav-all a:link{
+    text-decoration:none;
+    color : #000000;
+}
+
+#nav-all ul li{
+    text-decoration:none;
+}
 /* ***************** TABBAR SETTING @application.html.erb ******************/
 
 #search_box{
-    background-color:#ffe6b3;
-    padding:20px 0;
+    background-color:#ffffff;
+    padding:40px 20px 20px 20px;
+    
   
 } 
 
 
 /****** USER PROFILE @index.html.erb ***********************/
+
+h2 > .profile-header{
+    font-size:30px;
+}
 #user_profile{
     height:auto;
     padding:10px;
-    background-color:#ffff99;
+    background-color:#FFFFFF;
     border:1px solid #eee;
     margin-bottom:10px;
-    margin-top:10px;
+    margin-top:20px;
 }
 h2 #profile-header{
     margin-bottom:30px;
@@ -63,14 +85,25 @@ h2 #profile-header{
 #profile-abstract{
     padding:10px 10px 40px 10px;
     height:auto;
-    background-color:#eee;
+    background-color:#F6F7F9;
 }
 .clip-button{
-    background-color:blue;
-    color:white;
-    padding:5px;
+    background-color:#FECE26;
+    color:#6D4D00;
+    font-size:16px;
+    text-decoration:none;
+    padding:10px 10px;
     margin:20px 0;
     text-align:center;
+    border-radius:10px 10px 10px10px;
+}
+.clip-button a:link{
+    text-decoration:none;
+    color : #000000;
+}
+.clip-button a:visited {
+    text-decoration:none; 
+    color : #000000;
 }
 
 /********detail @show.html.erb ***********************/
