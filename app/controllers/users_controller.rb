@@ -13,8 +13,8 @@ before_filter :set_search
   end
   
   def create
-    @user = User.find(params[:id])
-    @addfriends = current_user.friend_request(@friend)
+    @user = User.create(params[:id])
+    @user = current_user.follow(@user)
     redirect_to users_path
   end
   
@@ -33,6 +33,11 @@ before_filter :set_search
   
   def clip
     @user = current_user.votes.up.for_type(User).votables
+  end
+  
+  def friends
+   @friends = current_user.followers_by_type('User')
+   #@accept = current_user.accept_request(@user)
   end
   
   def upvote

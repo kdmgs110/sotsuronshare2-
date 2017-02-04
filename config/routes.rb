@@ -75,6 +75,7 @@ Rails.application.routes.draw do
   member do
     get 'clip', to: "users#clip"
     get 'friends', to: "users#friends"
+    post 'friends', to: "users#friends"
     put "like", to: "users#upvote"
     delete "like", to: "users#delete_upvote"
     put "dislike", to: "users#downvote"
