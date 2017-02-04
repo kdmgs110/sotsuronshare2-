@@ -21,17 +21,17 @@
           
           <div class="col-sm-9 col-md-9" id="profile-abstract"> <!-- 論文/興味のabstract -->
             <div class="profile-right">
-                <div style="text-align:center;border-bottom:1px solid white;color:#00B0BC;font-size:26px"><i class="fa fa-info-circle" aria-hidden="true"></i>この論文について</div>
+                <div style="text-align:center;border-bottom:1px solid #606060 ;color:#00B0BC;font-size:26px"><i class="fa fa-info-circle" aria-hidden="true"></i>この論文について</div>
                 <div style="padding:20px"><%= @user.abstract %></div>
             </div>
             <div class="profile-right">
-                <div style="text-align:center;border-bottom:1px solid #white ;color:#00B0BC;font-size:26px"><i class="fa fa-heart" aria-hidden="true"></i>興味・関心</div>
+                <div style="text-align:center;border-bottom:1px solid #606060  ;color:#00B0BC;font-size:26px"><i class="fa fa-heart" aria-hidden="true"></i>興味・関心</div>
                 <div style="padding:20px"><%=@user.bio %></div>
             </div>
           </div>
          </div>
         
-         <div class="row">
+         <div class="row" style="margin-top:20px">
              <div class ="col-sm-12 col-md-12">
                 <iframe src=<%= @user.attachment %> style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
              </div>
