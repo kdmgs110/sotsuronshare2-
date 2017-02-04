@@ -1,4 +1,19 @@
-<h1>Friends</h1>
-<% @friends.each do |user| %>
-    <%= user.username %>がフォローしています。
+<h1>Following</h1><small>以下のユーザーに友達リクエストを送信しました。</small>
+<% @following.each do |user| %>
+    <ul><li><%= user.username %></li></ul>
 <% end %>
+
+<h2>Followers</h2>以下のユーザーから友達リクエストの申請が来ています。</small>
+<% @followers.each do |user| %>
+    <ul><li><%= user.username %></li></ul>
+    <%= link_to "承認する", follow_user_path(user) %>
+<% end %>
+
+<h2>相互フォロー</h2>以下のユーザーは名前がわかります。</small>
+<% @mutualfriends.each do |user| %>
+    <div>(@<%= user.username %>)<%= user.name %></div>
+    <div><%= image_tag user.avatar_url, :size => "100x100" %></div>
+    
+<% end %>
+
+

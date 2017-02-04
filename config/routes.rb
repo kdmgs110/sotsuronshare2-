@@ -74,6 +74,8 @@ Rails.application.routes.draw do
   resources :users do
   member do
     get 'clip', to: "users#clip"
+    get :follow
+    get :unfollow
     get 'friends', to: "users#friends"
     post 'friends', to: "users#friends"
     put "like", to: "users#upvote"
