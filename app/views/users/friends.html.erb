@@ -1,19 +1,36 @@
-<h1>Following</h1><small>以下のユーザーに友達リクエストを送信しました。</small>
-<% @following.each do |user| %>
-    <ul><li><%= user.username %></li></ul>
-<% end %>
-
-<h2>Followers</h2>以下のユーザーから友達リクエストの申請が来ています。</small>
-<% @followers.each do |user| %>
-    <ul><li><%= user.username %></li></ul>
-    <%= link_to "承認する", follow_user_path(user) %>
-<% end %>
-
-<h2>相互フォロー</h2>以下のユーザーは名前がわかります。</small>
-<% @mutualfriends.each do |user| %>
-    <div>(@<%= user.username %>)<%= user.name %></div>
-    <div><%= image_tag user.avatar_url, :size => "100x100" %></div>
+<div class="row">
+    <div class="col-sm-12 col-md-6"> <!--ここに、共通の友人一覧を表示-->
+    <h2>友達</h2>以下のユーザーは名前がわかります。</small>
+        <% @mutualfriends.each do |user| %>
+            <div id = "user_profile">
+                <div class="profile-left"><%= image_tag user.avatar_url, :size => "100x100" %></div>
+                <div class="profile-left"><%= link_to user.thesisName,user_path(user)%></h2></div>
+                <div class="profile-left"><%= user.major %></div>
+                <div class="profile-left">名前：(@<%= user.username %>)<%= user.name %></div>
+                <div class="profile-left"><i class="fa fa-bookmark" aria-hidden="true"></i>:<%= user.get_upvotes.size %></div>
+                <div class="profile-left"><%=user.graduate %></div>
+                <div class="profile-left"><!--ここにタグが入る予定です --></div>
+            </div>
+        <% end %>
+    </div><!--ここに、共通の友人一覧を表示-->
     
-<% end %>
+    <div class="col-sm-12 col-md-6"> <!--ここに、友達リクエストを表示-->
+        <h2>友達リクエスト</h2>
+        <% @followers.each do |user| %>
+            <% unless current_user.follow(user) %>
+                <div  id = "user_profile">
+                   <h2 class="profile-header"><%= link_to user.thesisName,user_path(user)%></h2>
+                    <div class="profile-left"><%= user.major %></div>
+                    <div class="profile-left"><%= image_tag user.avatar_url, :size => "100x100" %></div>
+                    <div class="profile-left">名前：(@<%= user.username %>)<%= user.name %></div>
+                    <div class="profile-left"><i class="fa fa-bookmark" aria-hidden="true"></i>:<%= user.get_upvotes.size %></div>
+                    <div class="profile-left"><%=user.graduate %></div>
+                    <div class="profile-left"><%= link_to "承認する", follow_user_path(user) %></div>
+                </div>
+            <% end %>    
+        <% end %>
+        </div>
+    </div>
+    
 
 

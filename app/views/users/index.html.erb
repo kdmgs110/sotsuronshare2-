@@ -2,7 +2,7 @@
     <% @users.each do |user| %>
       <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 profile" id="user_profile"> <!-- User Profile ----------------------------->
           <div class ="col-sm-12 col-md-12"> <!-- 論文のタイトル -->
-            <h2 class="profile-header"><a href="<%=user_path(user)%>" role="button"><%= user.thesisName %></a></h2>
+            <h2 class="profile-header"><%= link_to user.thesisName,user_path(user), class:"profile-header" %></h2>
           </div>
           
           <div class="col-sm-3 col-md-3" > <!-- ユーザーの属性 -->
