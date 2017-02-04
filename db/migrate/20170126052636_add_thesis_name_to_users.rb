@@ -1,5 +1,5 @@
 class AddThesisNameToUsers < ActiveRecord::Migration
   def change
-    add_column :users, :thesisName, :string, default: "No thesis name"
+    add_column :users, :thesisName, :string
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203091050) do
+ActiveRecord::Schema.define(version: 20170204122251) do
 
   create_table "follows", force: :cascade do |t|
     t.integer  "followable_id",                   null: false
@@ -48,16 +48,16 @@ ActiveRecord::Schema.define(version: 20170203091050) do
     t.string   "oauth_token"
     t.string   "oauth_provider"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "bio",              default: "No bio"
-    t.text     "abstract",         default: "No bio"
-    t.string   "thesisName",       default: "No thesis name"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "bio"
+    t.text     "abstract"
+    t.string   "thesisName"
     t.string   "attachment"
     t.string   "major"
     t.string   "nick"
     t.string   "nickname"
-    t.string   "username",         default: "ユーザーネームを編集してください。"
+    t.string   "username"
     t.string   "graduate"
   end
 

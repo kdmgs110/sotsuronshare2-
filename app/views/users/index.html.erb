@@ -1,5 +1,6 @@
 <div class="row">
     <% @users.each do |user| %>
+    <% unless user.username.nil? %>
       <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 profile" id="user_profile"> <!-- User Profile ----------------------------->
           <div class ="col-sm-12 col-md-12"> <!-- 論文のタイトル -->
             <h2 class="profile-header"><%= link_to user.thesisName,user_path(user), class:"profile-header" %></h2>
@@ -25,5 +26,6 @@
             </div>
           </div>
       </div> <!-- User Profile ----------------------------->
+    <% end %>
     <% end %>
 </div><!-- row ----------------------------->
