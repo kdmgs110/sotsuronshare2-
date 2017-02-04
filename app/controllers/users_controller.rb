@@ -8,7 +8,6 @@ before_filter :set_search
   end
   
   def show
-    # params[:id] comes from the URL: /users/:id
     @user = User.find(params[:id])
   end
   
