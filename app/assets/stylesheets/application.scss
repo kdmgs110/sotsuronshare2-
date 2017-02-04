@@ -37,6 +37,7 @@ body{
     background-color:#e9ebee;
 }
 /* ***************** HEADER + NAVBAR ******************/
+
 #nav-all{
     background-color:#00B0BC;
     font-size:30px;
@@ -71,7 +72,6 @@ body{
     color:#00B0BC;
     padding:10px;
     margin-bottom:20px;
-    border:1px solid #eee;
 }
 
 .profile-header a:link{
@@ -89,27 +89,43 @@ body{
 #user_profile{
     padding:10px;
     background-color:#FFFFFF;
-    border:1px solid #eee;
     margin-top:40px;
 }
 
 .profile-left{
-    padding-bottom:5px;
+    padding:10px 0;
     border-bottom:1px solid #eee;
 }
 
 
 .profile-right{
     padding:10px 10px 40px 10px;
+    margin-bottom:10px;
     height:auto;
     background-color:#F6F7F9;
 }
+
+.clipped{
+    background-color:#FECE26;
+    text-align:center;
+    padding:5px 10px;
+}
+.clip-button-small{
+    background-color:#FECE26;
+    color:#6D4D00;
+    text-decoration:none;
+    padding:5px 10px;
+    margin:5px 0;
+    text-align:center;
+    display:block;
+}
+
 .clip-button{
     background-color:#FECE26;
     color:#6D4D00;
     font-size:16px;
     text-decoration:none;
-    padding:10px 10px;
+    padding:0 10px;
     margin:20px 0;
     text-align:center;
     border-radius:10px 10px 10px10px;
@@ -125,6 +141,16 @@ body{
 }
 .clip-button a:hover {
     background-color:blue;
+}
+
+.request-button-small{
+    background-color:#46639F;
+    color:#FBFFFF;
+    text-decoration:none;
+    padding:5px 5px;
+    margin:5px 0;
+    text-align:center;
+    display:block;
 }
 
 
