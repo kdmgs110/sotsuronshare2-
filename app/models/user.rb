@@ -7,10 +7,10 @@ class User < ActiveRecord::Base
   acts_as_follower
   
   has_friendship
-  
   mount_uploader :attachment, AttachmentUploader # Tells rails to use this uploader for this model.
   
   # Initializes or updates user object when logging in with Facebook
+  
   def self.from_omniauth(auth)
     where(fb_id: auth.uid).first_or_create do |user|
       user.oauth_provider = auth.provider
@@ -25,12 +25,15 @@ class User < ActiveRecord::Base
   
   def facebook #koalaのtutorial参考
     @facebook ||= Koala::Facebook::API.new(oauth_token)
-    
   end
   
   def friends
    @friends = facebook.get_connections("me", "friends")
   end
+  
+  validates :username,     length: { maximum: 20 }        # 値が「2文字以上」であれば有効
+  validates :bio,      length: { maximum: 140 }
+  validates :abstract,      length: { maximum: 140 }# 値が「500文字以下」であらば有効
 end
 
   

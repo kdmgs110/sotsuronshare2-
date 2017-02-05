@@ -1,29 +1,37 @@
-<h1>クリップした論文一覧</h1>
-
 <div class="row">
+
+  <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 profile" id="user_profile">
+      <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>クリップした論文</h2>
+          <div style="padding:20px">
+            <p><!---- --></p>
+          </div> 
+  </div>
+  
     <% @user.each do |user| %>
-      <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="user_profile"> <!-- User Profile ----------------------------->
-          
+  <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 profile" id="user_profile"> <!-- User Profile ----------------------------->
           <div class ="col-sm-12 col-md-12"> <!-- 論文のタイトル -->
-            <h2 id="profile-header"><a href="<%=user_path(user)%>" role="button"><%= user.thesisName %></a></h2>
+            <h2 class="profile-header"><%= link_to user.thesisName,user_path(user), class:"profile-header" %></h2>
           </div>
           
           <div class="col-sm-3 col-md-3" > <!-- ユーザーの属性 -->
-            <div class="profile-left">名前：<%=user.username %></div>
-            <div class="profile-left"><i class="fa fa-bookmark" aria-hidden="true"></i>:<%= user.get_upvotes.size %></div>
-            <div class="profile-left"><%=user.graduate %></div>
-            <div class="profile-left"><%= user.major %></div>
-            <div class="profile-left"><!--ここにタグが入る予定です --></div>
+            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= user.major %></div>
+            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span> <%=user.username %></div>
+            <div class="profile-left"><i class="fa fa-paperclip" aria-hidden="true"></i> <%= user.get_upvotes.size %>クリップ</div>
+            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span> <%=user.graduate %></div>
+            <div class="profile-left clip-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to" クリップを外す",dislike_user_path(user),method: :put %></div>
+            <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", users_path(user), method: :post %></div>
           </div>
           
           <div class="col-sm-9 col-md-9" id="profile-abstract"> <!-- 論文/興味のabstract -->
-            <div class="profile-left" ><%= user.abstract %></div>
+            <div class="profile-right">
+                <div style="text-align:center;border-bottom:1px solid #606060 ;color:#00B0BC;font-size:26px"><i class="fa fa-info-circle" aria-hidden="true"></i>この論文について</div>
+                <div style="padding:20px"><%= user.abstract %></div>
+            </div>
+            <div class="profile-right">
+                <div style="text-align:center;border-bottom:1px solid #606060  ;color:#00B0BC;font-size:26px"><i class="fa fa-heart" aria-hidden="true"></i>興味・関心</div>
+                <div style="padding:20px"><%=user.bio %></div>
+            </div>
           </div>
-          
-          <div class="row">
-            <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 clip-button"><%= link_to" クリップから外す",dislike_user_path(user),method: :put %> </div>
-          </div>
-          
-      </div> <!-- User Profile ----------------------------->
-    <% end %>
-</div><!-- row ----------------------------->
+        <% end %>
+  </div> <!-- User Profile ----------------------------->
+</div>

@@ -1,18 +1,26 @@
 <div class="row">
-    <div class="col-md-6 col-md-offset-3 col-sm-12">
+    
+    <div class="col-md-8 col-md-offset-2 col-sm-12 profile" id="user_profile">
+        <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>プロフィールを編集</h2>
+           <div style="padding:20px">
+               <p>あなたに興味を持った人が連絡してくれるように、あなたの名前、専攻、興味をほかの人に紹介しましょう。</p>
+           </div> 
+    </div>
+    
+    <div class="col-md-8 col-md-offset-2 col-sm-12 profile" id="user_profile">
         <%= form_for(@user) do |f| %>
-        <h2>ユーザー名</h2><small>ユーザー名を入力してください。変更することができます。</small>
+            <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span> ユーザー名</h2>
             <div class="form-group">
-                <div><textarea name="user[username]" class="form-control" placeholder="ニックネーム" width="100%"><%=@user.username%></textarea></div>
-            <h2>ステータス</h2><small卒業したか、まだ学部生か教えてください</small>
+                <div><textarea name="user[username]" class="form-control" placeholder="ユーザー名を入力してください。後で変更することができます。" width="100%"><%=@user.username%></textarea></div>
+            <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"> ステータス</h2>
                 <%= f.select :graduate,([
                 [""],
                 ["卒業済み"],
-                ["学部生"],
+                ["～大学生"],
                 ]) %>
-            <h2>興味・関心</h2><small>興味のある分野について教えてください。</small>
-                <div><textarea name="user[bio]" class="form-control" placeholder="日本の多様性教育に興味があります。" width="100%"><%=@user.bio%></textarea></div>
-            <h2>論文の分野</h2><small>あなたの論文の分野について教えてください。</small>
+            <h2 class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> 興味・関心</h2>
+                <div><textarea name="user[bio]" class="form-control" placeholder="興味のある分野について教えてください。(例)日本の多様性教育に興味があります。" width="100%"><%=@user.bio%></textarea></div>
+            <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 論文の分野</h2>
             <%= f.select :major,([
             [""],
             ["アメリカ研究 American Studies"],
@@ -46,21 +54,31 @@
             ["公共政策 Public Policy"],
             ["心理学 Psychology"],
             ]) %>
-            <h2>論文名</h2><small>あなたの論文のタイトルを入力してください</small>
-                <div><textarea name="user[thesisName]" class="form-control" placeholder="公教育と多様性：出稼ぎ労働者と職業選択について" width="100%"><%=@user.thesisName%></textarea></div>
-            <h2>どんな内容か</h2><small>あなたが論文を書いた理由を教えてください</small>
-                <div><textarea name="user[abstract]" class="form-control" placeholder="出稼ぎ労働者の子供が日本社会に適合するまでの困難を、統計分析によって明らかにしました。" width="100%"><%=@user.abstract%></textarea></div>
+            <h2 class="profile-header">論文名</h2>
+                <div><textarea name="user[thesisName]" class="form-control" placeholder="あなたの論文のタイトルを入力してください(例)公教育と多様性：出稼ぎ労働者と職業選択について" width="100%"><%=@user.thesisName%></textarea></div>
+            <h2 class="profile-header"><i class="fa fa-info-circle" aria-hidden="true"></i> 要約</h2>
+                <div><textarea name="user[abstract]" class="form-control" placeholder="論文について、紹介してください（例）出稼ぎ労働者の子供が日本社会に適合するまでの困難を、統計分析によって明らかにしました。" width="100%"><%=@user.abstract%></textarea></div>
             </div>
-            <h2>論文ファイル</h2><small>PDFファイルのみ対応しています。WordのPDF化は下の動画を確認してください。</small>
+            <h2 class="profile-header"><i class="fa fa-paperclip" aria-hidden="true"></i>論文ファイル</h2><small>PDFファイルのみ対応しています。WordのPDF化は下のノートを確認してください。</small>
                 <%= f.file_field :attachment %>
-            <h2><input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block"/></h2>
+            <h2 class="profile-header"><input type="submit" value="送信する" class="btn btn-primary btn-lg btn-block"/></h2>
         <% end %>
-            <h2>WordファイルをPDFにする場合</h2>
+    </div>
+    <div class="col-md-8 col-md-offset-2 col-sm-12 profile" id="user_profile">
+        <h2 class="profile-header">WordファイルをPDFにする場合</h2>
             <ul>
                 <li>「PDF」形式で保存したいファイルを開き、「ファイル」タブをクリック</li>
                 <li>保存したいフォルダーを決めます。</li>
                 <li>「名前を付けて保存」画面が表示されるので「ファイルの種類」を「PDF(*.pdf)」に変更して「ファイル名」を決めます</li>
                 <li>「保存」ボタンをクリック。</li>
             </ul>
+        <h2 class="profile-header">PDFの注意点</h2>
+            <ul>
+                <li>卒業論文には実名が記入されている場合があります。</li>
+                <li>プライバシーの観点から、必ず個人情報が含まれていないか確認してください</li>
+            </ul>
     </div>
+
+    
+    
 </div>

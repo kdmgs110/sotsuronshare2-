@@ -16,7 +16,7 @@
             <div class="profile-left"><i class="fa fa-bookmark" aria-hidden="true"></i> <%= @user.get_upvotes.size %></div>
             <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"> <%=@user.graduate %></div>
             <div class="profile-left clip-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to" クリップする",like_user_path(@user),method: :put %></div>
-            <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", users_path(@user), method: :post %></div>
+            <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", follow_user_path(@user)%></div>
           </div>
           
           <div class="col-sm-9 col-md-9" id="profile-abstract"> <!-- 論文/興味のabstract -->
@@ -34,7 +34,11 @@
         
          <div class="row" style="margin-top:20px">
              <div class ="col-sm-12 col-md-12">
+                <% if @user.attachment.present? %>
                 <iframe src=<%= @user.attachment %> style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+                <% else %>
+                <p>このユーザーはまだ論文をアップロードしていません。</p>
+                <% end %>
              </div>
          </div>
          

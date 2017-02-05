@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
     @users = @q.result.paginate(page: params[:page], per_page: params[:per_page])
   end
   
+  
+  def set_friends
+     @users = User.find(params[:id])
+     @following = @users.all_following
+     @followers = @users.followers
+     @mutualfriends = @following & @followers
+  end
+  
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception

@@ -39,6 +39,7 @@ before_filter :set_search
    @following = @users.all_following
    @followers = @users.followers
    @mutualfriends = @following & @followers
+   @pendingfriends = @followers - @following
 
    #@accept = current_user.accept_request(@user)
   end
