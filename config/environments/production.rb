@@ -83,8 +83,8 @@ Rails.application.configure do
 	port:      	           587,
 	domain:                'gmail.com',
   :authentication => :login,
-	user_name:             'info.sotsuronshare',
-	password:              'kawaidaisama',
+	user_name:             ENV['USERNAME'],
+	password:              ENV['PASSWORD'],
 	authentication:        'plain',
 	enable_starttls_auto:  true
 }
