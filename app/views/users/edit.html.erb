@@ -59,6 +59,9 @@
             <h2 class="profile-header"><i class="fa fa-info-circle" aria-hidden="true"></i> 要約</h2>
                 <div><textarea name="user[abstract]" class="form-control" placeholder="論文について、紹介してください（例）出稼ぎ労働者の子供が日本社会に適合するまでの困難を、統計分析によって明らかにしました。" width="100%"><%=@user.abstract%></textarea></div>
             </div>
+            
+            <h2 class="profile-header"><i class="fa fa-envelope-open" aria-hidden="true"></i> メールアドレス</h2>
+                <div><textarea name="user[email]" class="form-control" placeholder="友達リクエストが承認された人のみに、見えるようになります。" width="100%"><%=@user.email%></textarea></div>
             <h2 class="profile-header"><i class="fa fa-paperclip" aria-hidden="true"></i>論文ファイル</h2><small>PDFファイルのみ対応しています。WordのPDF化は下のノートを確認してください。</small>
                 <%= f.file_field :attachment %>
             <h2 class="profile-header"><input type="submit" value="送信する" class="btn btn-primary btn-lg btn-block"/></h2>

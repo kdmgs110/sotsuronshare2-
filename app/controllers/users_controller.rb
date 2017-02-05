@@ -51,6 +51,7 @@ before_filter :set_search
         flash[:error] = "You cannot follow yourself."
       else
         current_user.follow(@user)
+        RequestMailer.send_email(@user).deliver_now
         flash[:notice] = "You are now following #{@user.name}."
         redirect_to @user
       end
@@ -96,7 +97,7 @@ before_filter :set_search
     end
     
     def user_params
-      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username, :graduate)
+      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username, :graduate, :email)
     end
   
 end

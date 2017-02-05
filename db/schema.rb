@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204122251) do
+ActiveRecord::Schema.define(version: 20170205054549) do
 
   create_table "follows", force: :cascade do |t|
     t.integer  "followable_id",                   null: false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20170204122251) do
     t.string   "nickname"
     t.string   "username"
     t.string   "graduate"
+    t.string   "email"
   end
 
   create_table "votes", force: :cascade do |t|
