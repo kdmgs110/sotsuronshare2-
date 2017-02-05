@@ -51,7 +51,7 @@ before_filter :set_search
         flash[:error] = "You cannot follow yourself."
       else
         current_user.follow(@user)
-        RequestMailer.send_email(@user).deliver_now
+        RequestMailer.send_email(@user,current_user).deliver_now
         flash[:notice] = "You are now following #{@user.name}."
         redirect_to @user
       end

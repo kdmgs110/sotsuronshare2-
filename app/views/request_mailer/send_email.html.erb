@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
   </head>
   <body>
-    <h1><%= @name %>から友達リクエストが届きました。</h1>
-    <p>
-      承認しましょう！<br />
+    <h2><%= @current_user %>から友達リクエストが届きました。</h2>
+    <div><%= link_to "こちら",friends_user_path(@current_user) %></div>
     </p>
   </body>
 </html>
