@@ -82,7 +82,7 @@ before_filter :set_search
   def downvote
     @user = User.find(params[:id])
     @user.downvote_by current_user
-    redirect_to clip_user_path,notice:"#{@user.username}さんの論文からクリップを外しました"
+    redirect_to users_path,notice:"#{@user.username}さんの論文からクリップを外しました"
   end
    
  private
