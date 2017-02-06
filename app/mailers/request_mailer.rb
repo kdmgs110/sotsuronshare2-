@@ -1,5 +1,5 @@
 class RequestMailer < ApplicationMailer
-    default from: "kdmgs110@gmail.com"
+    default from: "info.sotsuronshare@gmail.com"
     
     def send_email(user,current_user)
         @email = user.email #ここは送信で使う
