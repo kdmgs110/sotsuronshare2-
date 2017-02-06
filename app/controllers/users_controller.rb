@@ -19,6 +19,7 @@ before_filter :set_search
   
   def edit
     @user = User.find(params[:id])
+    flash[:notice] = "#{@user.username}さんのプロフィールを編集しました。"
   end  
   
   def update
@@ -40,7 +41,6 @@ before_filter :set_search
    @followers = @users.followers
    @mutualfriends = @following & @followers
    @pendingfriends = @followers - @following
-
    #@accept = current_user.accept_request(@user)
   end
   
@@ -48,11 +48,11 @@ before_filter :set_search
     @user = User.find(params[:id])
     if current_user
       if current_user == @user　
-        flash[:error] = "You cannot follow yourself."
+        flash[:error] = "自分自身をフォローできません。"
       else
         current_user.follow(@user)
         RequestMailer.send_email(@user,current_user).deliver_now
-        flash[:notice] = "You are now following #{@user.name}."
+        flash[:notice] = "#{@user.username}さんにコンタクトリクエストを送りました。"
         redirect_to @user
       end
     else
@@ -62,11 +62,9 @@ before_filter :set_search
 
   def unfollow
     @user = User.find(params[:id])
-  
     if current_user
       current_user.stop_following(@user)
-      flash[:notice] = "You are no longer following #{@user.name}."
-      redirect_to @user
+      redirect_to @user,notice:"#{@user.username}さんへのコンタクトを取り消しました。"
     else
       flash[:error] = "You must <a href='/users/sign_in'>login</a> to unfollow #{@user.name}.".html_safe
       redirect_to @user
@@ -76,16 +74,15 @@ before_filter :set_search
   def upvote
     @user = User.find(params[:id])
     @user.upvote_by current_user
-    redirect_to users_path
+    redirect_to users_path,notice: "#{@user.username}さんの論文をクリップしました。"
   end
   
   def downvote
     @user = User.find(params[:id])
     @user.downvote_by current_user
-    redirect_to clip_user_path
+    redirect_to clip_user_path,notice:"#{@user.username}さんの論文からクリップを外しました"
   end
    
-  
  private
   
     def correct_user
