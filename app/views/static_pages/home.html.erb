@@ -10,29 +10,38 @@
   <div class="col-sm-12 col-md-4" style="text-align:center">
     <div class="icon"><i class="fa fa-search fa-5x" aria-hidden="true"></i></div>
     <div class="lp2-mid">あってみたい人を見つけよう</div>
-    <div class="message-short">専攻からテーマ別に探して、、興味のある卒論や、関心を持っている面白い人を探しましょう</div>
-    <div class="lp2-image"></div>
+    <div class="message-short">専攻からテーマ別に探して、興味のある卒論や、関心を持っている面白い人を探しましょう</div>
+    <div class="lp2-image">
+      <%= image_tag 'image1.JPG', :size => "350x350" %>
+    </div>
   </div>
   
   <div class="col-sm-12 col-md-4" style="text-align:center">
     <div class="icon"><i class="fa fa-envelope-open-o fa-5x" aria-hidden="true"></i></i></div>
     <div class="lp2-mid">コンタクトリクエストを送ろう</div>
-    <div class="message-short">話してみたい人がいたら、コンタクトリクエストを送りましょう。<br>
-    相手も会ってみたかったら、連絡が取れるようになります。</div>
-    <div class="lp2-image"></div>
+    <div class="message-short">話してみたい人がいたら、コンタクトリクエストを送りましょう。
+    相手が承認したら連絡が取れるようになります。</div>
+    <div class="lp2-image">
+      <%= image_tag 'contactform.JPG', :size => "350x350" %>
+    </div>
   </div>
   
   <div class="col-sm-12 col-md-4" style="text-align:center">
     <div class="icon"><i class="fa fa-users fa-5x" aria-hidden="true"></i></div>
     <div class="lp2-mid">面白い人に出会おう！</div>
     <div class="message-short">
-          お互いのコンタクトが承認されたら、
-      <br>Facebook上の実名とプロフィールが共有されます
+      Facebook上の実名とプロフィールが共有されます
       <br>メッセンジャーで連絡を取ってみましょう。
     </div>
-    <div class="lp2-image"></div>
-
+    <div class="lp2-image">
+      <%= image_tag 'friends.JPG', :size => "350x350" %>
+    </div>
   </div>  
-
+  
 </div> 
 
+<div class="row lp3" style="text-align:center">
+  <div class="col-md-12 col-ms-12">
+    <div class="login-button" style=" color:#FFFFFF;"><a href="/auth/facebook" style=" color:#FFFFFF;">Facebookから今すぐログインする</a></div>
+  </div>
+</div>
