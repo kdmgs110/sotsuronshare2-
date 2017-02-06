@@ -37,6 +37,7 @@ before_filter :set_search
   
   def friends
    @users = User.find(params[:id])
+   @current_user = current_user
    @following = @users.all_following
    @followers = @users.followers
    @mutualfriends = @following & @followers
@@ -49,11 +50,12 @@ before_filter :set_search
     if current_user
       if current_user == @user　
         flash[:error] = "自分自身をフォローできません。"
+        users_path
       else
         current_user.follow(@user)
         RequestMailer.send_email(@user,current_user).deliver_now
         flash[:notice] = "#{@user.username}さんにコンタクトリクエストを送りました。"
-        redirect_to @user
+        redirect_to users_path
       end
     else
       redirect_to root_path
@@ -64,10 +66,10 @@ before_filter :set_search
     @user = User.find(params[:id])
     if current_user
       current_user.stop_following(@user)
-      redirect_to @user,notice:"#{@user.username}さんへのコンタクトを取り消しました。"
+      redirect_to users_path,notice:"#{@user.username}さんへのコンタクトを取り消しました。"
     else
       flash[:error] = "You must <a href='/users/sign_in'>login</a> to unfollow #{@user.name}.".html_safe
-      redirect_to @user
+      redirect_to users_path
     end
   end
   

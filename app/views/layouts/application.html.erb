@@ -31,23 +31,22 @@
       </ul>
     </div> <!-- id = "nav-all" -->      
   </div> <!--row -->  
-<div><!--container -->
 <!-- HEADER + NAVBAR AREA --------------------------------------------------->
 <!-- NOTICE-BOX --------------------------------------------------->
-<div class="row notice-box">
-  <div class="col-md-12 com-ms-12">
-    <% if flash[:notice] %>
-      <div class="alert alert-success">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="alert alert-danger">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
+  <div class="row notice-box">
+    <div class="col-md-12 com-ms-12">
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
 <!-- NOTICE-BOX --------------------------------------------------->
 <!-- Added TAB-CONTENT AREA --------------------------------------------------->
   <div class="row tab-content">
@@ -99,10 +98,8 @@
               <%= f.submit %></li>
           <% end %>
     </div> <!-- search_box -->
-</div> <!-- row tab-content-->
-
-<!-- Added TAB-CONTENT AREA --------------------------------------------------->
+  </div> <!-- row tab-content-->
 <%= yield %>
-
+<div><!--container -->
 </body>
 </html>
