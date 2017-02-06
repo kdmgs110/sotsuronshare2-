@@ -42,7 +42,6 @@ body{
     background-color:#00B0BC;
     font-size:30px;
     text-decoration:none;
-    margin-bottom:60px;
 }
 
 #nav-all a:link{
@@ -53,13 +52,51 @@ body{
 #nav-all ul li{
     text-decoration:none;
 }
+/* ***************** HOME lp1 ******************/
+.lp-1{
+    padding:200px 0;
+    background-image:image-url("students.gif");
+    background-repeat:no-repeat;
+    background-size:cover;
+    
+}
+.message-large{
+ font-size:42px;  
+ color:#FFFFFF;
+}
+.message-mid{
+    font-size:25px;
+    color:#D3D3D3;
+}
+.login-button{
+    background-color:#46639F;
+    color:#FFFFFF;
+    text-decoration:none;
+    padding:20px;
+    margin:5px 0;
+    text-align:center;
+    display:inline-block;
+}
+/* ***************** HOME lp2 ******************/
+.lp-2{
+     padding:160px 0;
+}
+.lp2-mid{
+    font-size:25px;
+}
+.icon{
+    padding:30px 0;
+}
+.message-short{
+    margin-top:20px;
+}    
+
+
 
 
 /* ***************** NOTICE-BOX @application.html.erb ******************/
 
 .notice-box{
-    padding:20px;
-    margin-top:50px;
 }
 /* ***************** TABBAR SETTING @application.html.erb ******************/
 
@@ -67,8 +104,6 @@ body{
     background-color:#ffffff;
     padding:40px 20px 20px 20px;
     margin-bottom:60px;
-    
-  
 } 
 
 
