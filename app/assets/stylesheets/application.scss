@@ -79,7 +79,7 @@ body{
 }
 /* ***************** HOME lp2 ******************/
 .lp-2{
-     padding:160px 0;
+     
 }
 .lp2-mid{
     font-size:25px;
@@ -88,13 +88,47 @@ body{
     padding:30px 0;
 }
 .message-short{
-    margin-top:20px;
+    margin-top:40px;
+    line-height:30px;
+    padding:40px;
 }
 .lp2-image{
     padding:40px 0;
 }
 
+/* ***************** HOME lp4 ******************/
+.lp4{
+    background-color:#FFFFFF;
+}
+.fullimage{
+    background-size:cover;
+    background-repeat:no-repeat;
+    height:500px;
+    padding:20px;
+}
+#lp4-image{
+    background-image:image_url("book.jpeg");
+    background-color:rbga(255,255,255,0.5);
+}
+#lp4-disc{
+    background-color:#FDFBEE;
+    height:500px;
+    padding:60px;
+}
+.lp4-mid{
+    font-size:42px;  
+} 
 
+/* ***************** HOME lp5 ******************/
+
+#lp5-image{
+    background-image:image_url("friend.jpeg");
+    background-color:rbga(255,255,255,0.5);
+}
+.lp5-mid{
+    font-size:42px;
+    margin-top:40px;
+}
 
 
 /* ***************** NOTICE-BOX @application.html.erb ******************/
