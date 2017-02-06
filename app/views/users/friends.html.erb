@@ -20,7 +20,7 @@
     <div class="col-sm-12 col-md-5" id="user_profile" xp0!--ここに、共通の友人一覧を表示-->
         <div id = "user_profile">
             <% if @pendingfriends.present? %>
-                <h2 class="profile-header"><%= @pendingfriends.count%>人からユーザー友達申請が届いています</h2>
+                <h2 class="profile-header"><%= @pendingfriends.count%>人からコンタクトリクエストが届いています</h2>
             <% end %>
             <% @pendingfriends.each do |user| %>
                 <div class="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"> <%= user.username %></div>
