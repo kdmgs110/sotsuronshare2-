@@ -2,12 +2,11 @@
 
   <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 profile" id="user_profile">
       <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>クリップした論文</h2>
-          <div style="padding:20px">
-            <p><!---- --></p>
-          </div> 
   </div>
   
-    <% @user.each do |user| %>
+</div>
+<div class="row" style="margin:10px;">
+<% @user.each do |user| %>
   <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 profile" id="user_profile"> <!-- User Profile ----------------------------->
           <div class ="col-sm-12 col-md-12"> <!-- 論文のタイトル -->
             <h2 class="profile-header"><%= link_to user.thesisName,user_path(user), class:"profile-header" %></h2>
@@ -32,6 +31,7 @@
                 <div style="padding:20px"><%=user.bio %></div>
             </div>
           </div>
-        <% end %>
   </div> <!-- User Profile ----------------------------->
+<% end %>        
+
 </div>
