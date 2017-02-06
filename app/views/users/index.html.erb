@@ -19,12 +19,8 @@
             <% end %>
             <!---------------------もし自分であれば表示しない------------------------------>
             <% if user != current_user %>
-                <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", follow_user_path(user)%></div>
-                <!---------------------もし友達であれば、本名とURLが、もし友達でなければ友達申請リクエストを送る------------------------------>
-                <% if %>
-                
-                <% else %>
-                
+                <% if user.email.present? %>
+                    <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", follow_user_path(user)%></div>
                 <% end %>
             <% end %>
           </div>

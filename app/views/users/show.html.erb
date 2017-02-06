@@ -16,7 +16,9 @@
             <div class="profile-left"><i class="fa fa-bookmark" aria-hidden="true"></i> <%= @user.get_upvotes.size %></div>
             <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"> <%=@user.graduate %></div>
             <div class="profile-left clip-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to" クリップする",like_user_path(@user),method: :put %></div>
-            <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", follow_user_path(@user)%></div>
+            <% if @user.email.present? %>
+                <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", follow_user_path(@user)%></div>
+            <% end %>
           </div>
           
           <div class="col-sm-9 col-md-9" id="profile-abstract"> <!-- 論文/興味のabstract -->
