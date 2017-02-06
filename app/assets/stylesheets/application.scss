@@ -53,6 +53,9 @@ body{
     text-decoration:none;
 }
 /* ***************** HOME lp1 ******************/
+.green{
+    color:#00B0BC;
+}
 .lp-1{
     padding:200px 0;
     background-image:image-url("students.gif");
@@ -90,7 +93,8 @@ body{
 .message-short{
     margin-top:40px;
     line-height:30px;
-    padding:40px;
+    padding:30px;
+    font-size:24px;
 }
 .lp2-image{
     padding:40px 0;
@@ -103,7 +107,7 @@ body{
 .fullimage{
     background-size:cover;
     background-repeat:no-repeat;
-    height:500px;
+    height:600px;
     padding:20px;
 }
 #lp4-image{
@@ -112,7 +116,7 @@ body{
 }
 #lp4-disc{
     background-color:#FDFBEE;
-    height:500px;
+    height:600px;
     padding:60px;
 }
 .lp4-mid{
@@ -127,7 +131,7 @@ body{
 }
 .lp5-mid{
     font-size:42px;
-    margin-top:40px;
+    margin-top:10px;
 }
 
 
