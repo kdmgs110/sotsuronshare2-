@@ -18,6 +18,8 @@
                 ["卒業済み"],
                 ["～大学生"],
                 ]) %>
+            <h2 class="profile-header">興味・関心（カンマ区切り）</h2>
+                <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(','), "data-role" => "tagsinput" %></div>
             <h2 class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> 興味・関心</h2>
                 <div><textarea name="user[bio]" class="form-control" placeholder="興味のある分野について教えてください。(例)日本の多様性教育に興味があります。" width="100%"><%=@user.bio%></textarea></div>
             <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 論文の分野</h2>

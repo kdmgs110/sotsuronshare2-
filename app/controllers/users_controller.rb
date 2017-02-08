@@ -27,7 +27,9 @@ before_action :correct_user, only: [:edit, :update]
   
   def edit
     @user = User.find(params[:id])
-    flash[:notice] = "#{@user.username}さんのプロフィールを編集しました。"
+    if @user.save
+      flash[:notice] = "#{@user.username}さんのプロフィールを編集しました。"
+    end
   end  
   
   def update
@@ -104,7 +106,7 @@ before_action :correct_user, only: [:edit, :update]
     end
     
     def user_params
-      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username, :graduate, :email)
+      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username, :graduate, :email, :interest_list)
     end
   
 end

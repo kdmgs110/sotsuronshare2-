@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
   
+  acts_as_taggable_on :labels # post.label_list が追加される
+  acts_as_taggable            # acts_as_taggable_on :tags のエイリアス
+  acts_as_ordered_taggable_on :interests
+  #http://ruby-rails.hatenadiary.com/entry/20150225/1424858414
+  
   acts_as_voter
   acts_as_votable
   

@@ -13,7 +13,11 @@
           <div class="col-sm-3 col-md-3" > <!-- ユーザーの属性 -->
             <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= @user.major %></div>
             <div class="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span> <%=@user.username %></div>
-            <div class="profile-left"><i class="fa fa-bookmark" aria-hidden="true"></i> <%= @user.get_upvotes.size %></div>
+            <div class="profile-left"><i class="fa fa-paperclip" aria-hidden="true"></i> <%= @user.get_upvotes.size %></div>
+            <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i></div>
+                <% @user.interest_list.each do |tag| %>
+                    <span class="tag-button"><%= tag %></span>
+                <% end %>
             <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"> <%=@user.graduate %></div>
             <div class="profile-left clip-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to" クリップする",like_user_path(@user),method: :put %></div>
             <% if @user.email.present?  && current_user.follow(@user).nil?%>
