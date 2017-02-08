@@ -2,13 +2,15 @@ class UsersController < ApplicationController
 before_action :authenticate_user
 before_filter :set_search
 before_action :correct_user, only: [:edit, :update]
- 
-def authenticate_user
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
-      unless current_user.present?
-        redirect_to root_path,notice: "ログインしてください"
-      end
-end
+
+  def authenticate_user
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        if current_user.present?
+          redirect_to users_path
+        else
+          redirect_to root_path,notice: "ログインしてください"
+        end
+  end
   
   def index
     @q        = User.search(params[:q])
