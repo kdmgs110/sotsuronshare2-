@@ -5,9 +5,7 @@ before_action :correct_user, only: [:edit, :update]
 
   def authenticate_user
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
-        if current_user.present?
-          redirect_to users_path
-        else
+        unless current_user.present?
           redirect_to root_path,notice: "ログインしてください"
         end
   end
