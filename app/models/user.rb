@@ -36,9 +36,9 @@ class User < ActiveRecord::Base
    @friends = facebook.get_connections("me", "friends")
   end
   
-  validates :username,     length: { maximum: 20 }        # 値が「2文字以上」であれば有効
-  validates :bio,      length: { maximum: 140 }
-  validates :abstract,      length: { maximum: 140 }# 値が「500文字以下」であらば有効
+  validates :username,     length: { maximum: 40 }        # 値が「2文字以上」であれば有効
+  validates :bio,      length: { maximum: 1000 }
+  validates :abstract,      length: { maximum: 1000 }# 値が「500文字以下」であらば有効
 end
 
   

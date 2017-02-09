@@ -22,7 +22,7 @@
                 <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(','), "data-role" => "tagsinput" %></div>
             <h2 class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> プロフィール</h2>
                 <div><textarea name="user[bio]" class="form-control" placeholder="興味のある分野について教えてください。(例)地方創生に興味があります。日本の貧困層の教育をい学ぶために、NPOで働いていました。今は卒業して、教育関係の会社で働いています。/大学3年生です。ジェンダー研究に興味があります。上野千鶴子が好きです。/" width="100%"><%=@user.bio%></textarea></div>
-            <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 論文の分野</h2>
+            <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 専攻</h2>
             <%= f.select :major,([
             [""],
             ["アメリカ研究 American Studies"],
@@ -46,8 +46,7 @@
             ["文学 Literatures"],
             ["言語学 Linguistics"],
             ["メディア・コミュニケーション・文化 Media, Communication, and Culture"],
-            ["数学 Mathematics"],
-            ["音楽 Music"],
+            ["数学 Mathematics"]
             ["音楽 Music"],
             ["平和研究 Peace Studies"],
             ["哲学・宗教学 Philosophy and Religion"],
@@ -55,11 +54,13 @@
             ["政治学 Politics"],
             ["公共政策 Public Policy"],
             ["心理学 Psychology"],
+            ["社会学 Sociology"],
+            ["その他 Else"],
             ]) %>
-            <h2 class="profile-header">論文名</h2>
-                <div><textarea name="user[thesisName]" class="form-control" placeholder="あなたの論文のタイトルを入力してください(例)公教育と多様性：出稼ぎ労働者と職業選択について" width="100%"><%=@user.thesisName%></textarea></div>
-            <h2 class="profile-header"><i class="fa fa-info-circle" aria-hidden="true"></i> 要約</h2>
-                <div><textarea name="user[abstract]" class="form-control" placeholder="論文について、紹介してください（例）出稼ぎ労働者の子供が日本社会に適合するまでの困難を、統計分析によって明らかにしました。" width="100%"><%=@user.abstract%></textarea></div>
+            <h2 class="profile-header">卒業論文・論文名</h2>
+                <div><textarea name="user[thesisName]" class="form-control" placeholder="あなたの卒業論文、またあなたの関心をよく表す論文タイトルを入力してください(例)公教育と多様性：出稼ぎ労働者と職業選択について" width="100%"><%=@user.thesisName%></textarea></div>
+            <h2 class="profile-header"><i class="fa fa-info-circle" aria-hidden="true"></i> 論文紹介</h2>
+                <div><textarea name="user[abstract]" class="form-control" placeholder="論文について、紹介してください（例）高校生のころ、自分の頭で考えて学校の先生の話を鵜呑みにせず、やるべきことを考えて欠席遅刻する生徒ほど、いい大学に合格する様子を見て、これって塾がなんらかの悪影響を与えてたら面白いんじゃないかなって思って書きました。結局、統計分析したら、偏差値高いほうが内職するって結果になったので面白かったです。" width="100%"><%=@user.abstract%></textarea></div>
             </div>
             
             <h2 class="profile-header"><i class="fa fa-envelope-open" aria-hidden="true"></i> メールアドレス</h2>
