@@ -18,8 +18,8 @@
                 ["卒業済み"],
                 ["～大学生"],
                 ]) %>
-            <h2 class="profile-header">関心タグ（カンマ区切り）</h2>
-                <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(','), "data-role" => "tagsinput" %></div>
+            <h2 class="profile-header">関心タグ（半角カンマ区切り）</h2>
+                <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(','), "data-role" => "tagsinput", :placeholder => "統計学,教育,地方創生" %></div>
             <h2 class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> プロフィール</h2>
                 <div><textarea name="user[bio]" class="form-control" placeholder="興味のある分野について教えてください。(例)地方創生に興味があります。日本の貧困層の教育をい学ぶために、NPOで働いていました。今は卒業して、教育関係の会社で働いています。/大学3年生です。ジェンダー研究に興味があります。上野千鶴子が好きです。/" width="100%"><%=@user.bio%></textarea></div>
             <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 専攻</h2>
