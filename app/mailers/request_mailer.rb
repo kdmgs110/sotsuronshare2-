@@ -4,13 +4,13 @@ class RequestMailer < ApplicationMailer
     def send_email(user,current_user)
         @email = user.email #ここは送信で使う
         @name = user.username #ここはメールで使う
-        @current_user = current_user.username
-        mail to: @email, subject: "【卒論Share】コンタクトリクエストが届きました"
+        @username = user.username
+        @current_username = current_user.username
+        mail to: @email, subject: "【卒論Share】#{@current_username}さんからコンタクトリクエストが届きました"
     end
     
     def approve_request(user,current_user)
        @email = user.email
-       @name = current_user.username
        mail to: @email, subject:'【卒論Share】コンタクトリクエストが承認されました' 
     end
     
