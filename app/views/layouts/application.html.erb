@@ -27,8 +27,7 @@
       <%= link_to image_tag('sotsuronshare.png', { :border => '0', :alt => '新規登録', :size =>"80x60", :class => "navbar-brand nav nav-tabs"}), users_path %></a>
       <ul class="nav nav-tabs navbar-right" style="border-bottom:0px">
         <% if current_user %>
-          <li role="presentation"><%= image_tag current_user.avatar_url, :size => "40x40", class:"border-radius:10%" %></li>
-          <li role="presentation"><%= link_to user_path(current_user) do%><%= current_user.name %><% end %></li>
+          <li role="presentation"><%= link_to user_path(current_user) do%><%= current_user.username %><% end %></li>
           <li role="presentation"><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i></a></li>
           <li role="presentation"><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>(<%= current_user.votes_for.size %>)<% end %></li>
           <li role="presentation"><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i><% end %></li>
