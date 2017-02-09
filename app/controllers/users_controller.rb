@@ -13,6 +13,9 @@ before_action :correct_user, only: [:edit, :update]
   def index
     @q        = User.search(params[:q])
     @products = @q.result(distinct: true)
+    unless current_user.email.present?
+      flash[:notice] = "プロフィールを編集して、メールアドレスを入力すると、コンタクト申請を送れるようになります"
+    end
   end
   
   def show
@@ -60,7 +63,7 @@ before_action :correct_user, only: [:edit, :update]
     if current_user
       if current_user == @user　
         flash[:error] = "自分自身をフォローできません。"
-        users_path
+        redirect_to users_path
       else
         current_user.follow(@user)
         RequestMailer.send_email(@user,current_user).deliver_now

@@ -12,24 +12,22 @@
             <% end %>
         </div>
     </div>
-    
+<div class="row">    
     <div class="col-sm-12 col-md-2">
-
-    </div>
-    
-    <div class="col-sm-12 col-md-5" id="user_profile" xp0!--ここに、共通の友人一覧を表示-->
-        <div id = "user_profile">
-            <% if @pendingfriends.present? %>
-                <h2 class="profile-header"><%= @pendingfriends.count%>人からコンタクトリクエストが届いています</h2>
-            <% end %>
-            <% @pendingfriends.each do |user| %>
-                <div class="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"> <%= user.username %></div>
-                <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= user.major %></div>
-                <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span> <%=user.graduate %></div>
-                <div style="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>興味・関心</div>
-                <div style="profile-right" style="padding:20px"><%=user.bio %></div>
-                <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 承認する", follow_user_path(user)%></div>
-            <% end %>
+        <div class="col-sm-12 col-md-5" id="user_profile" xp0!--ここに、共通の友人一覧を表示-->
+            <div id = "user_profile">
+                <% if @pendingfriends.present? %>
+                    <h2 class="profile-header"><%= @pendingfriends.count%>人からコンタクトリクエストが届いています</h2>
+                <% end %>
+                <% @pendingfriends.each do |user| %>
+                    <div class="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"> <%= user.username %></div>
+                    <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= user.major %></div>
+                    <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span> <%=user.graduate %></div>
+                    <div style="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>興味・関心</div>
+                    <div style="profile-right" style="padding:20px"><%=user.bio %></div>
+                    <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 承認する", follow_user_path(user)%></div>
+                <% end %>
+            </div>
         </div>
     </div>
-    </div>
+</div>
