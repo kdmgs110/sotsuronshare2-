@@ -5,8 +5,13 @@
             <% if @pendingfriends.present? %>
                 <h2 class="profile-header"><%= @pendingfriends.count%>人からコンタクトリクエストが届いています</h2>
                 <% @pendingfriends.each do |user| %>
+                    <div class="profile-left"><%= user.username %></div>
                     <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= user.major %></div>
                     <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span> <%=user.graduate %></div>
+                    <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>　キーワード</div>
+                        <% user.interest_list.each do |tag| %>
+                            <span class="tag-button"><%= tag %></span>
+                        <% end %>
                     <div style="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>興味・関心</div>
                     <div style="profile-right" style="padding:20px"><%=user.bio %></div>
                     <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 承認する", follow_user_path(user)%></div>
