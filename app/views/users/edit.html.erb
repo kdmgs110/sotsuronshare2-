@@ -11,7 +11,7 @@
         <%= form_for(@user) do |f| %>
             <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span> ユーザー名</h2>
             <div class="form-group">
-                <div><textarea name="user[username]" class="form-control" placeholder="ユーザー名を入力してください。後で変更することができます。" width="100%"><%=@user.username%></textarea></div>
+                <div><textarea name="user[username]" class="form-control" placeholder="ユーザー名を入力してください。後でいつでも変更することができます。" width="100%"><%=@user.username%></textarea></div>
             <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"> ステータス</h2>
                 <%= f.select :graduate,([
                 [""],
@@ -64,7 +64,7 @@
             </div>
             
             <h2 class="profile-header"><i class="fa fa-envelope-open" aria-hidden="true"></i> メールアドレス</h2>
-                <div><textarea name="user[email]" class="form-control" placeholder="友達リクエストが承認された人のみに、見えるようになります。" width="100%"><%=@user.email%></textarea></div>
+                <div><textarea name="user[email]" class="form-control" placeholder="メールアドレスを入力すると、コンタクトリクエストが送れます。emailアドレスが公開されることはありません。" width="100%"><%=@user.email%></textarea></div>
             <h2 class="profile-header"><i class="fa fa-paperclip" aria-hidden="true"></i>論文ファイル</h2><small>PDFファイルのみ対応しています。WordのPDF化は下のノートを確認してください。</small>
                 <%= f.file_field :attachment %>
             <h2 class="profile-header"><input type="submit" value="送信する" class="btn btn-primary btn-lg btn-block"/></h2>
