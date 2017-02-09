@@ -56,6 +56,7 @@ before_action :correct_user, only: [:edit, :update]
   def friends
    @users = User.find(params[:id])
    @current_user = current_user
+   @current_user_following = current_user.all_following
    @following = @users.all_following
    @followers = @users.followers
    @mutualfriends = @following & @followers
@@ -67,13 +68,14 @@ before_action :correct_user, only: [:edit, :update]
     @user = User.find(params[:id])
     if current_user
       if current_user == @user　
-        flash[:error] = "自分自身をフォローできません。"
+        flash[:notice] = "自分自身をフォローできません。"
         redirect_to users_path
       else
         current_user.follow(@user)
         RequestMailer.send_email(@user,current_user).deliver_now
+        #RequestMailer.send_email(@user,current_user,@message).deliver_now こうすれば理論上届くようになる
         flash[:notice] = "#{@user.username}さんにコンタクトリクエストを送りました。"
-        redirect_to users_path
+        redirect_to friends_user_path
       end
     else
       redirect_to root_path

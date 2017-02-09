@@ -75,6 +75,7 @@ Rails.application.routes.draw do
   member do
     get 'clip', to: "users#clip"
     get :follow
+    post :follow
     get :unfollow
     get 'friends', to: "users#friends"
     post 'friends', to: "users#friends"

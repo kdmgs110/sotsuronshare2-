@@ -9,9 +9,9 @@
                     <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= user.major %></div>
                     <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span> <%=user.graduate %></div>
                     <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>　キーワード</div>
-                        <% user.interest_list.each do |tag| %>
-                            <span class="tag-button"><%= tag %></span>
-                        <% end %>
+                    <% user.interest_list.each do |tag| %>
+                        <span class="tag-button"><%= tag %></span>
+                    <% end %>
                     <div style="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>興味・関心</div>
                     <div style="profile-right" style="padding:20px"><%=user.bio %></div>
                     <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 承認する", follow_user_path(user)%></div>
@@ -35,5 +35,24 @@
             <% else %>
                 <div>現在、コンタクトが取れる人がいません。</div>
             <% end %>
+    </div>
+    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="user_profile" > <!--ここに、共通の友人一覧を表示-->
+        <div class="profile-header" style="text-align:center;padding:20px 0">送信済みコンタクトリクエスト</div>
+                <% if @current_user_following.present? %>
+                    <h2 class="profile-header"><%= @current_user_following.count%>人にコンタクトリクエストを送っています</h2>
+                    <% @current_user_following.each do |user| %>
+                        <div class="profile-left"><%= user.username %></div>
+                        <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= user.major %></div>
+                        <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span> <%=user.graduate %></div>
+                        <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>　キーワード</div>
+                        <% user.interest_list.each do |tag| %>
+                            <span class="tag-button"><%= tag %></span>
+                        <% end %>
+                        <div style="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>興味・関心</div>
+                        <div style="profile-right" style="padding:20px"><%=user.bio %></div>
+                    <% end %>
+                <% else %>
+                    <div>現在、コンタクトリクエストを送信していません</div>
+                <% end %>
     </div>
 </div>
