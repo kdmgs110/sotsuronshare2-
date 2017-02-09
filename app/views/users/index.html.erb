@@ -19,7 +19,7 @@
                 <% if user.email.present? & current_user.email.present? %> 
             <!-----------------フォローするユーザーにまだフォローしていない場合は、コンタクト申請を送る------------------------------>
                     <% if !(current_user.following?(user)) %>
-                        <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", follow_user_path(user), :style =>"color:white;"%></div>
+                        <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " コンタクト申請する", follow_user_path(user), :style =>"color:white;"%></div>
             <!-----------------フォローするユーザーへのコンタクト申請が済んでいるときは、取り消しを行う------------------------------>
                     <% else %>
                         <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " コンタクト申請を取り消す", unfollow_user_path(user), :style =>"color:white;"%></div>
