@@ -13,8 +13,13 @@ before_action :correct_user, only: [:edit, :update]
   def index
     @q        = User.search(params[:q])
     @products = @q.result(distinct: true)
-    unless current_user.email.present?
-      flash[:notice] = "プロフィールを編集して、メールアドレスを入力すると、コンタクト申請を送れるようになります"
+    case
+      when current_user.username.nil?
+        then flash[:notice] = "プロフィールを編集しましょう。メールアドレスを入力すると、コンタクト申請を送れるようになります"
+      when current_user.email.nil?
+        then flash[:notice] = "気になった人にコンタクトをとってみませんか？メールアドレスを登録すると、コンタクトリクエストが送信できます"
+      when current_user.thesisName.nil?
+        then flash[:notice] = '論文をアップロードしてみませんか。誰かがあなたの関心に興味を持つかもしれません。'
     end
   end
   

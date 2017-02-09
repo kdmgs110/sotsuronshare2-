@@ -20,7 +20,7 @@
                         <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", follow_user_path(@user),:style =>"color:white;" %></div>
             <!-----------------フォローするユーザーへのコンタクト申請が済んでいるときは、取り消しを行う------------------------------>
                     <% else %>
-                        <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " コンタクト申請を取り消す", unfollow_user_path(@user)%></div>
+                        <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " コンタクト申請を取り消す", unfollow_user_path(@user), :style =>"color:white;"%></div>
                     <% end %>
             <!-----------------メールアドレスが未登録の場合、メールアドレスが登録されていないと表示する------------------------------>
                 <% else %>
