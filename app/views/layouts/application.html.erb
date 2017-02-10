@@ -44,12 +44,12 @@
     </div> <!-- id = "nav-all" -->      
   </div> <!--row -->  <!-- HEADER + NAVBAR AREA MOBILE--------------------------------------------------->
   
-  <div class="row nav mobile-show">
+  <div class="row mobile-show">
     <div class="col-ex navbar-fixed-top" id="nav-all" style="border-bottom:0px">
       <ul class="nav nav-tabs" style="border-bottom:0px">
           <li role="presentation"><a class="navbar-brand" href="#"></a></li>
         <% if current_user %>
-          <li role="presentation" class="dropdown xs-dropdown nav navbar-nav"><a class="dropdown-toggle xs-dropdown" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i></a>
+          <li role="presentation" class="dropdown xs-dropdown"><a class="dropdown-toggle xs-dropdown" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i></a>
             <ul class="dropdown-menu">
               <li><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
               <li><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i>検索</a></li>
