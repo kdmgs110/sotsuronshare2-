@@ -305,6 +305,7 @@ h3{
     }
     .non-mobile-show{ /******** 500px以上の場合、モバイルテンプレートは見えないようにする**********/
         display:none;
+    
     }
     /* ***************** HEADER + NAVBAR ******************/
     .navbar-brand{
@@ -418,7 +419,8 @@ h3{
     /* ***************** TABBAR SETTING @application.html.erb ******************/
     
     #search_box{
-        background-color:#ffffff
+        background-color:#ffffff;
+        padding:40px 20px 20px 20px;
         margin-bottom:60px;
     } 
     
@@ -429,6 +431,7 @@ h3{
         text-decoration:none;
         font-size:60px;
         color:#00B0BC;
+        padding:10px;
         margin-bottom:20px;
     }
     
@@ -445,16 +448,19 @@ h3{
     }
     
     #user_profile{
+        padding:10px;
         background-color:#FFFFFF;
         margin-top:40px;
     }
     
     .profile-left{
+        padding:10px 0;
         border-bottom:1px solid #eee;
     }
     
     
     .profile-right{
+        padding:10px 10px 40px 10px;
         margin-bottom:10px;
         height:auto;
         background-color:#F6F7F9;
@@ -470,6 +476,7 @@ h3{
         color:#6D4D00;
         text-decoration:none;
         padding:5px 10px;
+        margin:5px 0;
         text-align:center;
         display:block;
     }
