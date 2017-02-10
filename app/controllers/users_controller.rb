@@ -75,7 +75,7 @@ before_action :correct_user, only: [:edit, :update]
         RequestMailer.send_email(@user,current_user).deliver_now
         #RequestMailer.send_email(@user,current_user,@message).deliver_now こうすれば理論上届くようになる
         flash[:notice] = "#{@user.username}さんにコンタクトリクエストを送りました。"
-        redirect_to friends_user_path
+        redirect_to users_path
       end
     else
       redirect_to root_path
