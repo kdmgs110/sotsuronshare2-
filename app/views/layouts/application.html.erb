@@ -20,9 +20,10 @@
   
 </head>
 <body>
-<!-- HEADER + NAVBAR AREA --------------------------------------------------->
 <div class="container-fluid">　<!--whole container -->
-  <div class="row">
+<!-- HEADER + NAVBAR AREA  NON MOBILE--------------------------------------------------->
+
+  <div class="row non-mobile-show">
     <div class="col-ms-12 col-md-12 navbar-fixed-top" id="nav-all" style="border-bottom:0px">
       <%= link_to image_tag('sotsuronshare.png', { :size =>"120x120", :class => "navbar-brand"}), users_path %></a>
       <ul class="nav nav-tabs navbar-right" style="border-bottom:0px">
@@ -41,7 +42,32 @@
         <% end %>  
       </ul>
     </div> <!-- id = "nav-all" -->      
-  </div> <!--row -->  
+  </div> <!--row -->  <!-- HEADER + NAVBAR AREA MOBILE--------------------------------------------------->
+  
+  <div class="row nav mobile-show">
+    <div class="col-ex navbar-fixed-top" id="nav-all" style="border-bottom:0px">
+      <ul class="nav nav-tabs" style="border-bottom:0px">
+          <li role="presentation"><a class="navbar-brand" href="#"></a></li>
+        <% if current_user %>
+          <li role="presentation" class="dropdown xs-dropdown nav navbar-nav"><a class="dropdown-toggle xs-dropdown" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
+              <li><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i>検索</a></li>
+              <li><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>クリップ<% end %></li>
+              <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクト<% end %></li>
+              <li><%= link_to "プロフィール",edit_user_path(current_user.id) %></li>
+              <li><%= link_to "ログアウト", logout_path %></li>
+            </ul>
+        <% else %>
+          <li role="presentation"><%= link_to "ログイン", login_path %></li>
+        <% end %>  
+      </ul>
+    </div> <!-- id = "nav-all" -->      
+  </div> <!--row -->  <!-- HEADER + NAVBAR AREA  NON MOBILE--------------------------------------------------->
+  
+  
+<!-- HEADER + NAVBAR AREA MOBILE--------------------------------------------------->
+
 <!-- HEADER + NAVBAR AREA --------------------------------------------------->
 <!-- NOTICE-BOX --------------------------------------------------->
 <% if flash[:notice] %>

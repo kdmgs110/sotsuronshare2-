@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+
 #タグ機能
 gem 'acts-as-taggable-on', '~> 3.4'
 #入力用意にする
