@@ -300,6 +300,9 @@ h3{
         max-width:100%;
         background-color:#e9ebee;
     }
+    *{
+        font-size:40px;
+    }
     
     /* ***************** HEADER + NAVBAR ******************/
     .navbar-brand{
@@ -320,7 +323,7 @@ h3{
         height:180px;
     }
     .xs-dropdown{
-        font-size:60px;
+        font-size:100px;
     }
     /* ***************** HOME lp1 ******************/
     .green{
@@ -478,7 +481,7 @@ h3{
     .clip-button{
         background-color:#FECE26;
         color:#6D4D00;
-        font-size:16px;
+        font-size:40px;
         text-decoration:none;
         padding:0 10px;
         margin:20px 0;
@@ -513,7 +516,7 @@ h3{
         margin:5px 0;
         padding:5px;
         display:inline-block;
-        font-size:16px;
+        font-size:40px;
         border-radius:5px;
     }
     
