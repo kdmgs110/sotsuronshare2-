@@ -1,6 +1,62 @@
-<!---------------------------------------------スマートフォンの処理 -------------------------------------------------------------------->
+<!--------------------------------------------- パソコン -------------------------------------------------------------------->
 
-<div class="row mobile-show">
+<div class="row non-mobile-show">
+     <div class="col-xs-12"  id="user_profile"> <!--ここに、共通の友人一覧を表示-->
+        <div class="profile-header" style="text-align:center;padding:20px 0">みんなの卒論</div>
+    </div>
+    <% @users.each do |user| %>
+    <% unless user.username.nil? %>
+      <div id="user_profile"> <!-- User Profile ----------------------------->
+        <div class="col-xs-12"><span class="glyphicon glyphicon glyphicon-user fa-2x" aria-hidden="true"></span> <%= link_to user.username, user_path(user) %></div>
+          <div class="col-xs-12" > <!-- ユーザーの属性 -->
+            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= user.major %></div>
+            <div class="profile-left"><i class="fa fa-paperclip" aria-hidden="true"></i> <%= user.get_upvotes.size %>クリップ</div>
+            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span> <%=user.graduate %></div>
+            <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>　キーワード</div>
+                <% user.interest_list.each do |tag| %>
+                    <span class="tag-button"><%= tag %></span>
+                <% end %>
+            <!---------------------もしクリップしていれば、クリップを外し、クリップしていなければクリップを追加する------------------------------>
+                  <div class="profile-left clip-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to" クリップする",like_user_path(user),method: :put %></div>
+            <!---------------------もし自分であれば表示しない------------------------------>
+            <% if user != current_user %>
+            <!---------------------フォローするユーザーのemailが存在 -------->
+                <% if user.email.present? & current_user.email.present? %> 
+            <!-----------------フォローするユーザーにまだフォローしていない場合は、コンタクト申請を送る------------------------------>
+                    <% if !(current_user.following?(user)) %>
+                        <%= link_to "コンタクトリクエストを送る", follow_user_path(user), :class => "request-button-small" %>
+            <!-----------------フォローするユーザーへのコンタクト申請が済んでいるときは、取り消しを行う------------------------------>
+                    <% else %>
+                        <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " コンタクト申請を取り消す", unfollow_user_path(user), :style =>"color:white;"%></div>
+                    <% end %>
+            <!-----------------メールアドレスが未登録の場合、メールアドレスが登録されていないと表示する------------------------------>
+                <% else %>
+                    <div class="profile-left"><i class="fa fa-user-plus" aria-hidden="true"></i>メールアドレスが登録されていません</div>
+                <% end %>
+            <% end %>
+          </div>
+          
+          <div class="col-xs-12" id="profile-abstract"> <!-- 論文/興味のabstract -->
+            
+            <div class="profile-right">
+                <div style="border-bottom:1px solid #606060  ;color:#00B0BC;font-size:26px"><i class="fa fa-heart" aria-hidden="true"></i>プロフィール</div>
+                <div style="padding:20px"><%=user.bio %></div>
+            </div>
+            
+            <div class="profile-right">
+                <div style="border-bottom:1px solid #606060 ;color:#00B0BC;font-size:26px"><i class="fa fa-info-circle" aria-hidden="true"></i><%= user.thesisName %></div>
+                <div style="padding:20px"><%= user.abstract %></div>
+            </div>
+            
+          </div>
+      </div> <!-- User Profile ----------------------------->
+    <% end %>
+    <% end %>
+</div><!-- row ----------------------------->
+
+
+<!---------------------------------------------スマートフォンの処理 -------------------------------------------------------------------->
+<div class="row">
      <div class="col-xs-12"  id="user_profile"> <!--ここに、共通の友人一覧を表示-->
         <div class="profile-header">みんなの卒論</div>
     </div>
@@ -56,61 +112,3 @@
 
 
 
-<!--------------------------------------------- パソコン -------------------------------------------------------------------->
-
-<div class="row non-mobile-show">
-     <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-xs-12"  id="user_profile"> <!--ここに、共通の友人一覧を表示-->
-        <div class="profile-header" style="text-align:center;padding:20px 0">みんなの卒論</div>
-    </div>
-    <% @users.each do |user| %>
-    <% unless user.username.nil? %>
-      <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1  col-xs-12 profile" id="user_profile"> <!-- User Profile ----------------------------->
-        <div class="col-sm-12 col-md-12 profile-header"><span class="glyphicon glyphicon glyphicon-user fa-2x" aria-hidden="true"></span> <%= link_to user.username, user_path(user) %></div>
-          <div class="col-sm-3 col-md-3 col-xs-12" > <!-- ユーザーの属性 -->
-            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= user.major %></div>
-            <div class="profile-left"><i class="fa fa-paperclip" aria-hidden="true"></i> <%= user.get_upvotes.size %>クリップ</div>
-            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span> <%=user.graduate %></div>
-            <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>　キーワード</div>
-                <% user.interest_list.each do |tag| %>
-                    <span class="tag-button"><%= tag %></span>
-                <% end %>
-            <!---------------------もしクリップしていれば、クリップを外し、クリップしていなければクリップを追加する------------------------------>
-                  <div class="profile-left clip-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to" クリップする",like_user_path(user),method: :put %></div>
-            <!---------------------もし自分であれば表示しない------------------------------>
-            <% if user != current_user %>
-            <!---------------------フォローするユーザーのemailが存在 -------->
-                <% if user.email.present? & current_user.email.present? %> 
-            <!-----------------フォローするユーザーにまだフォローしていない場合は、コンタクト申請を送る------------------------------>
-                    <% if !(current_user.following?(user)) %>
-                        <%= link_to "コンタクトリクエストを送る", follow_user_path(user), :class => "request-button-small" %>
-            <!-----------------フォローするユーザーへのコンタクト申請が済んでいるときは、取り消しを行う------------------------------>
-                    <% else %>
-                        <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " コンタクト申請を取り消す", unfollow_user_path(user), :style =>"color:white;"%></div>
-                    <% end %>
-            <!-----------------メールアドレスが未登録の場合、メールアドレスが登録されていないと表示する------------------------------>
-                <% else %>
-                    <div class="profile-left"><i class="fa fa-user-plus" aria-hidden="true"></i>メールアドレスが登録されていません</div>
-                <% end %>
-            <% end %>
-          </div>
-          
-          <div class="col-sm-9 col-md-9 col-xs-12" id="profile-abstract"> <!-- 論文/興味のabstract -->
-            
-            <div class="profile-right">
-                <div style="border-bottom:1px solid #606060  ;color:#00B0BC;font-size:26px"><i class="fa fa-heart" aria-hidden="true"></i>プロフィール</div>
-                <div style="padding:20px"><%=user.bio %></div>
-            </div>
-            
-            <div class="profile-right">
-                <div style="border-bottom:1px solid #606060 ;color:#00B0BC;font-size:26px"><i class="fa fa-info-circle" aria-hidden="true"></i><%= user.thesisName %></div>
-                <div style="padding:20px"><%= user.abstract %></div>
-            </div>
-            
-          </div>
-      </div> <!-- User Profile ----------------------------->
-    <% end %>
-    <% end %>
-</div><!-- row ----------------------------->
-
-
-<!--------------------------------------------- スマートフォン -------------------------------------------------------------------->
