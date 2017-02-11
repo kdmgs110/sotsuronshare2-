@@ -1,13 +1,13 @@
 <div class="row">
     
-    <div class="col-xs-12 col-md-offset-2 col-sm-12 profile" id="user_profile">
+    <div class="col-xs-12 col-sm-12 col-xs-12 profile" id="user_profile">
         <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>プロフィールを編集</h2>
-           <div style="padding:20px">
+           <div >
                <p>あなたに興味を持った人が連絡してくれるように、あなたの名前、専攻、興味をほかの人に紹介しましょう。</p>
            </div> 
     </div>
     
-    <div class="col-md-8 col-md-offset-2 col-sm-12 profile" id="user_profile">
+    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 profile" id="user_profile">
         <%= form_for(@user) do |f| %>
             <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span> ユーザー名</h2>
             <div class="form-group">
@@ -69,7 +69,8 @@
             <h2 class="profile-header"><input type="submit" value="送信する" class="btn btn-primary btn-lg btn-block"/></h2>
         <% end %>
     </div>
-    <div class="col-md-8 col-md-offset-2 col-sm-12 profile" id="user_profile">
+    
+    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 profile" id="user_profile">
         <h2 class="profile-header">WordファイルをPDFにする場合</h2>
             <ul>
                 <li>「PDF」形式で保存したいファイルを開き、「ファイル」タブをクリック</li>
