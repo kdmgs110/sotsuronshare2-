@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>卒論Share</title>
   <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet" />
@@ -20,13 +19,12 @@
   </script>
   
 </head>
-
 <body>
 <div class="container-fluid">　<!--whole container -->
 <!-- HEADER + NAVBAR AREA  NON MOBILE--------------------------------------------------->
 
   <div class="row non-mobile-show">
-    <div class="col-sm-12 col-md-12 col-xs-12 navbar-fixed-top" id="nav-all" style="border-bottom:0px">
+    <div class="col-ms-12 col-md-12 navbar-fixed-top" id="nav-all" style="border-bottom:0px">
       <%= link_to image_tag('sotsuronshare.png', { :size =>"120x120", :class => "navbar-brand"}), users_path %></a>
       <ul class="nav nav-tabs navbar-right" style="border-bottom:0px">
         <% if current_user %>
@@ -47,11 +45,11 @@
   </div> <!--row -->  <!-- HEADER + NAVBAR AREA MOBILE--------------------------------------------------->
   
   <div class="row mobile-show">
-    <div class="col-xs-12 navbar-fixed-top" id="nav-all" style="border-bottom:0px">
+    <div class="col-ex navbar-fixed-top" id="nav-all" style="border-bottom:0px">
       <ul class="nav nav-tabs" style="border-bottom:0px">
           <li role="presentation"><%= link_to "",users_path, :class => "navbar-brand" %></li>
         <% if current_user %>
-          <li role="presentation" class="dropdown xs-dropdown" style="float:right"><a class="dropdown-toggle xs-dropdown" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i></a>
+          <li role="presentation" class="dropdown xs-dropdown navbar-right" style="float:right"><a class="dropdown-toggle xs-dropdown" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i></a>
             <ul class="dropdown-menu">
               <li><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
               <li><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i>検索</a></li>
@@ -74,7 +72,7 @@
 <!-- NOTICE-BOX --------------------------------------------------->
 <% if flash[:notice] %>
   <div class="row notice-box">
-    <div class="col-md-12 com-ms-12 col-xs-12">
+    <div class="col-md-12 com-ms-12">
         <div class="alert alert-success">
           <%= flash[:notice] %>
         </div>
@@ -83,7 +81,7 @@
 <% end %>
 <% if flash[:alert] %>
   <div class="row notice-box">
-    <div class="col-md-12 com-ms-12 col-xs-12">
+    <div class="col-md-12 com-ms-12">
         <div class="alert alert-danger">
           <%= flash[:alert] %>
         </div>
@@ -144,6 +142,5 @@
   </div> <!-- row tab-content-->
 <%= yield %>
 <div><!--container -->
-
 </body>
 </html>
