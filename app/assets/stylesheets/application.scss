@@ -307,9 +307,12 @@ h3{
     .nav{
         max-height:auto;
     }
+    #nav-all{
+        max-height:auto;
+    }
     .navbar-brand{
-        height:120px;
-        width:160px;
+        height:180px;
+        width:240px;
         background-size:cover;
         background-image:image_url("sotsuronshare.png");
         z-index:999;
@@ -325,6 +328,7 @@ h3{
         height:180px;
     }
     .xs-dropdown{
+        margin-left:30px;
         font-size:80px;
         width:300px;
         float:right;
@@ -428,6 +432,10 @@ h3{
         background-color:#ffffff;
         margin-bottom:60px;
     } 
+    
+    .form{
+        max-width:100%;
+    }
 
 
 }

@@ -8,7 +8,7 @@
     </div>
     
     <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 profile" id="user_profile">
-        <%= form_for(@user) do |f| %>
+        <%= form_for(@user, :html => {:class => "form"})do |f| %>
             <div class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span> ユーザー名</div>
             <div class="form-group">
                 <div><textarea name="user[username]" class="form-control" placeholder="ユーザー名を入力してください。後でいつでも変更することができます。" width="100%"><%=@user.username%></textarea></div>
@@ -19,9 +19,9 @@
                 ["～大学生"],
                 ]) %>
             <div class="profile-header">関心タグ（半角カンマ区切り）</div>
-                <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(','), "data-role" => "tagsinput", :placeholder => "統計学,教育,地方創生" %></div>
+                <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(','), "data-role" => "tagsinput", :placeholder => "統計学,教育,地方創生", :class =>"col-xs-12" %></div>
             <div class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> プロフィール</div>
-                <div><textarea name="user[bio]" class="form-control" placeholder="興味、経歴、どんな人に会いたいかなどを記入してください。(例)地方創生に興味があります。日本の貧困層の教育をい学ぶために、NPOで働いていました。今は卒業して、教育関係の会社で働いています。/大学3年生です。ジェンダー研究に興味があります。上野千鶴子が好きです。女性の格差問題に興味がある人はぜひコンタクトお願いします/" width="100%"><%=@user.bio%></textarea></div>
+                <div><textarea name="user[bio]" class="form-control col-xs-12 placeholder="興味、経歴、どんな人に会いたいかなどを記入してください。(例)地方創生に興味があります。日本の貧困層の教育をい学ぶために、NPOで働いていました。今は卒業して、教育関係の会社で働いています。/大学3年生です。ジェンダー研究に興味があります。上野千鶴子が好きです。女性の格差問題に興味がある人はぜひコンタクトお願いします/" width="100%"><%=@user.bio%></textarea></div>
             <div class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 専攻</div>
             <div>
                 <%= f.select :major,([
@@ -56,7 +56,7 @@
                 ["心理学 Psychology"],
                 ["社会学 Sociology"],
                 ["その他 Else"],
-                class: "form-control"
+                class: "col-xs-12"
                 ]) %>
             </div>
             <h2 class="profile-header">卒業論文・論文名</h2>
