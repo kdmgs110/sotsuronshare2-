@@ -2,7 +2,7 @@
       <div class="col-sm-12 col-md-10 col-md-offset-1 col-xs-12 profile" id="user_profile"> <!-- User Profile ----------------------------->
         <div class="col-sm-12 col-md-12 profile-header col-xs-12"><span class="glyphicon glyphicon glyphicon-user fa-2x" aria-hidden="true"></span> <%= link_to @user.username, user_path(@user) %></div>
           <div class="col-sm-12 col-md-3 col-xs-12" > <!-- ユーザーの属性 -->
-            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= @user.major %></div>
+            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= @user.major, :inner_class: => "form" } %></div>
             <div class="profile-left"><i class="fa fa-paperclip" aria-hidden="true"></i> <%= @user.get_upvotes.size %>クリップ</div>
             <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span> <%= @user.graduate %></div>
             <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>　キーワード</div>
