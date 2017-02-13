@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+#pdf mobile対応
+gem 'pdfjs_viewer-rails'
 
 #タグ機能
 gem 'acts-as-taggable-on', '~> 3.4'

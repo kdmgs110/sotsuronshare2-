@@ -104,6 +104,10 @@ before_action :correct_user, only: [:edit, :update]
     @user.downvote_by current_user
     redirect_to users_path,notice:"#{@user.username}さんの論文からクリップを外しました"
   end
+  
+  def show_pdf
+    @user = User.find(params[:id])
+  end
    
  private
   

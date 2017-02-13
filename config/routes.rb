@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   
   root "static_pages#home"
   
@@ -74,6 +75,7 @@ Rails.application.routes.draw do
   resources :users do
   member do
     get 'clip', to: "users#clip"
+    get 'show_pdf', to: "users#show_pdf" 
     get :follow
     post :follow
     get :unfollow
