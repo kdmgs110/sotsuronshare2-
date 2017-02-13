@@ -304,6 +304,9 @@ h3{
     }
 
     /* ***************** HEADER + NAVBAR ******************/
+    .nav{
+        max-height:auto;
+    }
     .navbar-brand{
         height:120px;
         width:160px;
@@ -322,13 +325,13 @@ h3{
         height:180px;
     }
     .xs-dropdown{
-        font-size:100px;
+        font-size:80px;
+        width:300px;
+        float:right;
     }
-    .dropdown-menu.left {
-     left:auto;
-     right:0;
-     &::before {left:auto !important; right:9px;}
-     &::after {left:auto !important; right:10px;}
+    .dropdown-menu{
+        height:600px;
+        overflow-x: hidden;
     }
     
     /* ***************** HOME lp1 ******************/
