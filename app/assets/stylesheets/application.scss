@@ -324,6 +324,13 @@ h3{
     .xs-dropdown{
         font-size:100px;
     }
+    .dropdown-menu.left {
+     left:0;
+     right:auto;
+     &::before {right:auto !important; left:9px;}
+     &::after {right:auto !important; left:10px;}
+    }
+    
     /* ***************** HOME lp1 ******************/
     .green{
         color:#00B0BC;
@@ -416,135 +423,8 @@ h3{
     
     #search_box{
         background-color:#ffffff;
-        padding:40px 20px 20px 20px;
         margin-bottom:60px;
     } 
-    
-    
-    /****** USER PROFILE @index.html.erb ***********************/
-    
-    .profile-header{
-        text-decoration:none;
-        font-size:80px;
-        color:#00B0BC;
-        padding:10px;
-        margin-bottom:20px;
-    }
-    
-    .profile-header a:link{
-        text-decoration:none;
-        font-size:80px;
-        color:#00B0BC;
-    }
-    
-    .profile-header a:visited{
-        text-decoration:none;
-        font-size:80px;
-        color:#00B0BC;
-    }
-    
-    #user_profile{
-        padding:10px;
-        background-color:#FFFFFF;
-        margin-top:40px;
-    }
-    
-    .profile-left{
-        padding:10px 0;
-        border-bottom:1px solid #eee;
-    }
-    
-    
-    .profile-right{
-        padding:10px 10px 40px 10px;
-        margin-bottom:10px;
-        height:auto;
-        background-color:#F6F7F9;
-    }
-    
-    .clipped{
-        background-color:#FECE26;
-        text-align:center;
-        padding:5px 10px;
-    }
-    .clip-button-small{
-        background-color:#FECE26;
-        color:#6D4D00;
-        text-decoration:none;
-        padding:5px 10px;
-        margin:5px 0;
-        text-align:center;
-        display:block;
-    }
-    
-    .clip-button{
-        background-color:#FECE26;
-        color:#6D4D00;
-        font-size:40px;
-        text-decoration:none;
-        padding:0 10px;
-        margin:20px 0;
-        text-align:center;
-        border-radius:10px 10px 10px10px;
-        display:block;
-    }
-    .clip-button a:link{
-        text-decoration:none;
-        color : #000000;
-    }
-    .clip-button a:visited {
-        text-decoration:none; 
-        color : #000000;
-    }
-    .clip-button a:hover {
-        background-color:blue;
-    }
-    
-    .request-button-small{
-        background-color:#46639F;
-        color:#ffffff;
-        text-decoration:none;
-        padding:5px 5px;
-        margin:5px 0;
-        text-align:center;
-        display:block;
-    }
-    .tag-button{
-        background-color:#0099cc;
-        color:#ffffff;
-        margin:5px 0;
-        padding:5px;
-        display:inline-block;
-        font-size:40px;
-        border-radius:5px;
-    }
-    
-    
-    /********detail @show.html.erb ***********************/
-    
-    .detail-abstract{
-        padding:10px 10px 40px 10px;
-        height:auto;
-        background-color:#eee;
-    }
-    
-    /********detail @show.html.erb ***********************/
-    h3{
-        padding-top:20px;
-        border-top:solid #e0e0e0 1px;
-    }
-    
-    .content{
-        background-color:#F0F0F0;
-    }
-    
-    .topPagesBackground{
-        background-image:image-url("students.gif");
-        height:600px;
-        text-align:center;
-        color:white;
-        padding-top:200px;
-    }
 
 
 }
