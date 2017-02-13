@@ -1,4 +1,4 @@
-<div class="row" style="max-width:100%" >
+<div class="row">
     
     <div class="col-xs-12 col-sm-12 col-xs-12 profile" id="user_profile">
         <div class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>プロフィールを編集</div>
@@ -22,40 +22,43 @@
                 <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(','), "data-role" => "tagsinput", :placeholder => "統計学,教育,地方創生" %></div>
             <div class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> プロフィール</div>
                 <div><textarea name="user[bio]" class="form-control" placeholder="興味、経歴、どんな人に会いたいかなどを記入してください。(例)地方創生に興味があります。日本の貧困層の教育をい学ぶために、NPOで働いていました。今は卒業して、教育関係の会社で働いています。/大学3年生です。ジェンダー研究に興味があります。上野千鶴子が好きです。女性の格差問題に興味がある人はぜひコンタクトお願いします/" width="100%"><%=@user.bio%></textarea></div>
-            <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 専攻</h2>
-            <%= f.select :major,([
-            [""],
-            ["アメリカ研究 American Studies"],
-            ["文化人類学 Anthropology"],
-            ["アジア研究 Asian Studies"],
-            ["生物学 Biology"],
-            ["経営学 Business"],
-            ["化学 Chemistory"],
-            ["教育学 Education"],
-            ["経済学 Economics"],
-            ["環境学 Environmental Studies"],
-            ["グローバル研究 Global Studies"],
-            ["ジェンダー・セクシャリティー研究 Gender and Sexuality Studies"],
-            ["歴史学 History"],
-            ["国際関係学 International Relations"],
-            ["情報科学 Information Science"],
-            ["日本研究 Japan Studies"],
-            ["法学 Law"],
-            ["言語教育 Language Education"],
-            ["文学 Literatures"],
-            ["言語学 Linguistics"],
-            ["メディア・コミュニケーション・文化 Media, Communication, and Culture"],
-            ["数学 Mathematics"],
-            ["音楽 Music"],
-            ["平和研究 Peace Studies"],
-            ["哲学・宗教学 Philosophy and Religion"],
-            ["物理学 Physics"],
-            ["政治学 Politics"],
-            ["公共政策 Public Policy"],
-            ["心理学 Psychology"],
-            ["社会学 Sociology"],
-            ["その他 Else"],
-            ]) %>
+            <div class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 専攻</div>
+            <div>
+                <%= f.select :major,([
+                [""],
+                ["アメリカ研究 American Studies"],
+                ["文化人類学 Anthropology"],
+                ["アジア研究 Asian Studies"],
+                ["生物学 Biology"],
+                ["経営学 Business"],
+                ["化学 Chemistory"],
+                ["教育学 Education"],
+                ["経済学 Economics"],
+                ["環境学 Environmental Studies"],
+                ["グローバル研究 Global Studies"],
+                ["ジェンダー・セクシャリティー研究 Gender and Sexuality Studies"],
+                ["歴史学 History"],
+                ["国際関係学 International Relations"],
+                ["情報科学 Information Science"],
+                ["日本研究 Japan Studies"],
+                ["法学 Law"],
+                ["言語教育 Language Education"],
+                ["文学 Literatures"],
+                ["言語学 Linguistics"],
+                ["メディア・コミュニケーション・文化 Media, Communication, and Culture"],
+                ["数学 Mathematics"],
+                ["音楽 Music"],
+                ["平和研究 Peace Studies"],
+                ["哲学・宗教学 Philosophy and Religion"],
+                ["物理学 Physics"],
+                ["政治学 Politics"],
+                ["公共政策 Public Policy"],
+                ["心理学 Psychology"],
+                ["社会学 Sociology"],
+                ["その他 Else"],
+                class: "form-control"
+                ]) %>
+            </div>
             <h2 class="profile-header">卒業論文・論文名</h2>
                 <div><textarea name="user[thesisName]" class="form-control" placeholder="あなたの卒業論文、またあなたの関心をよく表す論文タイトルを入力してください(例)公教育と多様性：出稼ぎ労働者と職業選択について" width="100%"><%=@user.thesisName%></textarea></div>
             <h2 class="profile-header"><i class="fa fa-info-circle" aria-hidden="true"></i> 論文紹介</h2>
