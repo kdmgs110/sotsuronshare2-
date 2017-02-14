@@ -43,13 +43,12 @@
       </ul>
     </div> <!-- id = "nav-all" -->      
   </div> <!--row --> 
+  
 <!-- HEADER + NAVBAR AREA MOBILE--------------------------------------------------->
- 
-<nav class="navbar navbar-default mobile-show" id ="nav-all">
-	<div class="container-fluid">
-		<div class="navbar-header">
+<nav class="row navbar navbar-default navbar-fixed-top mobile-show" id ="nav-all">
+		<div class="navbar-header col-xs-12">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample">
-        <i class="fa fa-align-justify"></i>
+        <i class="fa fa-align-justify fa-3x"></i>
       </button>
 			<%= link_to "",users_path, :class => "navbar-brand" %>
 		</div>
@@ -68,7 +67,6 @@
         <% end %>  
 			</ul>
 		</div>
-	</div>
 </nav>
 
 
@@ -98,7 +96,7 @@
 <!-- NOTICE-BOX --------------------------------------------------->
 <!-- Added TAB-CONTENT AREA --------------------------------------------------->
   <div class="row tab-content">
-    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 tab-pane fade" role="tabpanel" id="search_box">
+    <div class="col-xs-12 col-sm-12 col-md-12 tab-pane fade" role="tabpanel" id="search_box">
       <%= search_form_for @q do |f| %>
             <!-- 卒業したかを選ぶタグ-->
             <div>卒業：<%= f.select :graduate_cont,([
