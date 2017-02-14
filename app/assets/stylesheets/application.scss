@@ -297,10 +297,9 @@ h3{
     body{
         background-color:#e9ebee;
         overflow-x:hidden;
-        
     }
     *{
-        font-size:40px;
+        font-size:20px;
     }
 
     /* ***************** HEADER + NAVBAR ******************/
@@ -310,10 +309,10 @@ h3{
     }
 
     .navbar-brand{
-        height:120px;
-        width:180px;
-        background-size:auto;
-        background-image:image_url("sotsuronshare.png");
+        height:60px;
+        width:100px;
+        background-size:100%;
+        background-image:image_url("sotsuronshare.png") 
     }
     .non-mobile-show{
         display:none;

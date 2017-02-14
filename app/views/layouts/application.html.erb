@@ -46,30 +46,31 @@
   </div> <!--row --> 
   
 <!-- HEADER + NAVBAR AREA MOBILE--------------------------------------------------->
-<nav class="row navbar navbar-default navbar-fixed-top mobile-show" id ="nav-all">
-		<div class="navbar-header col-xs-12">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample">
-        <i class="fa fa-align-justify"></i>
-      </button>
-			<%= link_to "",users_path, :class => "navbar-brand" %>
-		</div>
-		
-		<div class="collapse navbar-collapse" id="navbarEexample">
-			<ul class="nav navbar-nav">
-			  <% if current_user %>
-				  <li><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
-  				<li><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i>検索</a></li>
-  				<li><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>クリップ<% end %></li>
-          <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクト<% end %></li>
-          <li><%= link_to "プロフィール",edit_user_path(current_user.id) %></li>
-          <li><%= link_to "ログアウト", logout_path %></li>
-        <% else %>
-          <li role="presentation"><%= link_to "ログイン", login_path %></li>
-        <% end %>  
-			</ul>
-		</div>
-</nav>
-
+  <div class="row">
+    <nav class="navbar navbar-default navbar-fixed-top mobile-show" id ="nav-all">
+  		<div class="navbar-header col-xs-12">
+  			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample">
+          <i class="fa fa-align-justify"></i>
+        </button>
+  			<%= link_to "",users_path, :class => "navbar-brand" %>
+  		</div>
+  		
+  		<div class="collapse navbar-collapse" id="navbarEexample">
+  			<ul class="nav navbar-nav">
+  			  <% if current_user %>
+  				  <li><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
+    				<li><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i>検索</a></li>
+    				<li><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>クリップ<% end %></li>
+            <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクト<% end %></li>
+            <li><%= link_to "プロフィール",edit_user_path(current_user.id) %></li>
+            <li><%= link_to "ログアウト", logout_path %></li>
+          <% else %>
+            <li role="presentation"><%= link_to "ログイン", login_path %></li>
+          <% end %>  
+  			</ul>
+  		</div>
+    </nav>
+  </div>
 
   
 <!-- HEADER + NAVBAR AREA MOBILE--------------------------------------------------->
