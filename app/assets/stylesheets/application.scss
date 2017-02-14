@@ -304,7 +304,6 @@ h3{
 
     /* ***************** HEADER + NAVBAR ******************/
     .navbar{
-        max-height:auto;
         font-size:30px;
         text-decoration:none;
     }
@@ -328,13 +327,10 @@ h3{
     }
 
     .xs-dropdown{
-        margin-left:30px;
-        font-size:80px;
-        width:300px;
+        font-size:30px;
         float:right;
     }
     .dropdown-menu{
-        height:600px;
         overflow-x: hidden;
     }
   
