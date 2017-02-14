@@ -53,7 +53,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  mount PdfjsViewer::Rails::Engine => "/pdfjs", as: 'pdfjs'
   
   root "static_pages#home"
   
