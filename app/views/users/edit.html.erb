@@ -1,20 +1,23 @@
 <div class="row">
     
-    <div class="col-xs-12 col-sm-12 col-xs-12 profile" id="user_profile">
+    <div class="col-xs-12 col-sm-12 col-md-12 profile" id="user_profile">
         <div class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>プロフィールを編集</div>
            <div >
                <p>あなたに興味を持った人が連絡してくれるように、あなたの名前、専攻、興味をほかの人に紹介しましょう。</p>
            </div> 
     </div>
     
-    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 profile" id="user_profile">
+    <div class="col-xs-12 col-sm-12 col-md-12 profile" id="user_profile">
         <div class="form-group">
         <%= form_for(@user, :html => {:class => "form"})do |f| %>
-            <span class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden></span> ユーザー名
+            <span class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden></span> ユーザー名 *
+                <p>ユーザー名を記入してください。この名前がほかのユーザーに表示されます。後から変更できます。</p>
                 <textarea name="user[username]" class="form-control form" placeholder="ユーザー名を入力してください。後でいつでも変更することができます。" width="100%"><%=@user.username%></textarea></div>
-            <div class="profile-header"><i class="fa fa-envelope-open" aria-hidden="true"></i> メールアドレス</div>
+            <div class="profile-header"><i class="fa fa-envelope-open" aria-hidden="true"></i> メールアドレス *</div>
+                <p>メールアドレスを記入してください。コンタクトリクエストの送受信ができるようになります。</p>
                 <div><textarea name="user[email]" class="form-control form" placeholder="メールアドレスを入力すると、コンタクトリクエストが送れるようになります。emailアドレスが公開されることはありません。" width="100%"><%=@user.email%></textarea></div>
             <div class="profile-header"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"><span>ステータス</div>
+                <p>大学を卒業したから、在学中、それ未満かを教えてください。</p>
                 <div><%= f.select :graduate,([
                     [""],
                     ["卒業済み"],
@@ -22,11 +25,14 @@
                     :class => "form"
                     ]) %>
                 </div>
-            <div class="profile-header">関心タグ（半角カンマ区切り）</div>
+            <div class="profile-header">関心タグ（半角カンマ区切り）*</div>
+                <p>あなたの関心のあるテーマを<半角カンマ区切りで>記入してください。(例)教育,開発</p>
                 <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(','), "data-role" => "tagsinput", :placeholder => "統計学,教育", :class =>"form" %></div>
             <div class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> プロフィール</div>
+                <p>あなたのプロフィールを記入してください。あなたの特徴、どんな人に会いたいか、どんな人の助けになりたいかを記入してください。</p>
                 <div><textarea name="user[bio]" class="form-control form col-xs-12" placeholder= "興味、経歴、どんな人に会いたいかなどを記入してください。(例)地方創生に興味があります。日本の貧困層の教育をい学ぶために、NPOで働いていました。今は卒業して、教育関係の会社で働いています。大学3年生です。ジェンダー研究に興味があります。上野千鶴子が好きです。女性の格差問題に興味がある人はぜひコンタクトお願いします" width="100% "><%= @user.bio %></textarea></div>
-            <div class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 専攻</div>
+            <div class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 専攻 *</div>
+                <p>あなたの専攻を記入してください。複数ある場合は、一つだけ選んでください。</p>
             <div>
                 <%= f.select :major,([
                 [""],
@@ -59,24 +65,27 @@
                 ["公共政策 Public Policy"],
                 ["心理学 Psychology"],
                 ["社会学 Sociology"],
-                ["その他 Else"],
-                class: "col-xs-12 form"
+                ["その他 Else"]
                 ]) %>
             </div>
             <h2 class="profile-header">卒業論文・論文名</h2>
+                <p>あなたの興味を表すような論文、卒業論文の名前を教えてください。</p>
                 <div><textarea name="user[thesisName]" class="form-control form" placeholder="あなたの卒業論文、またあなたの関心をよく表す論文タイトルを入力してください(例)公教育と多様性：出稼ぎ労働者と職業選択について" width="100%"><%=@user.thesisName%></textarea></div>
             <h2 class="profile-header"><i class="fa fa-info-circle" aria-hidden="true"></i> 論文紹介</h2>
                 <div><textarea name="user[abstract]" class="form-control form" placeholder="論文について、まとめ、なぜ書いたか等紹介してください（例）高校生のころ、自分の頭で考えて学校の先生の話を鵜呑みにせず、やるべきことを考えて欠席遅刻する生徒ほど、いい大学に合格する様子を見て、これって塾がなんらかの悪影響を与えてたら面白いんじゃないかなって思って書きました。結局、統計分析したら、偏差値高いほうが内職するって結果になったので面白かったです。" width="100%"><%=@user.abstract%></textarea></div>
+            <h2 class="profile-header"><i class="fa fa-paperclip" aria-hidden="true"></i>論文ファイル</h2><small>PDFファイルのみ対応しています。WordのPDF化は下のノートを確認してください。</small>
+                <p>あなたの論文・卒業論文をPDF形式でアップロードしてください。</p>
+                <%= f.file_field :attachment %>
+            <h2 class="profile-header"><input type="submit" value="送信する" class="btn btn-primary btn-lg btn-block"/></h2>
+            
             </div>
             
             
-            <h2 class="profile-header"><i class="fa fa-paperclip" aria-hidden="true"></i>論文ファイル</h2><small>PDFファイルのみ対応しています。WordのPDF化は下のノートを確認してください。</small>
-                <%= f.file_field :attachment %>
-            <h2 class="profile-header"><input type="submit" value="送信する" class="btn btn-primary btn-lg btn-block"/></h2>
+            
         <% end %>
     </div>
     
-    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12 profile" id="user_profile">
+    <div class="col-xs-12 col-sm-12 col-md-12 profile" id="user_profile">
         <h2 class="profile-header">WordファイルをPDFにする場合</h2>
             <ul>
                 <li>「PDF」形式で保存したいファイルを開き、「ファイル」タブをクリック</li>
