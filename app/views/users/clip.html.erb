@@ -1,18 +1,19 @@
 <div class="row">
 
-  <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 profile" id="user_profile">
+  <div class="col-xs-12 col-md-12  col-sm-12  profile" id="user_profile">
       <h2 class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>クリップした論文</h2>
   </div>
   
 </div>
-<div class="row" style="margin:10px;">
+
+<div class="row" >
 <% @user.each do |user| %>
-  <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 profile" id="user_profile"> <!-- User Profile ----------------------------->
-          <div class ="col-sm-12 col-md-12"> <!-- 論文のタイトル -->
+  <div class="col-xs-12 col-sm-12  col-md-10 col-md-offset-1 profile" id="user_profile"> <!-- User Profile ----------------------------->
+          <div class ="col-xs-12 col-sm-12 col-md-12"> <!-- 論文のタイトル -->
             <h2 class="profile-header"><%= link_to user.thesisName,user_path(user), class:"profile-header" %></h2>
           </div>
           
-          <div class="col-sm-3 col-md-3" > <!-- ユーザーの属性 -->
+          <div class="col-xs-12 col-sm-12 col-md-3" > <!-- ユーザーの属性 -->
             <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= user.major %></div>
             <div class="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span> <%=user.username %></div>
             <div class="profile-left"><i class="fa fa-paperclip" aria-hidden="true"></i> <%= user.get_upvotes.size %>クリップ</div>
@@ -21,7 +22,7 @@
             <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", users_path(user), method: :post %></div>
           </div>
           
-          <div class="col-sm-9 col-md-9" id="profile-abstract"> <!-- 論文/興味のabstract -->
+          <div class="col-xs-12 col-sm-12 col-md-9" id="profile-abstract"> <!-- 論文/興味のabstract -->
             <div class="profile-right">
                 <div style="text-align:center;border-bottom:1px solid #606060 ;color:#00B0BC;font-size:26px"><i class="fa fa-info-circle" aria-hidden="true"></i>この論文について</div>
                 <div style="padding:20px"><%= user.abstract %></div>
