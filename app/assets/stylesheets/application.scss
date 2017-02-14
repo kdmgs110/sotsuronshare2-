@@ -304,12 +304,13 @@ h3{
     }
 
     /* ***************** HEADER + NAVBAR ******************/
-    .nav{
+    .navbar{
         max-height:auto;
+        background-color:#00B0BC;
+        font-size:30px;
+        text-decoration:none;
     }
-    #nav-all{
-        max-height:auto;
-    }
+    
     .navbar-brand{
         height:180px;
         width:240px;

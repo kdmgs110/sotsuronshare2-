@@ -44,13 +44,41 @@
     </div> <!-- id = "nav-all" -->      
   </div> <!--row --> 
 <!-- HEADER + NAVBAR AREA MOBILE--------------------------------------------------->
+ 
+<nav class="navbar navbar-default mobile-show" id ="nav-all">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample">
+        <i class="fa fa-align-justify"></i>
+      </button>
+			<%= link_to "",users_path, :class => "navbar-brand" %>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="navbarEexample">
+			<ul class="nav navbar-nav">
+			  <% if current_user %>
+				  <li><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
+  				<li><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i>検索</a></li>
+  				<li><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>クリップ<% end %></li>
+          <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクト<% end %></li>
+          <li><%= link_to "プロフィール",edit_user_path(current_user.id) %></li>
+          <li><%= link_to "ログアウト", logout_path %></li>
+        <% else %>
+          <li role="presentation"><%= link_to "ログイン", login_path %></li>
+        <% end %>  
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<!-------------------------------------------------
   
   <div class="row mobile-show">
     <div class="col-xs-12 navbar-fixed-top" id="nav-all" style="border-bottom:0px">
       <ul class="nav nav-tabs" style="border-bottom:0px">
           <li role="presentation"><%= link_to "",users_path, :class => "navbar-brand" %></li>
         <% if current_user %>
-          <li role="presentation" class="dropdown xs-dropdown" style="float:right"><a class="dropdown-toggle xs-dropdown" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" ><i class="fa fa-align-justify"></i></a>
+          <li role="presentation" class="dropdown xs-dropdown" style="float:right"><a class="dropdown-toggle xs-dropdown" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" ></a>
             <ul class="dropdown-menu left col-xs-12 col-sm-12">
               <li><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
               <li><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i>検索</a></li>
@@ -64,8 +92,9 @@
         <% end %>  
       </ul>
     </div> <!-- id = "nav-all" -->      
-  </div> <!--row -->  <!-- HEADER + NAVBAR AREA  NON MOBILE--------------------------------------------------->
-  
+  </div> <!--row -->  <!-- HEADER + NAVBAR AREA  NON MOBILE
+
+------------------------------------------------------------------------------------------------>
   
 <!-- HEADER + NAVBAR AREA MOBILE--------------------------------------------------->
 
