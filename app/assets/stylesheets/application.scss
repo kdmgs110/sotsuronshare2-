@@ -56,6 +56,14 @@ body{
 #nav-all ul li{
     text-decoration:none;
 }
+.navbar-brand{
+    background-image:image_url("sotsuronshare.png");
+    background-size:100%;
+    background-repeat:no-repeat;
+    height:80px;
+    width:100px;
+    padding-top:10px;
+}
 /* ***************** HOME lp1 ******************/
 .green{
     color:#00B0BC;

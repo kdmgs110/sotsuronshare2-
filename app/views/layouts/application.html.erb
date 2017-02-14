@@ -26,7 +26,7 @@
 
   <div class="row non-mobile-show">
     <div class="col-ms-12 col-md-12 navbar-fixed-top" id="nav-all" style="border-bottom:0px">
-      <%= link_to image_tag('sotsuronshare.png', { :size =>"120x120", :class => "navbar-brand"}), users_path %></a>
+      <%= link_to "", users_path, :class => "navbar-brand" %>
       <ul class="nav nav-tabs navbar-right" style="border-bottom:0px">
         <% if current_user %>
           <li role="presentation"><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
@@ -58,11 +58,13 @@
   		<div class="collapse navbar-collapse" id="navbarEexample">
   			<ul class="nav navbar-nav">
   			  <% if current_user %>
-  				  <li><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
-    				<li><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i>検索</a></li>
-    				<li><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>クリップ<% end %></li>
-            <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクト<% end %></li>
-            <li><%= link_to "プロフィール",edit_user_path(current_user.id) %></li>
+  				  
+    				<li><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i>論文を検索</a></li>
+    				<li><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>クリップした論文を表示<% end %></li>
+            <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクトリストを表示<% end %></li>
+            <li><%= current_user.username %>さん</li>
+            <li><%= link_to user_path(current_user) do%>プロフィールを表示<% end %></li>
+            <li><%= link_to edit_user_path(current_user.id) do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>プロフィールを編集<% end %></li>
             <li><%= link_to "ログアウト", logout_path %></li>
           <% else %>
             <li role="presentation"><%= link_to "ログイン", login_path %></li>
