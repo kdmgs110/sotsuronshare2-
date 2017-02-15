@@ -30,8 +30,7 @@
       <ul class="nav nav-tabs navbar-right" style="border-bottom:0px">
         <% if current_user %>
           <li role="presentation"><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
-          <li role="presentation"><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i>検索</a></li>
-          <li role="presentation"><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>クリップ<% end %></li>
+    			<li><a data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-search" aria-hidden="true"></i>論文を検索</a></li>          <li role="presentation"><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>クリップ<% end %></li>
           <li role="presentation"><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクト<% end %></li>
           <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i>設定</a>
             <ul class="dropdown-menu col-xs-12">
@@ -59,7 +58,7 @@
   			<ul class="nav navbar-nav">
   			  <% if current_user %>
   				  
-    				<li><a href="#search_box" data-toggle="tab" aria-controls="search_box" role="tab"><i class="fa fa-search" aria-hidden="true"></i>論文を検索</a></li>
+    				<li><a data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-search" aria-hidden="true"></i>論文を検索</a></li>
     				<li><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>クリップした論文を表示<% end %></li>
             <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクトリストを表示<% end %></li>
             <li><%= current_user.username %>さん</li>
@@ -98,58 +97,81 @@
   </div>
 <% end %>
 <!-- NOTICE-BOX --------------------------------------------------->
-<!-- Added TAB-CONTENT AREA --------------------------------------------------->
-  <div class="row tab-content">
-    <div class="col-xs-12 col-sm-12 col-md-12 tab-pane fade" role="tabpanel" id="search_box">
-      <%= search_form_for @q do |f| %>
-            <!-- 卒業したかを選ぶタグ-->
-            <div>卒業：<%= f.select :graduate_cont,([
+<!-- Modal Box --------------------------------------------------->
+
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">検索</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <%= search_form_for @q do |f| %>
+            <div>卒業：</div>
+            <div><%= f.select :graduate_cont,([
               [""],
               ["卒業済み"],
               ["学部生"]
             ])%>
             </div>
             <!-- メジャーを選ぶタグ-->
-            <div>専攻：
-            <%= f.select :major_cont,([
+            <div>専攻：</div>
+            <div><%= f.select :major_cont,([
                   [""],
-                  ["アメリカ研究 American Studies"],
-                  ["文化人類学 Anthropology"],
-                  ["アジア研究 Asian Studies"],
-                  ["生物学 Biology"],
-                  ["経営学 Business"],
-                  ["比較教育 Comperative Education"],
-                  ["化学 Chemistory"],
-                  ["教育学 Education"],
-                  ["教育・メディア・社会 Education, Media, and Society"],
-                  ["環境学 Environmental Studies"],
-                  ["グローバル研究 Global Studies"],
-                  ["ジェンダー・セクシャリティー研究 Gender and Sexuality Studies"],
-                  ["歴史学 History"],
-                  ["国際関係学 International Relations"],
-                  ["情報科学 Information Science"],
-                  ["日本研究 Japan Studies"],
-                  ["法学 Law"],
-                  ["言語教育 Language Education"],
-                  ["文学 Literatures"],
-                  ["言語学 Linguistics"],
-                  ["メディア・コミュニケーション・文化 Media, Communication, and Culture"],
-                  ["数学 Mathematics"],
-                  ["音楽 Music"],
-                  ["音楽 Music"],
-                  ["平和研究 Peace Studies"],
-                  ["哲学・宗教学 Philosophy and Religion"],
-                  ["物理学 Physics"],
-                  ["政治学 Politics"],
-                  ["公共政策 Public Policy"],
-                  ["心理学 Psychology"],
+                  ["アメリカ研究"],
+                  ["文化人類学"],
+                  ["アジア研究"],
+                  ["生物学"],
+                  ["経営学"],
+                  ["比較教育"],
+                  ["化学"],
+                  ["教育学"],
+                  ["環境学"],
+                  ["グローバル研究"],
+                  ["ジェンダー・セクシャリティー研究"],
+                  ["歴史学"],
+                  ["国際関係学"],
+                  ["情報科学"],
+                  ["日本研究"],
+                  ["法学"],
+                  ["言語教育"],
+                  ["文学"],
+                  ["言語学"],
+                  ["メディア・コミュニケーション・文化"],
+                  ["数学"],
+                  ["音楽"],
+                  ["平和研究"],
+                  ["哲学・宗教学"],
+                  ["物理学"],
+                  ["政治学"],
+                  ["公共政策"],
+                  ["心理学"]
                   ]) %>
-            </div>
-              <%= f.submit %></li>
-          <% end %>
-    </div> <!-- search_box -->
-  </div> <!-- row tab-content-->
+            </div><!-- form group -->
+          </div><!-- form group -->
+    </div><!-- modal body -->
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        <%= f.submit "検索", :class =>"btn btn-primary" %>
+  </form>
+        <% end %>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+      
 <%= yield %>
-<div><!--container -->
+</div><!--container -->
 </body>
 </html>
