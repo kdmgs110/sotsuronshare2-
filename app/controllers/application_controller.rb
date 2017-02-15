@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
      @following = @users.all_following
      @followers = @users.followers
      @mutualfriends = @following & @followers
+     @current_user_following = current_user.all_following 
+     @current_user_followers = current_user.followers
+     @currentuser_sending = @current_user_following-@current_user_followers
   end
   
   # Prevent CSRF attacks by raising an exception.
