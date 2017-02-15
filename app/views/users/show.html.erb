@@ -11,6 +11,9 @@
                 <% end %>
             <% if @user.attachment.present? %>
                 <div class="profile-left pdf-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to asset_path(@user.attachment) do %>PDFを見る<% end %></div>
+            <% else %>
+                <p>このユーザーはまだ論文をアップロードしていません</p>
+                
             <% end %>
             <!---------------------もしクリップしていれば、クリップを外し、クリップしていなければクリップを追加する------------------------------>
                   <div class="profile-left clip-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to" クリップする",like_user_path(@user),method: :put %></div>
@@ -48,16 +51,3 @@
           </div>
     </div>
 </div>
-     
-    <div class="row" style="margin-top:40px non-mobile-show">
-             <div class ="col-sm-12 col-xs-12 col-md-10 col-md-offset-1">
-                <% if @user.attachment.present? %>
-                <iframe src=<%= @user.attachment %> style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
-                <% else %>
-                <p>このユーザーはまだ論文をアップロードしていません。</p>
-                <% end %>
-             </div>
-    </div>
-    
-</div>
-             
