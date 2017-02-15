@@ -22,9 +22,16 @@
                 <% user.interest_list.each do |tag| %>
                     <span class="tag-button"><%= tag %></span>
                 <% end %>
+            <% if user.attachment.present? %>
+                <div class="profile-left pdf-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to asset_path(user.attachment) do %>PDFを見る<% end %></div>
+            <% else %>
+                <p>このユーザーはまだ論文をアップロードしていません</p>
+                
+            <% end %>
             <!--- USERがPDFを持っていたら、PDFへのリンクをはる -->
         
           </div>
          </div>
     <% end %>
+<% end %>
 </div>
