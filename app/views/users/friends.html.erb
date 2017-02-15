@@ -38,9 +38,9 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="user_profile" > <!--ここに、共通の友人一覧を表示-->
         <div class="profile-header" style="text-align:center;padding:20px 0">送信済みコンタクトリクエスト</div>
-                <% if @current_user_following.present? %>
-                    <h2 class="profile-header"><%= @current_user_following.count%>人にコンタクトリクエストを送っています</h2>
-                    <% @current_user_following.each do |user| %>
+                <% if @currentuser_sending.present? %>
+                    <h2 class="profile-header"><%= @currentuser_sending.count%>人にコンタクトリクエストを送っています</h2>
+                    <% @currentuser_sending.each do |user| %>
                         <div class="profile-left"><%= user.username %></div>
                         <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= user.major %></div>
                         <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span> <%=user.graduate %></div>

@@ -35,9 +35,6 @@ before_action :correct_user, only: [:edit, :update]
   
   def edit
     @user = User.find(params[:id])
-    if @user.save
-      flash[:notice] = "#{@user.username}さんのプロフィールを編集しました。"
-    end
   end  
   
   def update
@@ -45,7 +42,7 @@ before_action :correct_user, only: [:edit, :update]
     if @user.update_attributes(user_params)
       redirect_to user_path(@user.id)
     else
-      render 'edit'
+      render 'edit',notice:'#{current_user.username}さんのプロフィールを編集しました'
     end
   end
   
@@ -56,11 +53,14 @@ before_action :correct_user, only: [:edit, :update]
   def friends
    @users = User.find(params[:id])
    @current_user = current_user
-   @current_user_following = current_user.all_following
+   @current_user_following = current_user.all_following 
+   @current_user_followers = current_user.followers
    @following = @users.all_following
    @followers = @users.followers
    @mutualfriends = @following & @followers
    @pendingfriends = @followers - @following
+   @sendingfriends = @following - @followers
+   @currentuser_sending = @current_user_following-@current_user_followers
    #@accept = current_user.accept_request(@user)
   end
   

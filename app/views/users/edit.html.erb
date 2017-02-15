@@ -27,7 +27,7 @@
                 </div>
             <div class="profile-header">関心タグ（半角カンマ区切り）*</div>
                 <p>あなたの関心のあるテーマを<半角カンマ区切りで>記入してください。(例)教育,開発</p>
-                <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(','), "data-role" => "tagsinput", :placeholder => "統計学,教育", :class =>"form" %></div>
+                <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(',' || '、'), "data-role" => "tagsinput", :placeholder => "統計学,教育", :class =>"form" %></div>
             <div class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> プロフィール</div>
                 <p>あなたのプロフィールを記入してください。あなたの特徴、どんな人に会いたいか、どんな人の助けになりたいかを記入してください。</p>
                 <div><textarea name="user[bio]" class="form-control form col-xs-12" placeholder= "興味、経歴、どんな人に会いたいかなどを記入してください。(例)地方創生に興味があります。日本の貧困層の教育をい学ぶために、NPOで働いていました。今は卒業して、教育関係の会社で働いています。大学3年生です。ジェンダー研究に興味があります。上野千鶴子が好きです。女性の格差問題に興味がある人はぜひコンタクトお願いします" width="100% "><%= @user.bio %></textarea></div>
