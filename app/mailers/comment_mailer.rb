@@ -7,11 +7,11 @@ class CommentMailer < ApplicationMailer
         @name = user.username #ここはメールで使う
         @username = user.username
         @current_username = current_user.username
-        mail to: @email, subject: "【卒論Share】#{@current_username}さんからコンタクトリクエストが届きました"
+        mail to: @email, subject: "【卒論Share】#{@current_username}さんがあなたのプロフィールにコメントしました。"
     end
     
     def approve_request(user,current_user)
        @email = user.email
-       mail to: @email, subject:'【卒論Share】コンタクトリクエストが承認されました' 
+       mail to: @email, subject:'【卒論Share】】#{@current_username}さんがあなたのプロフィールにコメントしました。' 
     end
 end
