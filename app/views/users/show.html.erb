@@ -76,7 +76,7 @@
                 <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>コメント(<%=@comments.count%> )</div>
                     <% @comments.each do |comment| %>
                     <div class="comment-body">
-                        <div><%= link_to current_user.username, user_path(current_user), :style => "color:#00B0BC;" %> <%= distance_of_time_in_words_to_now(comment.created_at) %>ago</div>
+                        <div><%= link_to current_user.username, user_path(current_user), :style => "color:#00B0BC;" %><small><%= distance_of_time_in_words_to_now(comment.created_at) %>前</small></div>
                         <div class="comment-content"><%= comment.text%></div>
     <!---<%#<div><%= link_to "削除",user_comment_path(@user.id,comment.user_id), method: :delete %></div> %>---->
                     </div>
