@@ -24,7 +24,16 @@ before_action :correct_user, only: [:edit, :update]
   end
   
   def show
+    #@user = User.find(params[:id])
+   @user = User.find(params[:id])
+   @comments = @user.comments.order("created_at desc")
+   @comment  = @user.comments.build(user_id: @user.id)
+
+  end
+  
+  def new 
     @user = User.find(params[:id])
+    
   end
   
   def create

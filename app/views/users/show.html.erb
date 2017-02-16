@@ -56,5 +56,36 @@
             </div>
             
           </div>
+<!---------------------------------------コメント機能---------------------------------------------------------------------->
+<!---------------------------------------コメント送信---------------------------------------------------------------------->
+
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-xs-12" id="profile-abstract"> 
+            
+            <div class="profile-left">
+                <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>コメントする</div>
+
+                <%= form_for [@user, @comment]  do |f| %>
+                  <%= f.text_area :text, :style => "width:100%;" %>
+                  <%= f.submit 'コメントを送信する', :class =>"btn btn-primary" %>
+                <% end %>
+            </div>
+<!---------------------------------------コメント表示---------------------------------------------------------------------->
+            
+            <div class="profile-left">
+                <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>コメント(<%=@comments.count%> )</div>
+                    <% @comments.each do |comment| %>
+                    <div class="comment-body">
+                        <div><%= link_to current_user.username, user_path(current_user), :style => "color:#00B0BC;" %> <%= distance_of_time_in_words_to_now(comment.created_at) %>ago</div>
+                        <div class="comment-content"><%= comment.text%></div>
+    <!---<%#<div><%= link_to "削除",user_comment_path(@user.id,comment.user_id), method: :delete %></div> %>---->
+                    </div>
+                    <% end %>
+                </div>
+            
+            </div>
+          
+<!---------------------------------------コメント機能---------------------------------------------------------------------->
+          
     </div>
 </div>
