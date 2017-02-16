@@ -19,8 +19,11 @@
                   <div class="profile-left clip-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to" クリップする",like_user_path(@user),method: :put %></div>
             <!---------------------もし自分であれば表示しない------------------------------>
             <% if @user != current_user %>
-            <!---------------------フォローするユーザーのemailが存在 -------->
-                <% if @user.email.present? & current_user.email.present? %> 
+            <!---------------------フォローするユーザーのemailが存在する場合 -------->
+            <!---------------------自分のメールアドレス、ユーザ名が存在する場合 -------->
+              <% if current_user.email.present? & current_user.username.present? %>
+            
+                <% if @user.email.present?%> 
             <!-----------------フォローするユーザーにまだフォローしていない場合は、コンタクト申請を送る------------------------------>
                     <% if !(current_user.following?(@user)) %>
                         <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", follow_user_path(@user),:style =>"color:white;" %></div>
@@ -28,10 +31,14 @@
                     <% else %>
                         <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクト可能</div>
                     <% end %>
-            <!-----------------メールアドレスが未登録の場合、メールアドレスが登録されていないと表示する------------------------------>
+            <!-----------------フォローするユーザーのメールアドレスが未登録の場合、メールアドレスが登録されていないと表示する------------------------------>
                 <% else %>
                     <div class="profile-left"><i class="fa fa-user-plus" aria-hidden="true"></i>メールアドレスが登録されていません</div>
                 <% end %>
+              <!---------------------自分のメールアドレス、ユーザ名が存在しない場合、自分のプロフィールを編集するようにリンクを張る。 -------->
+              <% else %>
+                  <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to 'コンタクトリクエストが送れるよう、自分のプロフィールを編集しましょう。', edit_user_path(current_user),:style => "color:white" %></div>
+              <% end %>
             <% end %>
           </div>
           
