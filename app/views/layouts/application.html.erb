@@ -30,11 +30,11 @@
       <ul class="nav nav-tabs navbar-right" style="border-bottom:0px">
         <% if current_user %>
           <li role="presentation"><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
+          <li role ="presentation"></i><%= link_to edit_user_path(current_user.id) do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>プロフィールを編集<% end %></li>
     			<li><a data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-search" aria-hidden="true"></i>論文を検索</a></li>          <li role="presentation"><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>クリップ<% end %></li>
           <li role="presentation"><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクト<% end %></li>
           <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i>設定</a>
             <ul class="dropdown-menu col-xs-12">
-              <li><%= link_to "プロフィール",edit_user_path(current_user.id) %></li>
               <li><%= link_to "ログアウト", logout_path %></li>
             </ul>
         <% else %>
