@@ -12,7 +12,7 @@ before_action :correct_user, only: [:edit, :update]
   
   def index
     @q        = User.search(params[:q])
-    @products = @q.result(distinct: true).order("created_at desc")
+    @products = @q.result(distinct: true)
     case
       when current_user.username.nil?
         then flash[:notice] = "プロフィールを編集しましょう。メールアドレスを入力すると、コンタクト申請を送れるようになります"
@@ -26,8 +26,8 @@ before_action :correct_user, only: [:edit, :update]
   def show
     #@user = User.find(params[:id])
    @user = User.find(params[:id])
-   @comments = @user.comments.order("created_at desc")
-   @comment  = @user.comments.build(user_id: current_user.id)
+   @comments = @user.comments.all
+   @comment  = @user.comments.build(user_id: current_user.id) 
 
   end
   
@@ -37,17 +37,9 @@ before_action :correct_user, only: [:edit, :update]
   end
   
   def create
-    @user = User.create(params[:user_id])
-    @comments = @users.comments.create(comment_params.merge(user_id: current_user.id))
-      if @comments.valid?
-        CommentMailer.send_email(@users,current_user).deliver_now
-        redirect_to user_path(@users),notice: "コメントを送信しました"
-      else
-        render :new, status: :unprocessable_entity
-      end
+    @user = User.create(params[:id])
     @user = current_user.follow(@user)
     redirect_to users_path
-    
   end
   
   def edit

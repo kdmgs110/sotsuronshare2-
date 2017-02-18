@@ -9,6 +9,7 @@
                 <% @user.interest_list.each do |tag| %>
                     <span class="tag-button"><%= tag %></span>
                 <% end %>
+            <div class="profile-left twitter-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-via="sotsuronshare" data-lang="ja" data-size="large" data-dnt="true">Twitterで共有する</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
             <% if @user.attachment.present? %>
                 <div class="profile-left pdf-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to asset_path(@user.attachment) do %>PDFを見る<% end %></div>
             <% else %>
@@ -55,7 +56,7 @@
                 <div style="padding:20px"><%= @user.abstract %></div>
             </div>
             
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="sotsuronshare" data-lang="ja" data-size="large" data-dnt="true">Twitterで共有する</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            
           </div>
 <!---------------------------------------コメント機能---------------------------------------------------------------------->
 <!---------------------------------------コメント送信---------------------------------------------------------------------->
@@ -67,7 +68,7 @@
                 <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>コメントする</div>
 
                 <%= form_for [@user, @comment]  do |f| %>
-                  <%= f.text_area :text, :style => "width:100%;" %>
+                  <%= f.text_area :text, :style => "width:100%;", :placeholder => "ここにコメントを記入できます" %>
                   <%= f.submit 'コメントを送信する', :class =>"btn btn-primary" %>
                 <% end %>
             </div>
