@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     def create
         
       @users = User.find(params[:user_id])
-      @comments = @user.comments.create(comment_params.merge(user_id: current_user.id))
+      @comments = @users.comments.create(comment_params.merge(user_id: current_user.id))
       if @comments.valid?
         CommentMailer.send_email(@users,current_user).deliver_now
         redirect_to user_path(@users),notice: "コメントを送信しました"

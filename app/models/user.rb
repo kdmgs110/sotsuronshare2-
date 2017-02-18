@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   acts_as_ordered_taggable_on :interests
   #http://ruby-rails.hatenadiary.com/entry/20150225/1424858414
   
+  #ポリもーふぃずむがわかんないからgem頼り
+  acts_as_commentable
+  
   acts_as_voter
   acts_as_votable
   

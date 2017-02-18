@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'acts_as_commentable'
 #タグ機能
 gem 'acts-as-taggable-on', '~> 3.4'
 #入力用意にする
 gem 'bootstrap-tagsinput-rails'
 #friends
 gem 'has_friendship'
-
 #Follow
 
 gem 'acts_as_follower'

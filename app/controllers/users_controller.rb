@@ -37,9 +37,17 @@ before_action :correct_user, only: [:edit, :update]
   end
   
   def create
-    @user = User.create(params[:id])
+    @user = User.create(params[:user_id])
+    @comments = @users.comments.create(comment_params.merge(user_id: current_user.id))
+      if @comments.valid?
+        CommentMailer.send_email(@users,current_user).deliver_now
+        redirect_to user_path(@users),notice: "コメントを送信しました"
+      else
+        render :new, status: :unprocessable_entity
+      end
     @user = current_user.follow(@user)
     redirect_to users_path
+    
   end
   
   def edit
