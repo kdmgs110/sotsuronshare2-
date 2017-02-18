@@ -12,7 +12,7 @@ before_action :correct_user, only: [:edit, :update]
   
   def index
     @q        = User.search(params[:q])
-    @products = @q.result(distinct: true)
+    @products = @q.result(distinct: true).order("created_at desc")
     case
       when current_user.username.nil?
         then flash[:notice] = "プロフィールを編集しましょう。メールアドレスを入力すると、コンタクト申請を送れるようになります"
@@ -27,7 +27,7 @@ before_action :correct_user, only: [:edit, :update]
     #@user = User.find(params[:id])
    @user = User.find(params[:id])
    @comments = @user.comments.order("created_at desc")
-   @comment  = @user.comments.build(user_id: @user.id)
+   @comment  = @user.comments.build(user_id: current_user.id)
 
   end
   
