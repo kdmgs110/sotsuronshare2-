@@ -66,6 +66,7 @@ Rails.application.routes.draw do
   get 'users/:id/edit', to: "users#edit", as: "edit_user"
   patch 'users/:id', to: "users#update"
   
+  
   resources :users do
     resources :upvotes, only: :create
     resources :downvotes, only: :create
@@ -85,4 +86,17 @@ Rails.application.routes.draw do
     put "dislike", to: "users#downvote"
         end
   end
+  
+  resources :posts do
+  resources :comments
+  end
+  
+  resources :posts do 
+    member do
+      get 'like', to: "posts#like"
+      put "like", to: "posts#upvote"
+      put "dislike", to: "posts#downvote"
+    end
+  end
+
 end

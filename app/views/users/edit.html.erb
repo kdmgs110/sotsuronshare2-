@@ -59,13 +59,9 @@
                 ["その他 Else"]
                 ]) %>
             </div>
-            <h2 class="profile-header">卒業論文・論文名</h2>
-                <p>あなたの興味を表すような論文、卒業論文の名前を教えてください。</p>
-                <div><textarea name="user[thesisName]" class="form-control form" placeholder="あなたの卒業論文、またあなたの関心をよく表す論文タイトルを入力してください(例)公教育と多様性：出稼ぎ労働者と職業選択について" width="100%"><%=@user.thesisName%></textarea></div>
-            <h2 class="profile-header"><i class="fa fa-info-circle" aria-hidden="true"></i> 論文紹介</h2>
-                <div><textarea name="user[abstract]" class="form-control form" placeholder="論文について、まとめ、なぜ書いたか等紹介してください（例）高校生のころ、自分の頭で考えて学校の先生の話を鵜呑みにせず、やるべきことを考えて欠席遅刻する生徒ほど、いい大学に合格する様子を見て、これって塾がなんらかの悪影響を与えてたら面白いんじゃないかなって思って書きました。結局、統計分析したら、偏差値高いほうが内職するって結果になったので面白かったです。" width="100%"><%=@user.abstract%></textarea></div>
-            <h2 class="profile-header"><i class="fa fa-paperclip" aria-hidden="true"></i>論文ファイル</h2><small>PDFファイルのみ対応しています。WordのPDF化は下のノートを確認してください。</small>
-                <p>あなたの論文・卒業論文をPDF形式でアップロードしてください。</p>
+            
+            <h2 class="profile-header"><i class="fa fa-paperclip" aria-hidden="true"></i>プロフィール画像</h2><small>PDFファイルのみ対応しています。WordのPDF化は下のノートを確認してください。</small>
+                <p>あなたのプロフィール画像アップロードしてください。</p>
                 <%= f.file_field :attachment %>
             <h2 class="profile-header"><input type="submit" value="変更する" class="btn btn-primary btn-lg btn-block"/></h2>
         <% end %>
@@ -74,20 +70,7 @@
 
     </div>
     
-    <div class="col-xs-12 col-sm-12 col-md-12 profile" id="user_profile">
-        <h2 class="profile-header">WordファイルをPDFにする場合</h2>
-            <ul>
-                <li>「PDF」形式で保存したいファイルを開き、「ファイル」タブをクリック</li>
-                <li>保存したいフォルダーを決めます。</li>
-                <li>「名前を付けて保存」画面が表示されるので「ファイルの種類」を「PDF(*.pdf)」に変更して「ファイル名」を決めます</li>
-                <li>「保存」ボタンをクリック。</li>
-            </ul>
-        <h2 class="profile-header">PDFの注意点</h2>
-            <ul>
-                <li>卒業論文には実名が記入されている場合があります。</li>
-                <li>プライバシーの観点から、必ず個人情報が含まれていないか確認してください</li>
-            </ul>
-    </div>
+    
 
     
     

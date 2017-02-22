@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1"  id="user_profile"> <!--ここに、共通の友人一覧を表示-->
+        <div class="profile-header" style="text-align:center;padding:20px 0">お気に入り</div>
+    </div>
+    
+    <% @posts.each do |post| %>
+      <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="user_profile"> <!-- User Profile ----------------------------->
+        <div class="col-xs-12 col-sm-12 col-md-12  profile-header"><%= link_to post.title, post_path(post.id) %></div>
+          <div class="col-xs-12 col-sm-12 col-md-12" > <!-- ユーザーの属性 -->
+            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span> <%= post.user.username %></div>
+            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= post.major %></div>
+            <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>キーワード</div>
+            <span><%= post.keyword %></span>
+            <div><%= post.summary %></div>
+            <i class="fa fa-heart-o" aria-hidden="true"></i>(<%= post.votes_for.size %>)
+            <i class="fa fa-comment-o" aria-hidden="true"></i>(<%= post.comments.count %>)
+            <% if post.user == current_user %>
+                <%= link_to '論文を編集する', edit_post_path(post.id) %>
+                <%= link_to '論文を削除する', post_path(post.id), method: :delete %>
+            <% end %> 
+          </div>
+         </div>
+    <% end %>
+</div><!-- row ----------------------------->
+

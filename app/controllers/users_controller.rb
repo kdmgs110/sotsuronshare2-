@@ -26,6 +26,7 @@ before_action :correct_user, only: [:edit, :update]
   def show
     #@user = User.find(params[:id])
    @user = User.find(params[:id])
+   @posts = @user.posts.all
    @comments = @user.comments.all
    @comment  = @user.comments.build(user_id: current_user.id) 
 

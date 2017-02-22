@@ -11,15 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216043755) do
+ActiveRecord::Schema.define(version: 20170221042423) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "post_id"
   end
 
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id", "post_id"], name: "index_comments_on_user_id_and_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "follows", force: :cascade do |t|
@@ -44,6 +47,21 @@ ActiveRecord::Schema.define(version: 20170216043755) do
     t.integer  "blocker_id"
     t.integer  "status"
   end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "file"
+    t.string   "title"
+    t.text     "summary"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "major"
+    t.integer  "year"
+    t.string   "teacher"
+    t.string   "keyword"
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "static_pages", force: :cascade do |t|
     t.datetime "created_at", null: false

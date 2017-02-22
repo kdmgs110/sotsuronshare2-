@@ -3,44 +3,10 @@
         <div class="col-xs-12 col-sm-12 col-md-12 profile-header"><span class="glyphicon glyphicon glyphicon-user fa-2x" aria-hidden="true"></span> <%= link_to @user.username, user_path(@user) %></div>
           <div class="col-sm-12 col-xs-12 col-md-12" > <!-- ユーザーの属性 -->
             <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= @user.major %></div>
-            <div class="profile-left"><i class="fa fa-paperclip" aria-hidden="true"></i> <%= @user.get_upvotes.size %>クリップ</div>
-            <div class="profile-left"><span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span> <%= @user.graduate %></div>
             <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>　キーワード</div>
                 <% @user.interest_list.each do |tag| %>
                     <span class="tag-button"><%= tag %></span>
                 <% end %>
-            <div class="profile-left twitter-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-via="sotsuronshare" data-lang="ja" data-size="large" data-dnt="true">Twitterで共有する</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
-            <% if @user.attachment.present? %>
-                <div class="profile-left pdf-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to asset_path(@user.attachment) do %>PDFを見る<% end %></div>
-            <% else %>
-                <p>このユーザーはまだ論文をアップロードしていません</p>
-                
-            <% end %>
-            <!---------------------もしクリップしていれば、クリップを外し、クリップしていなければクリップを追加する------------------------------>
-                  <div class="profile-left clip-button-small"><i class="fa fa-paperclip" aria-hidden="true"></i><%= link_to" クリップする",like_user_path(@user),method: :put %></div>
-            <!---------------------もし自分であれば表示しない------------------------------>
-            <% if @user != current_user %>
-            <!---------------------フォローするユーザーのemailが存在する場合 -------->
-            <!---------------------自分のメールアドレス、ユーザ名が存在する場合 -------->
-              <% if current_user.email.present? & current_user.username.present? %>
-            
-                <% if @user.email.present?%> 
-            <!-----------------フォローするユーザーにまだフォローしていない場合は、コンタクト申請を送る------------------------------>
-                    <% if !(current_user.following?(@user)) %>
-                        <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", follow_user_path(@user),:style =>"color:white;" %></div>
-            <!-----------------フォローするユーザーへのコンタクト申請が済んでいるときはコンタクト可能と表示する------------------------------>
-                    <% else %>
-                        <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクト可能</div>
-                    <% end %>
-            <!-----------------フォローするユーザーのメールアドレスが未登録の場合、メールアドレスが登録されていないと表示する------------------------------>
-                <% else %>
-                    <div class="profile-left"><i class="fa fa-user-plus" aria-hidden="true"></i>メールアドレスが登録されていません</div>
-                <% end %>
-              <!---------------------自分のメールアドレス、ユーザ名が存在しない場合、自分のプロフィールを編集するようにリンクを張る。 -------->
-              <% else %>
-                  <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to 'コンタクトリクエストが送れるよう、自分のプロフィールを編集しましょう。', edit_user_path(current_user),:style => "color:white" %></div>
-              <% end %>
-            <% end %>
           </div>
           
           
@@ -56,37 +22,54 @@
                 <div style="padding:20px"><%= @user.abstract %></div>
             </div>
             
+            <% if current_user.email.present? & current_user.username.present? %>
+            
+                <% if @user.email.present?%> 
+            <!-----------------フォローするユーザーにまだフォローしていない場合は、コンタクト申請を送る------------------------------>
+                    <% if !(current_user.following?(@user)) %>
+                        <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to " 友達申請する", follow_user_path(@user),:style =>"color:white;" %></div>
+            <!-----------------フォローするユーザーへのコンタクト申請が済んでいるときはコンタクト可能と表示する------------------------------>
+                    <% else %>
+                        <span class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクト可能</span>
+                    <% end %>
+            <!-----------------フォローするユーザーのメールアドレスが未登録の場合、メールアドレスが登録されていないと表示する------------------------------>
+                <% else %>
+                    <div class="profile-left"><i class="fa fa-user-plus" aria-hidden="true"></i>メールアドレスが登録されていません</div>
+                <% end %>
+              <!---------------------自分のメールアドレス、ユーザ名が存在しない場合、自分のプロフィールを編集するようにリンクを張る。 -------->
+              <% else %>
+                  <div class="profile-left request-button-small"><i class="fa fa-user-plus" aria-hidden="true"></i><%= link_to 'コンタクトリクエストが送れるよう、自分のプロフィールを編集しましょう。', edit_user_path(current_user),:style => "color:white" %></div>
+              <% end %>
+            
             
           </div>
-<!---------------------------------------コメント機能---------------------------------------------------------------------->
-<!---------------------------------------コメント送信---------------------------------------------------------------------->
-
-
-          <div class="col-xs-12 col-sm-12 col-md-12 col-xs-12" id="profile-abstract"> 
-            
-            <div class="profile-left">
-                <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>コメントする</div>
-
-                <%= form_for [@user, @comment]  do |f| %>
-                  <%= f.text_area :text, :style => "width:100%;", :placeholder => "ここにコメントを記入できます" %>
-                  <%= f.submit 'コメントを送信する', :class =>"btn btn-primary" %>
-                <% end %>
-            </div>
-<!---------------------------------------コメント表示---------------------------------------------------------------------->
-            
-            <div class="profile-left">
-                <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>コメント(<%=@comments.count%> )</div>
-                    <% @comments.each do |comment| %>
-                    <div class="comment-body">
-                        <div class="comment-content"><%= comment.text%></div>
-    <!---<%#<div><%= link_to "削除",user_comment_path(@user.id,comment.user_id), method: :delete %></div> %>---->
-                    </div>
-                    <% end %>
-                </div>
-            
-            </div>
-          
-<!---------------------------------------コメント機能---------------------------------------------------------------------->
-          
     </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" style="text-align:center; font-size:24px">論文(<%= @posts.count %>)</div>
+    
+<!-------------------------------------------------論文ページ------------------------------------------------------------->
+    <% @posts.each do |post| %>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="posts-index"> 
+                <div class=" profile-header"><%= link_to post.title, post_path(post)%></div>
+                <% post.keyword_list.each do |tag| %>
+                    <span class="tag-button"><%= tag %></span>
+                  <% end %>
+                <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span><%= @user.username %></div>
+                <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span><%= post.major %></div>
+                <div class="profile-left"><i class="fa fa-info-circle" aria-hidden="true"></i> 要約</div>
+                <div style="padding:10px"><%= post.summary %></div>
+                <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i> お気に入り数　(<%= post.votes_for.size %>)</div>
+                <div class="profile-left"><i class="fa fa-comment" aria-hidden="true"></i> コメント数　(<%= post.comments.count %>)</div>
+                
+
+              
+                
+              <% if post.user == current_user %>
+                  <%= link_to "編集する", edit_post_path(post), class: :"button-radius" %>
+                  <%= link_to "消去する", post_path(post), method: :delete, class: :"button-radius" %>
+              <% end %>
+              
+           </div> 
+            <% end %>
+
 </div>

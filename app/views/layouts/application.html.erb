@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>卒論Share</title>
-  <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Audiowide|Coda|Comfortaa|Passion+One|Patua+One|Shrikhand" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -26,20 +26,23 @@
 
   <div class="row non-mobile-show" style="margin-bottom:30px">
     <div class="col-ms-12 col-md-12 navbar-fixed-top" id="nav-all" style="border-bottom:0px">
-      <%= link_to "", users_path, :class => "navbar-brand" %>
+      <%= link_to "CurioCity", users_path, :class => "navbar-brand", style: :"font-family: 'Patua One', cursive;" %>
       <ul class="nav nav-tabs navbar-right" style="border-bottom:0px">
         <% if current_user %>
-          <li role="presentation"><%= link_to user_path(current_user) do%><%= current_user.username %>さん<% end %></li>
-          <li role ="presentation"></i><%= link_to edit_user_path(current_user.id) do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>プロフィールを編集<% end %></li>
-    			<li><a data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-search" aria-hidden="true"></i>論文を検索</a></li>          <li role="presentation"><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>クリップ<% end %></li>
-          <li role="presentation"><%= link_to friends_user_path(current_user) do %><i class="fa fa-user-plus" aria-hidden="true"></i>コンタクト<% end %></li>
-          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i>設定</a>
+    			<li role="presentation"><%= link_to posts_path do%><i class="fa fa-book" aria-hidden="true"></i>  論文<% end %></li>
+          <li role="presentation"><%= link_to users_path do%><i class="fa fa-users" aria-hidden="true"></i>  ユーザーを探す<% end %></li>
+          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i><%= current_user.username%>さん</a>
             <ul class="dropdown-menu col-xs-12">
+              <li><%= link_to user_path(current_user) do%>プロフィール<% end %></li>
+              <li><%= link_to edit_user_path(current_user) do%>プロフィールを編集<% end %></li>
+              <li><%= link_to like_post_path(current_user) do %><i class="fa fa-heart-o" aria-hidden="true"></i>お気に入り<% end %></li>
+              <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-envelope-open-o" aria-hidden="true"></i>コンタクト<% end %></li>
               <li><%= link_to "ログアウト", logout_path %></li>
             </ul>
         <% else %>
           <li role="presentation"><%= link_to "ログイン", login_path %></li>
         <% end %>  
+          <li role="presentation"><%= link_to new_post_path do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  投稿する<% end %></li>
       </ul>
     </div> <!-- id = "nav-all" -->      
   </div> <!--row --> 

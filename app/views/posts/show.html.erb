@@ -1,0 +1,63 @@
+<div class="row">
+<!-------------------------------------------------論文ページ------------------------------------------------------------->
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="posts-index"> 
+                <div class=" profile-header"><%= link_to @posts.title, post_path(@posts)%></div>
+                <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span><%= @posts.major %></div>
+                <div class="profile-left"><i class="fa fa-tags" aria-hidden="true"></i>キーワード
+                  <% @posts.keyword_list.each do |tag| %>
+                      <span class="tag-button"> <%= tag %></span>
+                  <% end %>
+                 </div>
+                <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span><%= @posts.user.username %></div>
+                <div class="profile-left"><i class="fa fa-info-circle" aria-hidden="true"></i> 要約</div>
+                <div><%= @posts.summary %></div>
+                <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i> お気に入り数　(<%= @posts.votes_for.size %>)</div>
+                <div class="profile-left"><i class="fa fa-comment" aria-hidden="true"></i> コメント数　(<%= @posts.comments.count %>)</div>
+                <div class="profile-left"><%= link_to "PDFを見る",asset_path(@posts.file)%></div>
+
+              <% if @posts.user == current_user %>
+                  <%= link_to "編集する", edit_post_path(@posts), class: :"button-radius" %>
+                  <%= link_to "消去する", post_path(@posts), method: :delete, class: :"button-radius" %>
+              <% end %>
+                <div>お気に入り数(<%= @posts.votes_for.size %>)</div>
+                <%= link_to "お気に入り", like_post_path(@posts), method: :put %>
+                <%= link_to "取り消す", dislike_post_path(@posts), method: :put %>
+        </div>
+              
+
+<!------------------------------------------------------------------------------------------------------------->
+<!--comment -->  
+
+
+<%= form_for Comment.new, url: post_comments_path(@posts), method: :post do |f| %>
+  <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile"> 
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" style="text-align:center; font-size:24px">コメントする</div>
+
+  
+    <div class="profile-left">
+    <%= f.text_field :text, style: :"width:100%; height:200px", placeholder: :"ここにコメントを入力" %>
+    </div>
+    
+    <div class="profile-left">
+        <div><%= f.submit 'コメントする', class: :"btn btn-primary" %></div>
+    </div>
+
+</div>  
+<% end %>
+
+
+<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" style="text-align:center; font-size:24px">コメント(<%= @posts.comments.count %>)</div>
+
+<!-- 表示comment ----------------------->  
+<% @posts.comments.each do |comment| %>
+  <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile"> 
+    <div class="profile-header"><%= link_to user_path(comment.user) do %><%= comment.user.username%>さん /<%= time_ago_in_words(comment.created_at)%>前<%end%></div>
+    <div class="profile-left">
+        <div style="padding:10px"><%= comment.text %></div>
+        <% if comment.user == current_user %>
+              <div><%= link_to 'コメントを消す', post_comment_path(post_id: @posts.id, id: comment.id), method: :delete, class: :"btn btn-primary" %></div>
+        <% end %>
+    </div>
+  </div>  
+<% end %>
+</div>
