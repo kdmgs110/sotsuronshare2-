@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
       @post = Post.find(params[:post_id])
       @comment = @post.comments.create(comment_params.merge(user_id: current_user.id))
       if @comment.valid?
+        RequestMailer.comment_email(@post.user, current_user).deliver
         redirect_to :back
       else
         flash[:alert] = "Invalid attributes."

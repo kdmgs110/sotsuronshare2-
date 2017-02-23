@@ -1,30 +1,19 @@
 source 'https://rubygems.org'
 
-gem 'acts_as_commentable'
-#タグ機能
 gem 'acts-as-taggable-on', '~> 3.4'
 #入力用意にする
 gem 'bootstrap-tagsinput-rails'
-#friends
-gem 'has_friendship'
 #Follow
-
 gem 'acts_as_follower'
-
 #To See Heroku Errorss 
 gem 'rails_12factor', group: :production
-
 #font-awesome 
 gem "font-awesome-rails"
-
 #検索機能ransacck 
 gem "ransack"
-
 #ページネーション
 gem 'will_paginate'
-
 #Facebook Login 
-
 gem 'omniauth'
 gem 'omniauth-facebook'
 

@@ -11,7 +11,18 @@ class RequestMailer < ApplicationMailer
     
     def approve_request(user,current_user)
        @email = user.email
-       mail to: @email, subject:'【卒論Share】コンタクトリクエストが承認されました' 
+       mail to: @email, subject:'【CurioCity】コンタクトリクエストが承認されました' 
     end
+    
+    def comment_email(user,current_user)
+        @email = user.email
+        mail to: @email, subject: '【CurioCity】コメントが届きました。'
+    end
+    
+    def like_email(user,current_user)
+        @email = user.email
+        mail to: @email, subject: '【CurioCity】あなたの論文にいいねが押されました。'
+    end
+    
     
 end

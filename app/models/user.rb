@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
   acts_as_followable
   acts_as_follower
   
-  has_friendship
   mount_uploader :attachment, AttachmentUploader # Tells rails to use this uploader for this model.
   
   # Initializes or updates user object when logging in with Facebook

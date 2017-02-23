@@ -48,6 +48,7 @@ before_filter :set_search
    def upvote
     @post = Post.find(params[:id])
     @post.liked_by current_user
+    RequestMailer.like_email(current_user, @post.user).deliver_now
     redirect_to @post
     end
     
