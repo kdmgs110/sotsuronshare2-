@@ -16,6 +16,7 @@ class RequestMailer < ApplicationMailer
     
     def comment_email(user,current_user)
         @email = user.email
+        @current_user= current_user
         mail to: @email, subject: '【CurioCity】コメントが届きました。'
     end
     
