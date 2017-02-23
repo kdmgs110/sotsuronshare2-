@@ -16,12 +16,7 @@
                 <div style="border-bottom:1px solid #606060"><i class="fa fa-heart" aria-hidden="true"></i>プロフィール</div>
                 <div style="padding:20px"><%= @user.bio %></div>
             </div>
-            
-            <div class="profile-left">
-                <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i><%= @user.thesisName %></div>
-                <div style="padding:20px"><%= @user.abstract %></div>
-            </div>
-            
+
             <% if current_user.email.present? & current_user.username.present? %>
             
                 <% if @user.email.present?%> 

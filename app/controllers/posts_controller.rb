@@ -59,7 +59,7 @@ before_filter :set_search
     end
     
     def like
-     @posts = current_user.votes.up.for_type(User).votables
+     @posts = current_user.votes.up.for_type(Post).votables
     end
 
 private
