@@ -11,17 +11,19 @@
                 <div class ="profile-left"><%= link_to user_path(@posts.user) do%><%= image_tag @posts.user.attachment, :size =>"30x30" %><%= @posts.user.username %><% end %></div>
                 <div class="profile-left"><i class="fa fa-info-circle" aria-hidden="true"></i> 要約</div>
                 <div><%= @posts.summary %></div>
-                <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i> お気に入り数　(<%= @posts.votes_for.size %>)</div>
-                <div class="profile-left"><i class="fa fa-comment" aria-hidden="true"></i> コメント数　(<%= @posts.comments.count %>)</div>
-                <div class="profile-left"><%= link_to "PDFを見る",asset_path(@posts.file), class: :"tag-button"%></div>
-
-              <% if @posts.user == current_user %>
-                  <%= link_to "編集する", edit_post_path(@posts), class: :"button-radius" %>
-                  <%= link_to "消去する", post_path(@posts), method: :delete, class: :"button-radius" %>
-              <% end %>
-                <div>お気に入り数(<%= @posts.votes_for.size %>)</div>
-                <%= link_to "お気に入り", like_post_path(@posts), method: :put %>
-                <%= link_to "取り消す", dislike_post_path(@posts), method: :put %>
+                <div class="profile-left" style="float:right">
+                    <i class="fa fa-comment fa-2x colored-star"></i><%= @posts.comments.count %> 
+                    <% unless current_user.voted_for? @posts %>
+                        <%= link_to like_post_path(@posts), method: :put do%><i class="fa fa-star-o fa-2x colored-star" aria-hidden="true"></i><%end%> <%= @posts.votes_for.size %>
+                    <% else %>
+                        <%= link_to dislike_post_path(@posts), method: :put do%><i class="fa fa-star fa-2x colored-star" aria-hidden="true"></i><%end%> <%= @posts.votes_for.size %>
+                    <% end %>
+                    <%= link_to asset_path(@posts.file) do%> <i class="fa fa-file-pdf-o fa-2x pdf-color" aria-hidden="true"></i> <%end%>
+                     <% if @posts.user == current_user %>
+                        <%= link_to "編集する", edit_post_path(@posts), class: :"button-radius" %>
+                        <%= link_to "消去する", post_path(@posts), method: :delete, class: :"button-radius" %>
+                    <% end %>
+                </div>
         </div>
               
 
@@ -50,11 +52,20 @@
 <!-- 表示comment ----------------------->  
   <% @posts.comments.each do |comment| %>
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="comment-content"> 
-      <div><%= link_to user_path(comment.user) do %> <%= image_tag comment.user.attachment, :size =>"30x30" %><%= comment.user.username%>さん<%end%> <%= comment.text %></div>
-      <div><small><%= time_ago_in_words(comment.created_at)%>前</small>
-        <% if comment.user == current_user %>
-          <%= link_to 'コメントを消す', post_comment_path(post_id: @posts.id, id: comment.id), method: :delete, class: :"tag-button" %>
+      <div class="col-md-2"><%= link_to user_path(comment.user) do %> <%= image_tag comment.user.attachment, :size =>"30x30" %><%= comment.user.username%>さん<%end%></div>
+      
+      <div class="col-md-10">
+          <%= comment.text %>
+        <div><small><%= time_ago_in_words(comment.created_at)%>前</small>
+        <% unless current_user.voted_for? comment %>
+          <%= link_to like_comment_path(comment), method: :put do%><i class="fa fa-star-o  fa-2x colored-star" aria-hidden="true"></i><% end %> <%= comment.votes_for.size %>
+        <% else %>
+          <%= link_to dislike_comment_path(comment), method: :put do%><i class="fa fa-star fa-2x uncolored-star" aria-hidden="true"></i><%end%> <%= comment.votes_for.size %>
         <% end %>
+          <% if comment.user == current_user %>
+            <%= link_to 'コメントを消す', post_comment_path(post_id: @posts.id, id: comment.id), method: :delete, class: :"tag-button" %>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>

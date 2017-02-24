@@ -1,5 +1,9 @@
 class CommentsController < ApplicationController
     
+    def show
+      @comments = Comment.find(params[:id])
+    end
+    
     def create
       @post = Post.find(params[:post_id])
       @comment = @post.comments.create(comment_params.merge(user_id: current_user.id))
@@ -17,6 +21,19 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to root_path
    end
+   
+   
+ def upvote
+    @comments = Comment.find(params[:id])
+    @comments.liked_by current_user
+    redirect_to @comments.post
+ end
+    
+  def downvote
+    @comments = Comment.find(params[:id])
+    @comments.unliked_by current_user
+    redirect_to @comments.post
+    end
 
 private 
 

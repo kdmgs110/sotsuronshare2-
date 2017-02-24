@@ -98,5 +98,11 @@ Rails.application.routes.draw do
       put "dislike", to: "posts#downvote"
     end
   end
-
+  
+  resources :comments do
+    member do
+      put "like", to: "comments#upvote"
+      put "dislike", to: "comments#downvote"
+    end
+  end
 end
