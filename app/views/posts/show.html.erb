@@ -10,8 +10,8 @@
                  </div>
                 <div class ="profile-left"><%= link_to user_path(@posts.user) do%><%= image_tag @posts.user.attachment, :size =>"30x30" %><%= @posts.user.username %><% end %></div>
                 <div class="profile-left"><i class="fa fa-info-circle" aria-hidden="true"></i> 要約</div>
-                <div><%= @posts.summary %></div>
-                <div class="profile-left" style="float:right">
+                <div class="profile-left"><%= @posts.summary %></div>
+                <div class="profile-left">
                     <i class="fa fa-comment fa-2x colored-star"></i><%= @posts.comments.count %> 
                     <% unless current_user.voted_for? @posts %>
                         <%= link_to like_post_path(@posts), method: :put do%><i class="fa fa-star-o fa-2x colored-star" aria-hidden="true"></i><%end%> <%= @posts.votes_for.size %>
@@ -19,7 +19,9 @@
                         <%= link_to dislike_post_path(@posts), method: :put do%><i class="fa fa-star fa-2x colored-star" aria-hidden="true"></i><%end%> <%= @posts.votes_for.size %>
                     <% end %>
                     <%= link_to asset_path(@posts.file) do%> <i class="fa fa-file-pdf-o fa-2x pdf-color" aria-hidden="true"></i> <%end%>
-                     <% if @posts.user == current_user %>
+                </div>
+                <div>
+                      <% if @posts.user == current_user %>
                         <%= link_to "編集する", edit_post_path(@posts), class: :"button-radius" %>
                         <%= link_to "消去する", post_path(@posts), method: :delete, class: :"button-radius" %>
                     <% end %>
