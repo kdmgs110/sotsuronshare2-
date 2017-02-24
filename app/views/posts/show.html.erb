@@ -1,5 +1,9 @@
 <div class="row">
 <!-------------------------------------------------論文ページ------------------------------------------------------------->
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="user_profile" style="margin-top:50px">
+          <%= link_to "ユーザー一覧",users_path %> / <%= image_tag @posts.user.attachment, :size =>"30x30" %><%= link_to @posts.user.username, user_path(@posts.user) %> / <%= link_to @posts.title, post_path(@posts) %>
+        </div>
+        
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="posts-index"> 
                 <div class=" profile-header"><%= link_to @posts.title, post_path(@posts)%></div>
                 <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span><%= @posts.major %></div>
