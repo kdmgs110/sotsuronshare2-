@@ -130,7 +130,7 @@ before_action :correct_user, only: [:edit, :update]
     end
     
     def user_params
-      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username, :graduate, :email, :interest_list)
+      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username, :graduate, :email, :interest_list, :years)
     end
   
 end

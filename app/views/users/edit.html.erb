@@ -13,6 +13,16 @@
             <span class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden></span> ユーザー名 *</span>
                 <p>ユーザー名を記入してください。この名前がほかのユーザーに表示されます。後から変更できます。</p>
                 <div><textarea name="user[username]" class="form-control form" placeholder="ユーザー名を入力してください。後でいつでも変更することができます。" width="100%"><%=@user.username%></textarea></div>
+            <div class="profile-header"><i class="fa fa-envelope-open" aria-hidden="true"></i> 学年 *</div>
+                <%= f.select :years,([
+                [""],
+                ["高校生以下"],
+                ["大学1年生"],
+                ["大学2年生"],
+                ["大学3年生"],
+                ["大学4年生"],
+                ["社会人"]
+                ]) %>
             <div class="profile-header"><i class="fa fa-envelope-open" aria-hidden="true"></i> メールアドレス *</div>
                 <p>メールアドレスを記入してください。コンタクトリクエストの送受信ができるようになります。</p>
                 <div><textarea name="user[email]" class="form-control form" placeholder="メールアドレスを入力すると、コンタクトリクエストが送れるようになります。emailアドレスが公開されることはありません。" width="100%"><%=@user.email%></textarea></div>

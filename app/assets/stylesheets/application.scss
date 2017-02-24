@@ -230,7 +230,8 @@ li .nav {
 #posts-content{
     background-color:#FFFDF0;
     padding:20px;
-    margin:10px 0;
+    margin:5px 0;
+    border:1px solid #eeeeee;
 }
 #comment-content{
     background-color:#effcf9;
@@ -310,13 +311,13 @@ li .nav {
 }
 
 .tag-button{
-    border:1px solid #0099cc;
-    color:#0099cc;
+    border:1px solid #959595;
+    background-color:#F2F2F2;
+    color:#959595;
     margin:5px 0;
     padding:5px;
     display:inline-block;
     font-size:16px;
-    border-radius:5px;
 }
 .colored-star{
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221042423) do
+ActiveRecord::Schema.define(version: 20170224064418) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20170221042423) do
     t.string   "username"
     t.string   "graduate"
     t.string   "email"
+    t.string   "years"
   end
 
   create_table "votes", force: :cascade do |t|
