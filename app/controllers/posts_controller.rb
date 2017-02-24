@@ -59,7 +59,8 @@ before_filter :set_search
     end
     
     def like
-     @posts = current_user.votes.up.for_type(Post).votables
+     @user = User.find(params[:id])
+     @posts = @user.votes.up.for_type(Post).votables
     end
 
 private

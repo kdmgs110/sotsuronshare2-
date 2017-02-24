@@ -11,7 +11,7 @@
                         <span class="tag-button"><%= tag %></span>
                     <% end %>
                 </div>
-                <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span><%= post.user.username %></div>
+                <div class ="profile-left"><%= image_tag post.user.attachment, :size =>"30x30" %> <%= post.user.username %></div>
                 <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span><%= post.major %></div>
                 <div class="profile-left"><i class="fa fa-info-circle" aria-hidden="true"></i> 要約</div>
                 <div style="padding:10px"><%= post.summary %></div>
