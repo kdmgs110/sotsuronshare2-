@@ -21,6 +21,7 @@ class RequestMailer < ApplicationMailer
     end
     
     def like_email(user,current_user)
+        @current_user= current_user
         @email = user.email
         mail to: @email, subject: '【CurioCity】あなたの論文にいいねが押されました。'
     end
