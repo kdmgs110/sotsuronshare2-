@@ -58,6 +58,8 @@ Rails.application.routes.draw do
   
   get 'users', to: "users#index", as: "users"
   get 'users/:id', to: "users#show", as: "user"
+  get 'major', to: "users#major",as: :major
+  get 'papermajor', to: "posts#papermajor"
   
   get 'auth/facebook', as: "login"
   get 'auth/facebook/callback', to: 'sessions#create'

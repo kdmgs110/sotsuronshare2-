@@ -29,10 +29,68 @@
       <%= link_to "CurioCity", users_path, :class => "navbar-brand", style: :"font-family: 'Patua One', cursive;" %>
       <ul class="nav nav-tabs navbar-right" style="border-bottom:0px">
         <% if current_user %>
-    			<li role="presentation"><%= link_to posts_path do%><i class="fa fa-book" aria-hidden="true"></i>  論文<% end %></li>
-          <li role="presentation"><%= link_to users_path do%><i class="fa fa-users" aria-hidden="true"></i>  ユーザーを探す<% end %></li>
-          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i><%= current_user.username%>さん</a>
-            <ul class="dropdown-menu col-xs-12">
+    			<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i>ユーザーを探す</a>
+    			  <ul class="dropdown-menu col-xs-12" style="width:auto;overflow-y:scroll;">
+    			   <li><%= link_to "すべてのユーザー", users_path %></li>
+    			   <li><%= link_to "アメリカ研究", major_path(major: "アメリカ研究") %></li>
+    			   <li><%= link_to "教育学", major_path(major: "教育学") %></li>
+             <li><%= link_to "文化人類学", major_path(major: "文化人類学") %></li>
+    			   <li><%= link_to "アジア研究", major_path(major: "アジア研究") %></li>
+    			   <li><%= link_to "生物学", major_path(major: "生物学") %></li>
+    			   <li><%= link_to "経営学", major_path(major: "経営学") %></li>
+    			   <li><%= link_to "化学", major_path(major: "化学") %></li>
+    			   <li><%= link_to "経済学", major_path(major: "経済学") %></li>
+    			   <li><%= link_to "環境学", major_path(major: "環境学") %></li>
+    			   <li><%= link_to "グローバル研究", major_path(major: "グローバル研究") %></li>
+    			   <li><%= link_to "ジェンダー・セクシャリティー研究", major_path(major: "ジェンダー・セクシャリティー研究") %></li>
+    			   <li><%= link_to "歴史学", major_path(major: "歴史学") %></li>
+    			   <li><%= link_to "国際関係学", major_path(major: "国際関係学") %></li>
+    			   <li><%= link_to "情報科学", major_path(major: "情報科学 ") %></li>
+    			   <li><%= link_to "日本研究", major_path(major: "日本研究") %></li>
+    			   <li><%= link_to "文学", major_path(major: "文学") %></li>
+    			   <li><%= link_to "言語学", major_path(major: "言語学") %></li>
+    			   <li><%= link_to "メディア・コミュニケーション・文化", major_path(major: "メディア・コミュニケーション・文化") %></li>
+    			   <li><%= link_to "数学", major_path(major: "数学") %></li>
+    			   <li><%= link_to "音楽", major_path(major: "音楽") %></li>
+    			   <li><%= link_to "哲学・宗教学", major_path(major: "哲学・宗教学") %></li>
+    			   <li><%= link_to "物理学", major_path(major: "物理学") %></li>
+    			   <li><%= link_to "政治学", major_path(major: "政治学") %></li>
+    			   <li><%= link_to "公共政策", major_path(major: "公共政策 ") %></li>
+    			   <li><%= link_to "心理学", major_path(major: "心理学") %></li>
+    			   <li><%= link_to "社会学", major_path(major: "社会学") %></li>
+            </ul>
+          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  論文を探す</a>
+          <ul class="dropdown-menu col-xs-12" style="width:auto;overflow-y:scroll;">
+             <li><%= link_to "すべての論文を見る", posts_path%></li>
+    			   <li><%= link_to "アメリカ研究", papermajor_path(major: "アメリカ研究") %></li>
+    			   <li><%= link_to "教育学", papermajor_path(major: "教育学") %></li>
+             <li><%= link_to "文化人類学", papermajor_path(major: "文化人類学") %></li>
+    			   <li><%= link_to "アジア研究", papermajor_path(major: "アジア研究") %></li>
+    			   <li><%= link_to "生物学", papermajor_path(major: "生物学") %></li>
+    			   <li><%= link_to "経営学", papermajor_path(major: "経営学") %></li>
+    			   <li><%= link_to "化学", papermajor_path(major: "化学") %></li>
+    			   <li><%= link_to "経済学", papermajor_path(major: "経済学") %></li>
+    			   <li><%= link_to "環境学", papermajor_path(major: "環境学") %></li>
+    			   <li><%= link_to "グローバル研究", papermajor_path(major: "グローバル研究") %></li>
+    			   <li><%= link_to "ジェンダー・セクシャリティー研究", papermajor_path(major: "ジェンダー・セクシャリティー研究") %></li>
+    			   <li><%= link_to "歴史学", papermajor_path(major: "歴史学") %></li>
+    			   <li><%= link_to "国際関係学", papermajor_path(major: "国際関係学") %></li>
+    			   <li><%= link_to "情報科学", papermajor_path(major: "情報科学 ") %></li>
+    			   <li><%= link_to "日本研究", papermajor_path(major: "日本研究") %></li>
+    			   <li><%= link_to "文学", papermajor_path(major: "文学") %></li>
+    			   <li><%= link_to "言語学", papermajor_path(major: "言語学") %></li>
+    			   <li><%= link_to "メディア・コミュニケーション・文化", papermajor_path(major: "メディア・コミュニケーション・文化") %></li>
+    			   <li><%= link_to "数学", papermajor_path(major: "数学") %></li>
+    			   <li><%= link_to "音楽", papermajor_path(major: "音楽") %></li>
+    			   <li><%= link_to "哲学・宗教学", papermajor_path(major: "哲学・宗教学") %></li>
+    			   <li><%= link_to "物理学", papermajor_path(major: "物理学") %></li>
+    			   <li><%= link_to "政治学", papermajor_path(major: "政治学") %></li>
+    			   <li><%= link_to "公共政策", papermajor_path(major: "公共政策 ") %></li>
+    			   <li><%= link_to "心理学", papermajor_path(major: "心理学") %></li>
+    			   <li><%= link_to "社会学", papermajor_path(major: "社会学") %></li>
+            </ul>
+          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i><%= current_user.username%>さん ▽</a>
+            <ul class="dropdown-menu col-xs-12" style="width:auto">
               <li><%= link_to user_path(current_user) do%>プロフィール<% end %></li>
               <li><%= link_to edit_user_path(current_user) do%>プロフィールを編集<% end %></li>
               <li><%= link_to like_post_path(current_user) do %><i class="fa fa-star uncolored-star" aria-hidden="true"></i>お気に入り<% end %></li>
@@ -105,78 +163,7 @@
 <!-- NOTICE-BOX --------------------------------------------------->
 <!-- Modal Box --------------------------------------------------->
 
-<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">検索</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <%= search_form_for @q do |f| %>
-            <div>卒業：</div>
-            <div><%= f.select :graduate_cont,([
-              [""],
-              ["卒業済み"],
-              ["学部生"]
-            ])%>
-            </div>
-            <!-- メジャーを選ぶタグ-->
-            <div>専攻：</div>
-            <div><%= f.select :major_cont,([
-                  [""],
-                  ["アメリカ研究"],
-                  ["文化人類学"],
-                  ["アジア研究"],
-                  ["生物学"],
-                  ["経営学"],
-                  ["比較教育"],
-                  ["化学"],
-                  ["教育学"],
-                  ["環境学"],
-                  ["グローバル研究"],
-                  ["ジェンダー・セクシャリティー研究"],
-                  ["歴史学"],
-                  ["国際関係学"],
-                  ["情報科学"],
-                  ["日本研究"],
-                  ["法学"],
-                  ["言語教育"],
-                  ["文学"],
-                  ["言語学"],
-                  ["メディア・コミュニケーション・文化"],
-                  ["数学"],
-                  ["音楽"],
-                  ["平和研究"],
-                  ["哲学・宗教学"],
-                  ["物理学"],
-                  ["政治学"],
-                  ["公共政策"],
-                  ["心理学"]
-                  ]) %>
-            </div><!-- form group -->
-          </div><!-- form group -->
-    </div><!-- modal body -->
-      
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-        <%= f.submit "検索", :class =>"btn btn-primary" %>
-  </form>
-        <% end %>
-      </div>
-      
-    </div>
-  </div>
-</div>
 
-
-      
 <%= yield %>
 </div><!--container -->
 </body>

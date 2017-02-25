@@ -115,8 +115,8 @@ before_action :correct_user, only: [:edit, :update]
     redirect_to users_path,notice:"#{@user.username}さんの論文からクリップを外しました"
   end
   
-  def show_pdf
-    @user = User.find(params[:id])
+  def major
+    @users = User.where(major: params[:major])
   end
    
  private

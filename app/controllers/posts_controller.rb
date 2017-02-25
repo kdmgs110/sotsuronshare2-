@@ -62,7 +62,11 @@ before_filter :set_search
      @user = User.find(params[:id])
      @posts = @user.votes.up.for_type(Post).votables
     end
-
+    
+    def papermajor
+    @posts = Post.where(major: params[:major])
+    end
+    
 private
 
 def post_params

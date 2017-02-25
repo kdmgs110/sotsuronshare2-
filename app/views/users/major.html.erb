@@ -1,11 +1,12 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1"  id="user_profile"> <!--ここに、共通の友人一覧を表示-->
-        <div class="profile-header" style="text-align:center;padding:20px 0">ユーザー一覧(<%= @users.count%>)</div>
+        <div class="profile-header" style="text-align:center;padding:20px 0"><%= link_to "ユーザー一覧",users_path %> / <%= params[:major] %> (<%= @users.count %>)</div>
+        <span>
         <% @users.each do |user| %>
             <%= link_to user_path(user) do %><%= image_tag user.attachment, :size =>"50x50" %> <% end %>
         <% end %>
+        </span>
     </div>
-    
     <% @users.each do |user| %>
     <% unless user.username.nil? %>
       <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="user_profile"> <!-- User Profile ----------------------------->
