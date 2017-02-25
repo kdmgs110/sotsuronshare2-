@@ -35,7 +35,7 @@
             <ul class="dropdown-menu col-xs-12">
               <li><%= link_to user_path(current_user) do%>プロフィール<% end %></li>
               <li><%= link_to edit_user_path(current_user) do%>プロフィールを編集<% end %></li>
-              <li><%= link_to like_post_path(current_user) do %><i class="fa fa-heart-o" aria-hidden="true"></i>お気に入り<% end %></li>
+              <li><%= link_to like_post_path(current_user) do %><i class="fa fa-star uncolored-star" aria-hidden="true"></i>お気に入り<% end %></li>
               <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-envelope-open-o" aria-hidden="true"></i>コンタクト<% end %></li>
               <li><%= link_to "ログアウト", logout_path %></li>
             </ul>

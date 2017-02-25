@@ -31,7 +31,7 @@ before_filter :set_search
       @post = Post.find(params[:id])
       @post.update(post_params)
       if @post.valid?
-        redirect_to users_path, notice: :"論文を変更しました"
+        redirect_to @post, notice: :"論文を変更しました"
       else
         render :edit, status: :unprocessable_entity
       end

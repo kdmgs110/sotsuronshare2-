@@ -4,7 +4,7 @@
     </div>
     
     <% @posts.each do |post| %>
-      <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="user_profile"> <!-- User Profile ----------------------------->
+      <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="posts-index"> <!-- User Profile ----------------------------->
         <div class="col-xs-12 col-sm-12 col-md-12  profile-header"><%= link_to post_path(post.id) do%><%= post.title %><% end %></div>
           <div class="col-xs-12 col-sm-12 col-md-12" > <!-- ユーザーの属性 -->
             <div class="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span> <%= post.user.username %></div>
