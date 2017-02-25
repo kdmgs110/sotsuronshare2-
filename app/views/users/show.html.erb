@@ -1,9 +1,16 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile">
          <%= link_to "ユーザー一覧",users_path %> / <%= image_tag @user.attachment, :size =>"30x30" %><%= link_to @user.username, user_path(@user) %>
+
     </div>
       <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile"> <!-- User Profile ----------------------------->
-        <div class="col-xs-12 col-sm-12 col-md-12 profile-header"><%= image_tag @user.attachment, :size =>"50x50" %><%= link_to @user.username, user_path(@user)%></div>
+        <div class="col-xs-12 col-sm-12 col-md-12 profile-header">
+            <%= image_tag @user.attachment, :size =>"50x50" %>
+            <%= link_to @user.username, user_path(@user)%>
+            <% if @user == current_user %>
+             <%= link_to "編集", edit_user_path(current_user), class:"button-radius" %>
+            <% end %>
+        </div>
           <div class="col-sm-12 col-xs-12 col-md-12" > <!-- ユーザーの属性 -->
           <div class="profile-left"><i class="fa fa-graduation-cap" aria-hidden="true"></i> <%= @user.years %></div>
             <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= @user.major %></div>

@@ -4,11 +4,13 @@
         
             <div class="profile-left">
                 <div style="border-bottom:1px solid #606060"><i class="fa fa-heart" aria-hidden="true"></i>論文名</div>
+                <p>論文のタイトルを入力してください。（例）学校外教育について</p>
                 <div style="padding:20px"><%= f.text_area :title, style: :"width:100%", placeholder: :"論文のタイトルを入力してください。（例）学校外教育について" %></div>
             </div>
             
             <div class="profile-left">
                 <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>専攻</div>
+                <p>自分の専攻に当てはまるものを一つ選んでください</p>
                 <div style="padding:20px">
                       <%= f.select :major,([
                 [""],
@@ -48,11 +50,13 @@
             
                 <div class="profile-left">
                     <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>キーワード</div>
+                    <p>あなたの論文のキーワードについて【半角コンマ区切り】で入力してください。例)教育格差,教育経済学等</p>
                     <div><%= text_field_tag 'post[keyword_list]', @posts.keyword_list.join(',' || '、'), "data-role" => "tagsinput", :class =>"form",style: :"width:100%", placeholder: :"半角コンマ区切りで論文のキーワードを入力すると、タグとして表示されるようになります。（例）教育社会学,塾,教育格差,教育の正当化機能" %></div>
                 </div>
                 
             <div class="profile-left">
                 <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>要約</div>
+                <p>あなたの論文の要約、なぜその論文を書いたか等を教えてください。</p>
                 <div style="padding:20px"> <%= f.text_area :summary, style: :"width:100%", placeholder: :"ここに論文の要約を記入してください。"  %></div>
             </div>
     

@@ -64,7 +64,7 @@ before_filter :set_search
     end
     
     def papermajor
-    @posts = Post.where(major: params[:major])
+    @posts = Post.where(major: params[:major]).order("created_at DESC")
     end
     
 private

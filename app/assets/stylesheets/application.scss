@@ -109,15 +109,16 @@ li .nav {
     font-size:25px;
     color:#D3D3D3;
 }
-.login-button{
+.login-button {
     background-color:#46639F;
     color:#FFFFFF;
-    text-decoration:none;
     padding:20px;
     margin:5px 0;
     text-align:center;
     display:inline-block;
+    text-decoration:none;
 }
+
 .button-radius{
     padding:5px;
     color:#00B0BC;
@@ -285,6 +286,7 @@ li .nav {
 .clip-button a:visited {
     text-decoration:none; 
     color : #000000;
+    display:block;
 }
 .clip-button a:hover {
     background-color:blue;
@@ -318,12 +320,6 @@ li .nav {
     padding:5px;
     display:inline-block;
     font-size:16px;
-}
-.colored-star{
-
-}
-.uncolored-star{
-    
 }
 
 .pdf-color{
