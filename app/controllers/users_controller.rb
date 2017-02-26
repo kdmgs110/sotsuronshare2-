@@ -20,7 +20,7 @@ before_action :set_profile, except: [:edit,:update]
       when current_user.email.nil?
         then flash[:notice] = "気になった人にコンタクトをとってみませんか？メールアドレスを登録すると、コンタクトリクエストが送信できます"
       when current_user.thesisName.nil?
-        then flash[:notice] = '論文をアップロードすると、ほかのユーザーの論文が見れるようになります。右上の「投稿する」から、論文をアップロードしてみましょう。'
+        then flash[:notice] = '論文をアップロードすると、ほかのユーザーの論文が見れるようになります。右上の投稿から、論文をアップロードしてみましょう'
     end
   end
   
@@ -124,6 +124,9 @@ before_action :set_profile, except: [:edit,:update]
     @user = current_user
     unless @user.username.present?
       redirect_to edit_user_path(current_user),notice: 'プロフィールを編集しましょう！(あとで変更することができます)'
+    end
+    unless @user.posts.file.present?
+      render flash[:notice] ="論文をアップロードすると、他のユーザーの論文を読めるようになります。右上の「投稿する」から、論文をアップロードしましょう。"
     end
   end
    
