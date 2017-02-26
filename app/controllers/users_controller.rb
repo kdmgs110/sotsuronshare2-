@@ -20,7 +20,7 @@ before_action :set_profile, except: [:edit,:update]
       when current_user.email.nil?
         then flash[:notice] = "気になった人にコンタクトをとってみませんか？メールアドレスを登録すると、コンタクトリクエストが送信できます"
       when current_user.thesisName.nil?
-        then flash[:notice] = '論文をアップロードしてみませんか。誰かがあなたの関心に興味を持つかもしれません。'
+        then flash[:notice] = '論文をアップロードすると、ほかのユーザーの論文が見れるようになります。右上の「投稿する」から、論文をアップロードしてみましょう。'
     end
   end
   
