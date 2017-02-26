@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 before_action :authenticate_user
 before_filter :set_search
 before_action :correct_user, only: [:edit, :update]
+before_action :set_profile, except: [:edit,:update]
 
   def authenticate_user
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -117,6 +118,13 @@ before_action :correct_user, only: [:edit, :update]
   
   def major
     @users = User.where(major: params[:major])
+  end
+  
+  def set_profile
+    @user = current_user
+    unless @user.username.present?
+      redirect_to edit_user_path(current_user),notice: 'プロフィールを編集しましょう！(あとで変更することができます)'
+    end
   end
    
  private
