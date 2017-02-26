@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to :back
+    redirect_to @post,notice:"コメントを消去しました"
    end
    
    
