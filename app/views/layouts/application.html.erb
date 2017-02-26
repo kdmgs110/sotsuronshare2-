@@ -98,10 +98,11 @@
               <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-envelope-open-o" aria-hidden="true"></i>コンタクト<% end %></li>
               <li><%= link_to "ログアウト", logout_path %></li>
             </ul>
+          <li role="presentation"><%= link_to new_post_path do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>投稿する<% end %></li>
+
         <% else %>
           <li role="presentation"><%= link_to "ログイン", login_path %></li>
         <% end %>  
-          <li role="presentation"><%= link_to new_post_path do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>投稿する<% end %></li>
       </ul>
     </div> <!-- id = "nav-all" -->      
   </div> <!--row --> 
