@@ -125,8 +125,8 @@ before_action :set_profile, except: [:edit,:update]
     unless @user.username.present?
       redirect_to edit_user_path(current_user),notice: 'プロフィールを編集しましょう！(あとで変更することができます)'
     end
-    unless @user.posts.file.present?
-      render flash[:notice] ="論文をアップロードすると、他のユーザーの論文を読めるようになります。右上の「投稿する」から、論文をアップロードしましょう。"
+    unless @user.posts.present?
+      flash[:notice] ="論文をアップロードすると、他のユーザーの論文を読めるようになります。右上の「投稿する」から、論文をアップロードしましょう。"
     end
   end
    
