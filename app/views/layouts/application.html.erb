@@ -63,7 +63,7 @@
             </ul>
           <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  論文を探す</a>
           <ul class="dropdown-menu col-xs-12" style="width:auto;overflow-y:scroll;">
-             <li><%= link_to "すべての論文を見る", posts_path%></li>
+             <li><%= link_to "すべての論文を見る(#{Post.all.count})", posts_path%></li>
     			   <li><%= link_to "アメリカ研究(#{Post.where(major: "アメリカ研究").count})", papermajor_path(major: "アメリカ研究") %></li>
     			   <li><%= link_to "教育学(#{Post.where(major: "教育学").count})", papermajor_path(major: "教育学") %></li>
              <li><%= link_to "文化人類学(#{Post.where(major: "文化人類学").count})", papermajor_path(major: "文化人類学") %></li>
