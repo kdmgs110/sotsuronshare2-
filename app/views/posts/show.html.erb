@@ -19,6 +19,7 @@
                 <div class="profile-left"><%= @posts.summary %></div>
                 <div class="profile-left">
                     <a href="#comment-form"><i class="fa fa-comment fa-2x colored-star"></i><%= @posts.comments.count %></a> 
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-hashtags="CurioCity">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                     <% unless current_user.voted_for? @posts %>
                         <%= link_to like_post_path(@posts), method: :put do%><i class="fa fa-star-o fa-2x colored-star" aria-hidden="true"></i><%end%> <%= @posts.votes_for.size %>
                     <% else %>
