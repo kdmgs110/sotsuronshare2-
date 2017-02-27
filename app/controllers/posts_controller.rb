@@ -18,7 +18,7 @@ before_filter :set_search
         if @post.valid?
             redirect_to users_path
         else
-            render :new, status: :unprocessable_entity
+            redirect_to :back
         end
     end
    
@@ -70,7 +70,7 @@ before_filter :set_search
 private
 
 def post_params
-  params.require(:post).permit(:user_id, :file, :summary, :title, :year, :teacher, :major, :keyword, :keyword_list)
+  params.require(:post).permit(:user_id, :file, :summary, :title, :year, :teacher, :major, :keyword, :keyword_list, :agreement)
 end
 
 end 

@@ -64,8 +64,9 @@
                 <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>PDFを添付</div>
                 <div style="padding:20px"><%= f.file_field :file do%>PDFを選択<% end %></div>
             </div>
-             
-             <%= f.submit 'ポストする', class: :"btn btn-info btn-block" %>
+            
+            <div><%= link_to "利用規約", terms_path %></div>
+             <%= f.submit '利用規約に同意して、ポストする', class: :"btn btn-info btn-block" %>
             <% end %>
     </div>
     

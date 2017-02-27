@@ -5,4 +5,8 @@ before_filter :set_search
          redirect_to users_path,notice: "#{current_user.name}さんとしてログインしています"
         end
     end
+    
+    def terms
+        
+    end
 end
