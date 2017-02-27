@@ -34,6 +34,8 @@
                     <div class="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"> <%= link_to user.username,user_path(user) %>(<%= user.name %>)</div>
                     <div class="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> <%= user.major %></div>
                     <div class="profile-left"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> <%= user.email %></div>
+                    <div class="profile-left"><i class="fa fa-envelope-open-o" aria-hidden="true"></i>@ <%= user.twitter_id %></div>
+
                 <% end %>
             <% else %>
                 <div>現在、コンタクトが取れる人がいません。</div>

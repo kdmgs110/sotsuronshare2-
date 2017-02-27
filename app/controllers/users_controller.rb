@@ -141,7 +141,7 @@ before_action :set_profile, except: [:edit,:update]
     end
     
     def user_params
-      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username, :graduate, :email, :interest_list, :years)
+      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username, :graduate, :email, :interest_list, :years, :twitter_id)
     end
   
 end

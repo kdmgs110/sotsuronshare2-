@@ -24,8 +24,11 @@
                 ["社会人"]
                 ]) %>
             <div class="profile-header"><i class="fa fa-envelope-open" aria-hidden="true"></i> メールアドレス *</div>
-                <p>メールアドレスを記入してください。コンタクトリクエストの送受信ができるようになります。</p>
+                <p>メールアドレスを記入してください。コンタクトリクエストの送受信ができるようになり、相互にコンタクトリクエストが承認された場合のみ、相手にメールアドレスが知らされます。</p>
                 <div><textarea name="user[email]" class="form-control form" placeholder="メールアドレスを入力すると、コンタクトリクエストが送れるようになります。emailアドレスが公開されることはありません。" width="100%"><%=@user.email%></textarea></div>
+            <div class="profile-header">Twitter ID</div>
+                <p>(任意)Twitter IDを追加してください。コンタクトリクエストが相互認証された場合のみ、相手に知らされます。</p>
+            <div><textarea name="user[email]" class="form-control form" placeholder="abc123" width="100%"><%=@user.twitter_id%></textarea></div>
             <div class="profile-header">関心タグ（半角カンマ区切り）*</div>
                 <p>あなたの関心のあるテーマを<半角カンマ区切りで>記入してください。(例)教育,開発</p>
                 <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(',' || '、'), "data-role" => "tagsinput", :class =>"form" %></div>
