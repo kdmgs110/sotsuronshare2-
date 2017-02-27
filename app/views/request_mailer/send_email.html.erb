@@ -7,10 +7,8 @@
     <p>
       <%= @current_username %>さんからコンタクト・リクエストが届きました<br>
       リクエストを承認すると、実名と写真がコンタクトリストから見ることができます。<br>
-      承認しましょう]
     </p>
-    <p>卒論Shareにログインして確認してみましょう</p>
-    <a href = "radiant-citadel-12975.herokuapp.com">ログイン<a/>
+    <p>CurioCityに<%= link_to friends_user_path(@current_user) do %>ログイン<% end %>して確認してみましょう</p>
     </p>
   </body>
 </html>

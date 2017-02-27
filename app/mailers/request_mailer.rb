@@ -5,6 +5,7 @@ class RequestMailer < ApplicationMailer
         @email = user.email #ここは送信で使う
         @name = user.username #ここはメールで使う
         @username = user.username
+        @current_user = current_user
         @current_username = current_user.username
         mail to: @email, subject: "【卒論Share】#{@current_username}さんからコンタクトリクエストが届きました"
     end
