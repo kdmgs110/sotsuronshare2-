@@ -31,7 +31,7 @@
       <%= link_to "CurioCity", users_path, :class => "navbar-brand", style: :"font-family: 'Patua One', cursive;" %>
       <ul class="nav nav-tabs navbar-right" style="border-bottom:0px">
         <% if current_user %>
-    			<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i>ユーザーを探す</a>
+    			<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i>ユーザーを探す<span class="caret"></span></a>
     			  <ul class="dropdown-menu col-xs-12" style="width:auto;overflow-y:scroll;">
     			   <li><%= link_to "すべてのユーザー(#{User.all.count})", users_path %></li>
     			   <li><%= link_to "アメリカ研究 (#{User.where(major: "アメリカ研究").count})", major_path(major: "アメリカ研究") %></li>
@@ -61,7 +61,7 @@
     			   <li><%= link_to "心理学(#{User.where(major: "心理学").count})", major_path(major: "心理学") %></li>
     			   <li><%= link_to "社会学(#{User.where(major: "社会学").count})", major_path(major: "社会学") %></li>
             </ul>
-          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  論文を探す</a>
+          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  論文を探す<span class="caret"></span></a>
           <ul class="dropdown-menu col-xs-12" style="width:auto;overflow-y:scroll;">
              <li><%= link_to "すべての論文を見る(#{Post.all.count})", posts_path%></li>
     			   <li><%= link_to "アメリカ研究(#{Post.where(major: "アメリカ研究").count})", papermajor_path(major: "アメリカ研究") %></li>
@@ -91,7 +91,7 @@
     			   <li><%= link_to "心理学(#{Post.where(major: "心理学").count})", papermajor_path(major: "心理学") %></li>
     			   <li><%= link_to "社会学(#{Post.where(major: "社会学").count})", papermajor_path(major: "社会学") %></li>
             </ul>
-          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i><%= current_user.username%>さん ▽</a>
+          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i><%= current_user.username%>さん<span class="caret"></span></a>
             <ul class="dropdown-menu col-xs-12" style="width:auto">
               <li><%= link_to user_path(current_user) do%>プロフィール<% end %></li>
               <li><%= link_to edit_user_path(current_user) do%>プロフィールを編集<% end %></li>
