@@ -1,3 +1,5 @@
+<% provide(:title, "#{@user.username}さん") %>
+
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile">
          <%= link_to "ユーザー一覧",users_path %> / <%= image_tag @user.attachment, :size =>"30x30" %><%= link_to @user.username, user_path(@user) %>
