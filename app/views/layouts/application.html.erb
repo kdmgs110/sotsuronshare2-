@@ -24,9 +24,7 @@
 </head>
 <body>
 <div class="container-fluid">　<!--whole container -->
-
 <!-- HEADER + NAVBAR AREA  NON MOBILE--------------------------------------------------->
-
   <div class="row non-mobile-show" style="margin-bottom:30px">
     <div class="col-ms-12 col-md-12 navbar-fixed-top" id="nav-all" style="border-bottom:0px">
       <%= link_to "CurioCity", users_path, :class => "navbar-brand", style: :"font-family: 'Patua One', cursive;" %>
@@ -61,6 +59,7 @@
     			   <li><%= link_to "公共政策(#{User.where(major: "公共政策").count})", major_path(major: "公共政策") %></li>
     			   <li><%= link_to "心理学(#{User.where(major: "心理学").count})", major_path(major: "心理学") %></li>
     			   <li><%= link_to "社会学(#{User.where(major: "社会学").count})", major_path(major: "社会学") %></li>
+    			   <li><%= link_to "その他(#{User.where(major: "その他").count})", major_path(major: "その他") %></li>
             </ul>
           <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>  論文を探す<span class="caret"></span></a>
           <ul class="dropdown-menu col-xs-12" style="width:auto;overflow-y:scroll;">
@@ -91,6 +90,7 @@
     			   <li><%= link_to "公共政策(#{Post.where(major: "公共政策").count})", papermajor_path(major: "公共政策") %></li>
     			   <li><%= link_to "心理学(#{Post.where(major: "心理学").count})", papermajor_path(major: "心理学") %></li>
     			   <li><%= link_to "社会学(#{Post.where(major: "社会学").count})", papermajor_path(major: "社会学") %></li>
+    			   <li><%= link_to "その他(#{Post.where(major: "その他").count})", papermajor_path(major: "その他") %></li>
             </ul>
           <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i><%= current_user.username%>さん<span class="caret"></span></a>
             <ul class="dropdown-menu col-xs-12" style="width:auto">
@@ -101,7 +101,6 @@
               <li><%= link_to "ログアウト", logout_path %></li>
             </ul>
           <li role="presentation"><%= link_to new_post_path do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>投稿する<% end %></li>
-
         <% else %>
           <li role="presentation"><%= link_to "ログイン", login_path %></li>
         <% end %>  
@@ -166,7 +165,9 @@
 <% end %>
 <!-- NOTICE-BOX --------------------------------------------------->
 <!-- Modal Box --------------------------------------------------->
-
+<div class="row">
+  <div>感想、ご要望等ございましたら<a href ="https://goo.gl/forms/ZI9hB639zPwL74z42">こちらに</a>ご連絡ください。</div>
+</div>
 
 <%= yield %>
 </div><!--container -->
