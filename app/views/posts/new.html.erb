@@ -64,9 +64,14 @@
              <div class="profile-left">
                 <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>PDFを添付</div>
                 <div style="padding:20px"><%= f.file_field :file do%>PDFを選択<% end %></div>
-            </div>
-            
-            <div><%= link_to "利用規約", terms_path %></div>
+             </div>
+             
+              <div class="profile-left">
+                <div style="border-bottom:1px solid #606060">
+                    （注)</br>
+                    論文には、個人情報が含まれている可能性があります。気になる方は<%= link_to "利用規約", terms_path %>をご確認ください。
+                </div>
+             </div>
              <%= f.submit '利用規約に同意して、ポストする', class: :"btn btn-info btn-block" %>
             <% end %>
     </div>
