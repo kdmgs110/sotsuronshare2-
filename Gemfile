@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'ckeditor'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'mini_magick'
 gem 'acts-as-taggable-on', '~> 3.4'
 #入力用意にする
