@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 before_filter :set_search
+before_action :authenticate_user
     
     def index 
      @posts = Post.all.order("created_at DESC")
@@ -66,6 +67,13 @@ before_filter :set_search
     def papermajor
     @posts = Post.where(major: params[:major]).order("created_at DESC")
     end
+    
+    def authenticate_user
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        unless current_user.present?
+          redirect_to root_path,notice: "ログインしてください"
+        end
+  end
     
 private
 
