@@ -4,7 +4,9 @@
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1"  id="user_profile"> <!--ここに、共通の友人一覧を表示-->
         <div style="text-align:center;padding:20px 0;color:#fffffff">ユーザー一覧(<%= @users.count%>)</div>
         <% @users.each do |user| %>
+        <% if user.username.present?%>
             <%= link_to user_path(user) do %><%= image_tag user.attachment, :size =>"50x50" %> <% end %>
+        <% end %>
         <% end %>
     </div>
     
