@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'ckeditor'
 gem 'acts-as-taggable-on', '~> 3.4'
 #入力用意にする
 gem 'bootstrap-tagsinput-rails'
