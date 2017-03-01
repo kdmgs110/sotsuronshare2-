@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-tagsinput
+//= require ckeditor/init
 
 
 

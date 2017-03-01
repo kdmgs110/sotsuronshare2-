@@ -53,7 +53,7 @@
       </div>
       
       <div class="col-md-10">
-          <%= comment.text %>
+          <%= comment.text.html_safe %>
         <div><small><%= time_ago_in_words(comment.created_at)%>前</small>
         <% unless current_user.voted_for? comment %>
           <%= link_to like_comment_path(comment), method: :put do%><i class="fa fa-star-o  fa-2x colored-star" aria-hidden="true"></i><% end %> <%= comment.votes_for.size %>
@@ -72,14 +72,9 @@
 
 
 <%= form_for Comment.new, url: post_comments_path(@posts), method: :post do |f| %>
+<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile" style="text-align:center">コメントする</div>
   <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile"> 
-    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" style="text-align:center; font-size:24px" id="comment-form">コメントする</div>
-
-  
-    <div class="profile-left">
-    <%= f.text_field :text, style: :"width:100%; height:200px", placeholder: :"ここにコメントを入力" %>
-    </div>
-    
+    <%= f.cktext_area :text%>
     <div class="profile-left">
         <div><%= f.submit 'コメントする', class: :"btn btn-primary" %></div>
     </div>
