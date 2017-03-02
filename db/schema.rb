@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301134240) do
+ActiveRecord::Schema.define(version: 20170302070314) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20170301134240) do
     t.string   "email"
     t.string   "years"
     t.string   "twitter_id"
+    t.text     "people"
   end
 
   create_table "votes", force: :cascade do |t|

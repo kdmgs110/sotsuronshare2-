@@ -140,7 +140,7 @@ before_action :set_pending
     end
     
     def user_params
-      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username, :graduate, :email, :interest_list, :years, :twitter_id)
+      params.require(:user).permit(:bio, :abstract, :thesisName, :attachment, :major, :username, :graduate, :email, :interest_list, :years, :twitter_id,:people)
     end
   
 end
