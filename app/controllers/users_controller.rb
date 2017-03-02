@@ -13,8 +13,7 @@ before_action :set_pending
   end
   
   def index
-    @q        = User.search(params[:q])
-    @products = @q.result(distinct: true).order("created_at DESC")
+    @users = User.all.order("created_at desc")
     case
       when current_user.username.nil?
         then flash[:notice] = "プロフィールを編集しましょう。メールアドレスを入力すると、コンタクト申請を送れるようになります"
