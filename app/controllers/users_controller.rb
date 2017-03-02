@@ -3,6 +3,7 @@ before_action :authenticate_user
 before_filter :set_search
 before_action :correct_user, only: [:edit, :update]
 before_action :set_profile, except: [:edit,:update]
+before_action :set_pending
 
   def authenticate_user
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -80,16 +81,16 @@ before_action :set_profile, except: [:edit,:update]
     if current_user
       if current_user == @user　
         flash[:notice] = "自分自身をフォローできません。"
-        redirect_to users_path
+        redirect_to :back
       else
         current_user.follow(@user)
         RequestMailer.send_email(@user,current_user).deliver_now
         #RequestMailer.send_email(@user,current_user,@message).deliver_now こうすれば理論上届くようになる
         flash[:notice] = "#{@user.username}さんにコンタクトリクエストを送りました。"
-        redirect_to users_path
+        redirect_to :back
       end
     else
-      redirect_to root_path
+      redirect_to :back
     end
   end
 
@@ -125,9 +126,7 @@ before_action :set_profile, except: [:edit,:update]
     unless @user.username.present?
       redirect_to edit_user_path(current_user),notice: 'プロフィールを編集しましょう！(あとで変更することができます)'
     end
-    unless @user.posts.present?
-      flash[:notice] ="論文をアップロードすると、他のユーザーの論文を読めるようになります。右上の「投稿する」から、論文をアップロードしましょう。"
-    end
+    
   end
    
  private

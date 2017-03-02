@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
-before_filter :set_search
 before_action :authenticate_user
+before_filter :set_search
+before_action :correct_user, only: [:edit, :update]
+before_action :set_profile, except: [:edit,:update]
+before_action :set_pending
+
     
     def index 
      @posts = Post.all.order("created_at DESC")
@@ -73,6 +77,14 @@ before_action :authenticate_user
         unless current_user.present?
           redirect_to root_path,notice: "ログインしてください"
         end
+  end
+  
+    
+  def set_profile
+    @user = current_user
+    unless @user.username.present?
+      redirect_to edit_user_path(current_user),notice: 'プロフィールを編集しましょう！(あとで変更することができます)'
+    end
   end
     
 private

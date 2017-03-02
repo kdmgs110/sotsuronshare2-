@@ -30,6 +30,7 @@
       <%= link_to "CurioCity", users_path, :class => "navbar-brand", style: :"font-family: 'Patua One', cursive;" %>
       <ul class="nav nav-tabs navbar-right" style="border-bottom:0px">
         <% if current_user %>
+    			<li><%= link_to friends_user_path(current_user) do %><i class="fa fa-envelope-open-o" aria-hidden="true"></i>コンタクト<% if @pendingfriends.count >= 1 %><span class="badge1"><%= @pendingfriends.count %></span><% end %><% end %></li>
     			<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i>ユーザーを探す<span class="caret"></span></a>
     			  <ul class="dropdown-menu col-xs-12" style="width:auto;overflow-y:scroll;">
     			   <li><%= link_to "すべてのユーザー(#{User.all.count})", users_path %></li>
@@ -97,7 +98,7 @@
               <li><%= link_to user_path(current_user) do%>プロフィール<% end %></li>
               <li><%= link_to edit_user_path(current_user) do%>プロフィールを編集<% end %></li>
               <li><%= link_to like_post_path(current_user) do %><i class="fa fa-star uncolored-star" aria-hidden="true"></i>お気に入り<% end %></li>
-              <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-envelope-open-o" aria-hidden="true"></i>コンタクト<% end %></li>
+              
               <li><%= link_to "ログアウト", logout_path %></li>
             </ul>
           <li role="presentation"><%= link_to new_post_path do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>投稿する<% end %></li>

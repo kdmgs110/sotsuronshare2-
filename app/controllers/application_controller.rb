@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  
         
   def set_search
     @q        = User.search(params[:q])
@@ -13,6 +14,15 @@ class ApplicationController < ActionController::Base
      @current_user_following = current_user.all_following 
      @current_user_followers = current_user.followers
      @currentuser_sending = @current_user_following-@current_user_followers
+     @pendingfriends = @current_user_following - @mutualfriends
+  end
+  
+  def set_pending
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @following = @current_user.all_following
+    @followers = @current_user.followers
+    @mutualfriends = @following & @followers
+    @pendingfriends = @followers - @following
   end
   
   # Prevent CSRF attacks by raising an exception.
