@@ -12,7 +12,7 @@
   <meta name="keywords" content="卒論,卒業論文,論文,メジャー,共有,SNS">
   <!------ analytics ----------->
   <script>
-  <%= analytics_init if Rails.env.production? %>
+  <% analytics_init if Rails.env.production? %>
 
   ga('create', 'UA-91499303-1', 'auto');
   ga('send', 'pageview');

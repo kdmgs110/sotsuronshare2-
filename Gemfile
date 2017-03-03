@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
-
+gem "administrate", "~> 0.3.0"
+gem 'bourbon'
 gem 'ckeditor'
 gem 'google-analytics-rails'
 
@@ -15,8 +16,6 @@ gem 'rails_12factor', group: :production
 gem "font-awesome-rails"
 #検索機能ransacck 
 gem "ransack"
-#ページネーション
-gem 'will_paginate'
 #Facebook Login 
 gem 'omniauth'
 gem 'omniauth-facebook'

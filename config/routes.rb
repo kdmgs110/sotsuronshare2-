@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :comments
+resources :follows
+resources :forums
+resources :posts
+resources :static_pages
+resources :users
+
+    root to: "comments#index"
+  end
+
   get 'forums/index'
 
   get 'forums/show'
