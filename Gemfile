@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'ckeditor'
+gem 'google-analytics-rails'
 
 gem 'mini_magick'
 gem 'acts-as-taggable-on', '~> 3.4'
