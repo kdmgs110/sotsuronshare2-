@@ -93,9 +93,9 @@
     			   <li><%= link_to "社会学(#{Post.where(major: "社会学").count})", papermajor_path(major: "社会学") %></li>
     			   <li><%= link_to "その他(#{Post.where(major: "その他").count})", papermajor_path(major: "その他") %></li>
             </ul>
-          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>ディスカッションを探す<span class="caret"></span></a>
+          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-comments" aria-hidden="true"></i>質問を探す<span class="caret"></span></a>
             <ul class="dropdown-menu col-xs-12" style="width:auto;overflow-y:scroll;">
-             <li><%= link_to "すべてのディスカッションを見る(#{Forum.all.count})", forums_path%></li>
+             <li><%= link_to "すべての質問を見る(#{Forum.all.count})", forums_path%></li>
     			   <li><%= link_to "アメリカ研究(#{Forum.where(major: "アメリカ研究").count})", forummajor_path(major: "アメリカ研究") %></li>
     			   <li><%= link_to "教育学(#{Forum.where(major: "教育学").count})", forummajor_path(major: "教育学") %></li>
              <li><%= link_to "文化人類学(#{Forum.where(major: "文化人類学").count})", forummajor_path(major: "文化人類学") %></li>
@@ -130,13 +130,12 @@
               <li><%= link_to user_path(current_user) do%>プロフィール<% end %></li>
               <li><%= link_to edit_user_path(current_user) do%>プロフィールを編集<% end %></li>
               <li><%= link_to like_post_path(current_user) do %><i class="fa fa-star uncolored-star" aria-hidden="true"></i>お気に入り<% end %></li>
-              
               <li><%= link_to "ログアウト", logout_path %></li>
             </ul>
-          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-pdf-o" aria-hidden="true"></i>投稿する<span class="caret"></span></a>
+          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>投稿する<span class="caret"></span></a>
             <ul class="dropdown-menu col-xs-12" style="width:auto;overflow-y:scroll;">
-              <li><%= link_to new_post_path do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>投稿する<% end %></li>
-              <li><%= link_to new_forum_path do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>質問する<% end %></li>
+              <li><%= link_to new_post_path do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>論文を投稿する<% end %></li>
+              <li><%= link_to new_forum_path do%><i class="fa fa-comments" aria-hidden="true"></i>質問する<% end %></li>
             </ul>
 
         <% else %>

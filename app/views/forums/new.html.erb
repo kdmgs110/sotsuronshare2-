@@ -1,17 +1,15 @@
-<% provide(:title, "ディスカッションを追加する") %>
+<% provide(:title, "質問をする") %>
 <div class="row" style="padding-top:100px">  
    <%= form_for(@forums, :html => {:class => "form"}) do |f| %>
    <div class="col-xs-12 col-sm-12 col-md-12 col-xs-12" id="profile-abstract"> <!-- 論文/興味のabstract -->
         
             <div class="profile-left">
-                <div style="border-bottom:1px solid #606060"><i class="fa fa-heart" aria-hidden="true"></i>フォーラムのタイトルを追加してください</div>
-                <p>フォーラムのタイトルを入力してください。（例）教育社会学について</p>
-                <div style="padding:20px"><%= f.text_area :title, style: :"width:100%", placeholder: :"フォーラムのタイトルを入力してください。（例）教育社会学について" %></div>
+                <div style="border-bottom:1px solid #606060"><i class="fa fa-heart" aria-hidden="true"></i>質問タイトル</div>
+                <div style="padding:20px"><%= f.text_area :title, style: :"width:100%", placeholder: :"学問のこと、授業のことなど、質問してください。" %></div>
             </div>
             
             <div class="profile-left">
-                <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>専攻</div>
-                <p>フォーラムにもっとも関係するメジャーを選んでください。</p></p>
+                <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>質問に関係する専攻</div>
                 <div style="padding:20px">
                       <%= f.select :major,([
                 [""],
@@ -49,20 +47,12 @@
                 </div>
             </div>
             
-                
             <div class="profile-left">
-                <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>要約</div>
-                <p>フォーラムの議題に関係する内容をえらんでください</p>
+                <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>質問内容</div>
                 <div style="padding:20px">  <%= f.cktext_area :content%></div>
             </div>
 
-              <div class="profile-left">
-                <div style="border-bottom:1px solid #606060">
-                    （注)</br>
-                    フォーラムに関することには、個人情報が含まれている可能性があります。気になる方は<%= link_to "利用規約", terms_path %>をご確認ください。
-                </div>
-             </div>
-             <%= f.submit '利用規約に同意して、フォーラムする', class: :"btn btn-info btn-block" %>
+             <%= f.submit '質問する', class: :"btn btn-info btn-block" %>
             <% end %>
     </div>
  </div>
