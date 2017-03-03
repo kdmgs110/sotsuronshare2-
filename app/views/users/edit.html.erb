@@ -1,19 +1,11 @@
 <% provide(:title, "プロフィールを編集") %>
 <div class="row">
-    
-    <div class="col-xs-12 col-sm-12 col-md-12 profile" id="user_profile">
-        <div class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>プロフィールを編集</div>
-           <div >
-               <p>あなたに興味を持った人が連絡してくれるように、あなたの名前、専攻、興味をほかの人に紹介しましょう。</p>
-           </div> 
-    </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12 profile" id="user_profile">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile" style="padding:20px">
         <div class="form-group">
           <%= form_for(@user, :html => {:class => "form"})do |f| %>
             <span class="profile-header"><span class="glyphicon glyphicon glyphicon-user" aria-hidden></span> ユーザー名 *</span>
-                <p>ユーザー名を記入してください。この名前がほかのユーザーに表示されます。後から変更できます。</p>
-                <div><textarea name="user[username]" class="form-control form" placeholder="ユーザー名を入力してください。後でいつでも変更することができます。" width="100%"><%=@user.username%></textarea></div>
+                <div><textarea name="user[username]" class="form-control form" placeholder="ユーザー名を入力してください。後でいつでも変更することができます。"><%=@user.username%></textarea></div>
             <div class="profile-header"><i class="fa fa-envelope-open" aria-hidden="true"></i> 学年 *</div>
                 <%= f.select :years,([
                 [""],
@@ -22,25 +14,10 @@
                 ["大学2年生"],
                 ["大学3年生"],
                 ["大学4年生"],
+                ["その他"],
                 ["社会人"]
                 ]) %>
-            <div class="profile-header"><i class="fa fa-envelope-open" aria-hidden="true"></i> メールアドレス *</div>
-                <p>メールアドレスを記入してください。コンタクトリクエストの送受信ができるようになり、相互にコンタクトリクエストが承認された場合のみ、相手にメールアドレスが知らされます。</p>
-                <div><textarea name="user[email]" class="form-control form" placeholder="メールアドレスを入力すると、コンタクトリクエストが送れるようになります。emailアドレスが公開されることはありません。" width="100%"><%=@user.email%></textarea></div>
-            <div class="profile-header">Twitter ID</div>
-                <p>(任意)Twitter IDを追加してください。コンタクトリクエストが相互認証された場合のみ、相手に知らされます。</p>
-            <div><textarea name="user[twitter_id]" class="form-control form" placeholder="abc123" width="100%"><%=@user.twitter_id%></textarea></div>
-            <div class="profile-header">関心タグ（半角カンマ区切り）*</div>
-                <p>あなたの関心のあるテーマを<半角カンマ区切りで>記入してください。(例)教育,開発</p>
-                <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(',' || '、'), "data-role" => "tagsinput", :class =>"form" %></div>
-            <div class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> プロフィール</div>
-                <p>あなたのプロフィールを記入してください</p>
-                <div><textarea name="user[bio]" class="form-control form col-xs-12" placeholder= "興味、経歴、どんな人に会いたいかなどを記入してください。(例)地方創生に興味があります。日本の貧困層の教育をい学ぶために、NPOで働いていました。今は卒業して、教育関係の会社で働いています。大学3年生です。ジェンダー研究に興味があります。上野千鶴子が好きです。女性の格差問題に興味がある人はぜひコンタクトお願いします" width="100% "><%= @user.bio %></textarea></div>
-            <div class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> 会いたい人</div>
-                <p>どんな人に会いたいか、どんな人の助けになりたいかを記入してください。</p>
-                <div><textarea name="user[people]" class="form-control form col-xs-12" placeholder= "音楽メジャーの先輩に、話を聞いてみたいです。" width="100% "><%= @user.people %></textarea></div>
-            <div class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 専攻 *</div>
-                <p>あなたの専攻を記入してください。複数ある場合は、一つだけ選んでください。</p>
+                <div class="profile-header"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span> 専攻 *</div>
             <div>
                 <%= f.select :major,([
                 [""],
@@ -77,8 +54,18 @@
                 ]) %>
             </div>
             
-            <h2 class="profile-header"><i class="fa fa-paperclip" aria-hidden="true"></i>プロフィール画像</h2>
-                <p>あなたのプロフィール画像アップロードしてください。</p>
+            <div class="profile-header"><i class="fa fa-envelope-open" aria-hidden="true"></i> メールアドレス *</div>
+                <div><textarea name="user[email]" class="form-control form" placeholder="メールアドレスを入力すると、コンタクトリクエストが送れるようになります。emailアドレスは相互承認されたときのみ、相手に公開されます。" width="100%"><%=@user.email%></textarea></div>
+            <div class="profile-header">Twitter ID（任意）</div>
+            <div><textarea name="user[twitter_id]" class="form-control form" placeholder="コンタクトリクエストが相互承認されると、公開されます。" width="100%"><%=@user.twitter_id%></textarea></div>
+            <div class="profile-header">関心タグ（半角カンマ区切り）*</div>
+                <div><%= text_field_tag 'user[interest_list]', @user.interest_list.join(',' || '、'), "data-role" => "tagsinput", :class =>"form" %></div>
+            <div class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> プロフィール</div>
+                <div><textarea name="user[bio]" class="form-control form col-xs-12" placeholder= "興味、経歴を記入してください。(例)地方創生に興味があります。日本の貧困層の教育をい学ぶために、NPOで働いていました。今は卒業して、教育関係の会社で働いています。大学3年生です。ジェンダー研究に興味があります。上野千鶴子が好きです。女性の格差問題に興味がある人はぜひコンタクトお願いします" width="100% "><%= @user.bio %></textarea></div>
+            <div class="profile-header"><i class="fa fa-heart" aria-hidden="true"></i> 会いたい人</div>
+                <div><textarea name="user[people]" class="form-control form col-xs-12" placeholder= "音楽メジャーの先輩に、話を聞いてみたいです。" width="100% "><%= @user.people %></textarea></div>
+            
+            <h2 class="profile-header"><i class="fa fa-paperclip" aria-hidden="true"></i>プロフィール画像（任意）</h2>
                 <%= f.file_field :attachment %>
             <h2 class="profile-header"><input type="submit" value="変更する" class="btn btn-primary btn-lg btn-block"/></h2>
         <% end %>
