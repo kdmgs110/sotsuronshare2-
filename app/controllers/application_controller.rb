@@ -1,11 +1,6 @@
 class ApplicationController < ActionController::Base
   
         
-  def set_search
-    @q        = User.search(params[:q])
-    @users = @q.result.paginate(page: params[:page], per_page: params[:per_page])
-  end
-  
   def set_friends
      @users = User.find(params[:id])
      @following = @users.all_following
