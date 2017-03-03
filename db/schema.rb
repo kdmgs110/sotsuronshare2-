@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302070314) do
+ActiveRecord::Schema.define(version: 20170303043832) do
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -32,9 +32,12 @@ ActiveRecord::Schema.define(version: 20170302070314) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "post_id"
+    t.integer  "forum_id"
   end
 
+  add_index "comments", ["forum_id"], name: "index_comments_on_forum_id"
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id", "forum_id"], name: "index_comments_on_user_id_and_forum_id"
   add_index "comments", ["user_id", "post_id"], name: "index_comments_on_user_id_and_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
@@ -50,6 +53,16 @@ ActiveRecord::Schema.define(version: 20170302070314) do
 
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
+
+  create_table "forums", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.string   "major"
+    t.string   "keyword"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "friendable_id"

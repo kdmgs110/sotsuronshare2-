@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   
   has_many :comments
   has_many :posts
-  
+  has_many :forums
+
   acts_as_votable
   acts_as_taggable_on :labels # post.label_list が追加される
   acts_as_taggable            # acts_as_taggable_on :tags のエイリアス

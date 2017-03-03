@@ -19,8 +19,6 @@ before_action :set_pending
         then flash[:notice] = "プロフィールを編集しましょう。メールアドレスを入力すると、コンタクト申請を送れるようになります"
       when current_user.email.nil?
         then flash[:notice] = "気になった人にコンタクトをとってみませんか？メールアドレスを登録すると、コンタクトリクエストが送信できます"
-      when current_user.thesisName.nil?
-        then flash[:notice] = '論文をアップロードすると、ほかのユーザーの論文が見れるようになります。右上の投稿から、論文をアップロードしてみましょう'
     end
   end
   

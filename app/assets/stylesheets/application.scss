@@ -210,13 +210,13 @@ li .nav {
 
 .profile-header a:link{
     text-decoration:none;
-    font-size:30px;
+    font-size:24px;
     color:#00B0BC;
 }
 
 .profile-header a:visited{
     text-decoration:none;
-    font-size:30px;
+    font-size:24px;
     color:#00B0BC;
 }
 
@@ -242,12 +242,15 @@ li .nav {
     margin-top:5px;
     padding:10px;
 }
-
+#forums-index{
+    background-color:#FFFDF0;
+    padding:20px;
+    margin-top:40px;
+}
 .profile-left{
     padding:10px 0;
     border-bottom:1px solid #eee;
 }
-
 
 .profile-right{
     padding:10px 10px 40px 10px;
@@ -321,7 +324,7 @@ li .nav {
     color:#959595;
     margin:5px 0;
     padding:5px;
-    display:inline-block;
+    display:inline-block;    
     font-size:16px;
 }
 

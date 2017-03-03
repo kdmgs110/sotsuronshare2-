@@ -1,0 +1,19 @@
+<% provide(:title, "最新のディスカッション一覧") %>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1"  id="user_profile"> <!--ここに、共通の友人一覧を表示-->
+        <div class="profile-header" style="text-align:center;padding:20px 0; color:#aaaaaa">最新のディスカッション(<%= @forums.count %>)</div>
+    </div>
+<!-------------------------------------------------論文ページ------------------------------------------------------------->
+<% @forums.each do |forum| %>
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="forums-index"> 
+                <div class="profile-header"><%= link_to forum.title, forum_path(forum)%> <small> /<%= time_ago_in_words(forum.created_at)%>前</small></div>
+                <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span><%= forum.major %></div>
+              <% if forum.user == current_user %>
+                  <%= link_to "編集する", edit_forum_path(forum), class: :"button-radius" %>
+                  <%= link_to "消去する", forum_path(forum), method: :delete, class: :"button-radius" %>
+              <% end %>
+    </div>
+    <% end %>
+    
+</div>

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'forums/index'
+
+  get 'forums/show'
+
+  get 'forums/new'
+
+  get 'forums/edit'
+
   mount Ckeditor::Engine => '/ckeditor'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -62,7 +70,7 @@ Rails.application.routes.draw do
   get 'major', to: "users#major",as: :major
   get 'terms', to: "static_pages#terms"
   get 'papermajor', to: "posts#papermajor"
-  
+  get 'forummajor', to: "forums#forummajor"
   get 'auth/facebook', as: "login"
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'logout'   => 'sessions#destroy', as: "logout"
@@ -102,6 +110,14 @@ Rails.application.routes.draw do
       put "dislike", to: "posts#downvote"
     end
   end
+
+  resources :forums do 
+    member do
+      get 'like', to: "forums#like"
+      put "like", to: "forums#upvote"
+      put "dislike", to: "forums#downvote"
+    end
+  end
   
   resources :comments do
     member do
@@ -109,4 +125,9 @@ Rails.application.routes.draw do
       put "dislike", to: "comments#downvote"
     end
   end
+  
+  resources :forums do
+  resources :comments
+  end
+  
 end

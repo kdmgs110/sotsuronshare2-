@@ -1,0 +1,76 @@
+<% provide(:title, "#{@forums.title}") %>
+
+<div class="row">
+<!-------------------------------------------------論文ページ------------------------------------------------------------->
+<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="user_profile" style="margin-top:50px">
+          <%= link_to "フォーラム",forums_path %> / <span class="tag-button"><%= @forums.major %></span><%= link_to @forums.title, forum_path(@forums) %>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="forums-index"> 
+                <div class=" profile-header"><%= link_to @forums.title, forum_path(@forums)%></div>
+                <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span><%= @forums.major %></div>
+                <div class ="profile-left"><%= link_to user_path(@forums.user) do%><%= image_tag @forums.user.attachment, :size =>"30x30" %><%= @forums.user.username %><% end %><span><%= @forums.user.major%></span></div>
+                <div class="profile-left"><i class="fa fa-info-circle" aria-hidden="true"></i> 質問内容</div>
+                <div class="profile-left"><%= raw @forums.content %></div>
+                <div class="profile-left">
+                    <a href="#comment-form"><i class="fa fa-comment fa-2x colored-star"></i><%= @forums.comments.count %></a> 
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-hashtags="CurioCity">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    <% unless current_user.voted_for? @forums %>
+                        <%= link_to like_forum_path(@forums), method: :put do%><i class="fa fa-star-o fa-2x colored-star" aria-hidden="true"></i><%end%> <%= @forums.votes_for.size %>
+                    <% else %>
+                        <%= link_to dislike_forum_path(@forums), method: :put do%><i class="fa fa-star fa-2x colored-star" aria-hidden="true"></i><%end%> <%= @forums.votes_for.size %>
+                    <% end %>
+                    
+                </div>
+                <div>
+                      <% if @forums.user == current_user %>
+                        <%= link_to "編集する", edit_forum_path(@forums), class: :"button-radius" %>
+                        <%= link_to "消去する", forum_path(@forums), method: :delete, class: :"button-radius" %>
+                    <% end %>
+                </div>
+        </div>
+              
+
+<!------------------------------------------------------------------------------------------------------------->
+
+<% if @forums.comments.present?%>
+<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" style="text-align:center; font-size:24px">コメント(<%= @forums.comments.count %>)</div>
+<!-- 表示comment ----------------------->  
+  <% @forums.comments.each do |comment| %>
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="comment-content"> 
+      <div class="col-md-2">
+        <div><%= link_to user_path(comment.user) do %> <%= image_tag comment.user.attachment, :size =>"30x30" %><%= comment.user.username%>さん<%end%></div>
+        <div><%=comment.user.major%></div>
+      </div>
+      
+      <div class="col-md-10">
+          <%= comment.text.html_safe %>
+        <div><small><%= time_ago_in_words(comment.created_at)%>前</small>
+        <% unless current_user.voted_for? comment %>
+          <%= link_to like_comment_path(comment), method: :put do%><i class="fa fa-star-o  fa-2x colored-star" aria-hidden="true"></i><% end %> <%= comment.votes_for.size %>
+        <% else %>
+          <%= link_to dislike_comment_path(comment), method: :put do%><i class="fa fa-star fa-2x uncolored-star" aria-hidden="true"></i><%end%> <%= comment.votes_for.size %>
+        <% end %>
+          <% if comment.user == current_user %>
+            <%= link_to 'コメントを消す', forum_comment_path(forum_id: @forums.id, id: comment.id), method: :delete, class: :"tag-button" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<!--コメントを入力する -->  
+
+
+<%= form_for Comment.new, url: forum_comments_path(@forums), method: :forum do |f| %>
+<div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile" style="text-align:center">コメントする</div>
+  <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile"> 
+    <%= f.cktext_area :text%>
+    <div class="profile-left">
+        <div><%= f.submit 'コメントする', class: :"btn btn-primary" %></div>
+    </div>
+
+</div>  
+<% end %>
+
+</div>
