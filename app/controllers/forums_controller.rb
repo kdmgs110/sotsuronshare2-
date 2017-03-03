@@ -31,12 +31,11 @@ before_action :set_pending
         @forums = Forum.find(params[:id])
    end
    
-   
    def update
-      @forum = forum.find(params[:id])
-      @forum.update(forum_params)
-      if @forum.valid?
-        redirect_to @forum, notice: :"ディスカッションを変更しました"
+      @forums = Forum.find(params[:id])
+      @forums.update(forum_params)
+      if @forums.valid?
+        redirect_to @forums, notice: :"ディスカッションを変更しました"
       else
         render :edit, status: :unprocessable_entity
       end
@@ -85,7 +84,7 @@ before_action :set_pending
 private
 
 def forum_params
-  params.require(:forum).permit(:content, :user_id, :title, :major, :keyword, :keyword_list)
+  params.require(:forum).permit(:content, :user_id, :title, :major)
 end
 
 end

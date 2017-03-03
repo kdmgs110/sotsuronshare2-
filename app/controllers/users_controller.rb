@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 before_action :authenticate_user
 before_filter :set_search
 before_action :correct_user, only: [:edit, :update]
-before_action :set_profile, except: [:edit,:update]
 before_action :set_pending
 
   def authenticate_user

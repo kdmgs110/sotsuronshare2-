@@ -1,2 +1,58 @@
-<h1>Forums#edit</h1>
-<p>Find me in app/views/forums/edit.html.erb</p>
+<% provide(:title, "質問をする") %>
+<div class="row" style="padding-top:100px">  
+   <%= form_for(@forums, :html => {:class => "form"}) do |f| %>
+   <div class="col-xs-12 col-sm-12 col-md-12 col-xs-12" id="profile-abstract"> <!-- 論文/興味のabstract -->
+        
+            <div class="profile-left">
+                <div style="border-bottom:1px solid #606060"><i class="fa fa-heart" aria-hidden="true"></i>質問タイトル</div>
+                <div style="padding:20px"><%= f.text_area :title, style: :"width:100%", placeholder: :"学問のこと、授業のことなど、質問してください。" %></div>
+            </div>
+            
+            <div class="profile-left">
+                <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>質問に関係する専攻</div>
+                <div style="padding:20px">
+                      <%= f.select :major,([
+                [""],
+                ["アメリカ研究"],
+                ["文化人類学"],
+                ["アジア研究"],
+                ["生物学"],
+                ["経営学"],
+                ["化学"],
+                ["教育学"],
+                ["経済学"],
+                ["環境学"],
+                ["グローバル研究"],
+                ["ジェンダー・セクシャリティー研究"],
+                ["歴史学"],
+                ["国際関係学"],
+                ["情報科学"],
+                ["日本研究"],
+                ["法学"],
+                ["言語教育"],
+                ["文学"],
+                ["言語学"],
+                ["メディア・コミュニケーション・文化"],
+                ["数学"],
+                ["音楽"],
+                ["平和研究"],
+                ["哲学・宗教学"],
+                ["物理学"],
+                ["政治学"],
+                ["公共政策"],
+                ["心理学"],
+                ["社会学"],
+                ["その他"]
+                ]) %>
+                </div>
+            </div>
+            
+            <div class="profile-left">
+                <div style="border-bottom:1px solid #606060"><i class="fa fa-info-circle" aria-hidden="true"></i>質問内容</div>
+                <div style="padding:20px">  <%= f.cktext_area :content%></div>
+            </div>
+
+             <%= f.submit '質問する', class: :"btn btn-info btn-block" %>
+            <% end %>
+    </div>
+ </div>
