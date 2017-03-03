@@ -131,6 +131,7 @@
             </ul>
           <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>投稿する<span class="caret"></span></a>
             <ul class="dropdown-menu col-xs-12" style="width:auto;overflow-y:scroll;">
+              <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-envelope-open-o" aria-hidden="true"></i>コンタクト<% if @pendingfriends.count >= 1 %><span class="badge1"><%= @pendingfriends.count %></span><% end %><% end %></li>
               <li><%= link_to new_post_path do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>論文を投稿する<% end %></li>
               <li><%= link_to new_forum_path do%><i class="fa fa-comments" aria-hidden="true"></i>質問する<% end %></li>
             </ul>
@@ -156,13 +157,12 @@
   		<div class="collapse navbar-collapse" id="navbarEexample">
   			<ul class="nav navbar-nav">
   			  <% if current_user %>
+  			  <li><%= link_to  forums_path do%><i class="fa fa-comments" aria-hidden="true"></i> 質問を探す<%end%></li>
       			<li><%= link_to posts_path do%><i class="fa fa-book" aria-hidden="true"></i>  論文を探す<% end %></li>
             <li><%= link_to users_path do%><i class="fa fa-users" aria-hidden="true"></i>  ユーザーを探す<% end %></li>
-    				<li><a href="#" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-search" aria-hidden="true"></i>論文を検索</a></li>
     				<li><%= link_to new_post_path do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  投稿する<% end %></li>
     				<li><%= link_to clip_user_path(current_user.id) do %><i class="fa fa-paperclip" aria-hidden="true"></i>お気に入り<% end %></li>
-            <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-envelope-open-o" aria-hidden="true"></i>コンタクトリスト<% end %></li>
-            <li><%= current_user.username %>さん</li>
+            <li><%= link_to friends_user_path(current_user) do %><i class="fa fa-envelope-open-o" aria-hidden="true"></i>コンタクト<% if @pendingfriends.count >= 1 %><span class="badge1"><%= @pendingfriends.count %></span><% end %><% end %></li>            <li><%= current_user.username %>さん</li>
             <li><%= link_to user_path(current_user) do%>プロフィールを表示<% end %></li>
             <li><%= link_to edit_user_path(current_user.id) do%><i class="fa fa-pencil-square-o" aria-hidden="true"></i>プロフィールを編集<% end %></li>
             <li><%= link_to "ログアウト", logout_path %></li>

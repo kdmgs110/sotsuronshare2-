@@ -2,8 +2,8 @@ class PostsController < ApplicationController
 before_action :authenticate_user
 before_filter :set_search
 before_action :correct_user, only: [:edit, :update]
-before_action :set_profile, except: [:edit,:update]
 before_action :set_pending
+before_action :set_profile
 
     
     def index 
@@ -76,16 +76,16 @@ before_action :set_pending
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
         unless current_user.present?
           redirect_to root_path,notice: "ログインしてください"
-        end
-  end
-  
-    
-  def set_profile
-    @user = current_user
-    unless @user.username.present?
-      redirect_to edit_user_path(current_user),notice: 'プロフィールを編集しましょう！(あとで変更することができます)'
+         end
     end
-  end
+    
+    def set_profile
+        @user = current_user
+        unless @user.username.present?
+          flash[:notice] = 'プロフィールを編集すると、質問やコメントができるようになります。'
+        end
+    end
+  
     
 private
 
@@ -93,4 +93,4 @@ def post_params
   params.require(:post).permit(:user_id, :file, :summary, :title, :year, :teacher, :major, :keyword, :keyword_list, :agreement)
 end
 
-end 
+end

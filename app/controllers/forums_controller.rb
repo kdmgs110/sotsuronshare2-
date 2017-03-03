@@ -77,7 +77,7 @@ before_action :set_pending
   def set_profile
     @user = current_user
     unless @user.username.present?
-      redirect_to edit_user_path(current_user),notice: 'プロフィールを編集しましょう！(あとで変更することができます)'
+      flash[:notice] = 'プロフィールを編集すると、質問やコメントができるようになります。'
     end
   end
     
