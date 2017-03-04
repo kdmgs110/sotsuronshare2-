@@ -28,12 +28,12 @@ class CommentsController < ApplicationController
    end
 
    def destroy
-    if Forum.find(params[:forum_id])
+    begin Forum.find(params[:forum_id])
       @forum = Forum.find(params[:forum_id])
       @comment = Comment.find(params[:id])
       @comment.destroy
     redirect_to @forum,notice:"コメントを消去しました"
-    else
+    rescue
       @post = Post.find(params[:forum_id])
       @comment = Comment.find(params[:id])
       @comment.destroy
