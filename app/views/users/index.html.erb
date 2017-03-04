@@ -15,9 +15,9 @@
       <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="user_profile"> <!-- User Profile ----------------------------->
         <div class="col-xs-12 col-sm-12 col-md-12  profile-header">
           <% if user.attachment.present? %>
-            <%= image_tag user.attachment, :size =>"50x50" %><%= link_to user.username, user_path(user)%>
+            <%= image_tag user.attachment, :size =>"30x30" %><%= link_to user.username, user_path(user)%>
           <% else %>
-            <%= image_tag "twitteregg.png", :size =>"50x50" %><%= link_to user.username, user_path(user)%>
+            <%= image_tag "twitteregg.png", :size =>"30x30" %><%= link_to user.username, user_path(user)%>
           <% end %>
         </div>
           <div class="col-xs-12 col-sm-12 col-md-12" > <!-- ユーザーの属性 -->
