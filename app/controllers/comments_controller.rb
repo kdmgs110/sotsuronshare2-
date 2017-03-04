@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     end
     
     def create
-      if Forum.find(params[:forum_id])
+      begin Forum.find(params[:forum_id]).present?
         @forum= Forum.find(params[:forum_id])
         @comment = @forum.comments.create(comment_params.merge(user_id: current_user.id))
         if @comment.valid?
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
           flash[:alert] = "Invalid attributes."
           redirect_to @forum
         end
-      else
+      rescue
         @post = Post.find(params[:post_id]) 
         @comment = @post.comments.create(comment_params.merge(user_id: current_user.id))
         if @comment.valid?
