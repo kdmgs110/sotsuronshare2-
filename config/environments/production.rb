@@ -81,7 +81,7 @@ Rails.application.configure do
   #rails tutorialのべた張り
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'radiant-citadel-12975.herokuapp.com'
+  host = 'www.curiocity.tech'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
