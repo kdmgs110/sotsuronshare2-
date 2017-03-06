@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
       @comment.destroy
     redirect_to @forum,notice:"コメントを消去しました"
     rescue
-      @post = Post.find(params[:forum_id])
+      @post = Post.find(params[:post_id])
       @comment = Comment.find(params[:id])
       @comment.destroy
     redirect_to @post,notice:"コメントを消去しました"
