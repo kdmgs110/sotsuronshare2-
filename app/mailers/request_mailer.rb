@@ -27,5 +27,14 @@ class RequestMailer < ApplicationMailer
         mail to: @email, subject: '【CurioCity】あなたの論文にいいねが押されました。'
     end
     
+    def forum_notification(users,current_user,forums)
+        @email = users.email #ここは送信で使う
+        @name = users.username #ここはメールで使う
+        @current_user = current_user
+        @forums = forums.major
+        mail to: @email, subject: "【CurioCity】#{@current_user}さんが、#{@current_user.major}についての質問をしました"
+    end
+    
+    
     
 end

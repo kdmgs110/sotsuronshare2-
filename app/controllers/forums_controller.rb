@@ -13,8 +13,10 @@ before_action :set_pending
         @forums = Forum.new
     end
    
-    def create 
+    def create
         @forums = current_user.forums.create(forum_params)
+        @users = User.where(major: @forums.major)
+        puts @forums.major
         if @forums.valid?
             redirect_to forums_path
         else
