@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-before_action :set_pending
+before_action :set_pending, except: [:home, :terms]
 
     def home 
         if current_user.present?
