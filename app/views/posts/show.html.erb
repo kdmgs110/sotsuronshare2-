@@ -25,11 +25,9 @@
                     <% else %>
                         <%= link_to dislike_post_path(@posts), method: :put do%><i class="fa fa-star fa-2x colored-star" aria-hidden="true"></i><%end%> <%= @posts.votes_for.size %>
                     <% end %>
-                    <% if current_user.posts.present? %>
+                    
                       <%= link_to asset_path(@posts.file),:target=>["_blank"]  do%> <i class="fa fa-file-pdf-o fa-2x pdf-color" aria-hidden="true"></i> <%end%>
-                    <% else %>
-                      <%= link_to new_post_path do %><i class="fa fa-file-pdf-o fa-2x pdf-color" aria-hidden="true"></i>論文をアップロードすると、このユーザーの論文を見ることができます。<% end %>
-                    <% end %>
+                
                 </div>
                 <div>
                       <% if @posts.user == current_user %>

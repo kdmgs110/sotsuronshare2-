@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-before_action :set_pending, except: :home
+before_action :set_pending, except: [:home,:terms,:profile]
 
 
     def home 
@@ -10,5 +10,8 @@ before_action :set_pending, except: :home
     
     def terms
         
+    end
+    
+    def profile
     end
 end
