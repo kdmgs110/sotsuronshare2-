@@ -8,8 +8,8 @@
 
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="posts-index"> 
                 <div class=" profile-header"><%= link_to @forums.title, forum_path(@forums)%></div>
-                <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span><%= @forums.major %></div>
-                <div class ="profile-left"><%= link_to user_path(@forums.user) do%><%= image_tag @forums.user.attachment, :size =>"30x30" %><%= @forums.user.username %><% end %><span><%= @forums.user.major%></span></div>
+                <div class ="profile-left"><i class="fa fa-question-circle-o" aria-hidden="true"></i> <span class="tag-button"><%= @forums.major %></span></div>
+                <div class ="profile-left"><%= link_to user_path(@forums.user) do%><%= image_tag @forums.user.attachment, :size =>"30x30" %><%= @forums.user.username %><% end %><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span><span class="tag-button"><%= @forums.user.major%></span></div>
                 <div class="profile-left"><i class="fa fa-info-circle" aria-hidden="true"></i> 質問内容</div>
                 <div class="profile-left"><%= raw @forums.content %></div>
                 <div class="profile-left">
@@ -40,7 +40,7 @@
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="comment-content"> 
       <div class="col-md-2">
         <div><%= link_to user_path(comment.user) do %> <%= image_tag comment.user.attachment, :size =>"30x30" %><%= comment.user.username%>さん<%end%></div>
-        <div><%=comment.user.major%></div>
+        <div><span class="tag-button"><%=comment.user.major%></span></div>
       </div>
       
       <div class="col-md-10">

@@ -8,7 +8,7 @@
 <% @forums.each do |forum| %>
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="posts-index"> 
                 <div class="profile-header"><%= link_to forum.title, forum_path(forum)%> <small> /<%= time_ago_in_words(forum.created_at)%>前</small></div>
-                <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span><%= forum.major %></div>
+                <div class ="profile-left"><span class="glyphicon glyphicon glyphicon-book" aria-hidden="true"></span><span class="tag-button"><%= forum.major %></span></div>
                 <div class="profile-left"><i class="fa fa-heart" aria-hidden="true"></i>(<%= forum.votes_for.size %>) <i class="fa fa-comment" aria-hidden="true"></i>(<%= forum.comments.count %>)</div>
               <% if forum.user == current_user %>
                   <%= link_to "編集する", edit_forum_path(forum), class: :"button-radius" %>
