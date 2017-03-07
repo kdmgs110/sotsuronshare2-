@@ -18,8 +18,16 @@ class RequestMailer < ApplicationMailer
     def comment_email(user,current_user)
         @email = user.email
         @current_user= current_user
-        mail to: @email, subject: '【CurioCity】コメントが届きました。'
+        mail to: @email, subject: '【CurioCity】論文へのコメントが届きました。'
     end
+    
+    def comment_forum(user,current_user)
+        @email = user.email
+        @current_user= current_user
+        mail to: @email, subject: '【CurioCity】質問へのコメントが届きました。'
+    end
+    
+    
     
     def like_email(user,current_user)
         @current_user= current_user

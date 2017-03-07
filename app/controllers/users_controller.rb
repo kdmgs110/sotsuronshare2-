@@ -26,7 +26,9 @@ before_action :set_pending
    @posts = @user.posts.all.order("created_at DESC")
    @comments = @user.comments.all.order("created_at DESC")
    @comment  = @user.comments.build(user_id: current_user.id) 
-
+    unless current_user.name.present? || current_user.bio.present?
+    flash[:notice] = "プロフィールから、名前とプロフィール、連絡先を記入すると、#{@user.username}さんと連絡先が交換できます"
+    end
   end
   
   def new 

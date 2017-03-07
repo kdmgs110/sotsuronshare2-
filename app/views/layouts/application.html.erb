@@ -118,10 +118,20 @@
     			   <li><%= link_to "その他(#{Forum.where(major: "その他").count})", forummajor_path(major: "その他") %></li>
             </ul>
 
-          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i><%= current_user.username%>さん<span class="caret"></span></a>
+          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-align-justify"></i>
+          <% if current_user.username.present? %>
+            <%= current_user.username%>さん<span class="caret"></span></a>
+          <% else %>
+            プロフィール<span class="badge1">!</span><span class="caret"></span></a>
+          <% end %>
             <ul class="dropdown-menu col-xs-12" style="width:auto">
               <li><%= link_to user_path(current_user) do%>プロフィール<% end %></li>
-              <li><%= link_to edit_user_path(current_user) do%>プロフィールを編集<% end %></li>
+              <li>
+                <% if current_user.username.present?%>
+                  <%= link_to edit_user_path(current_user) do%>プロフィールを編集<% end %></li>
+                <% else %>
+                  <%= link_to edit_user_path(current_user) do%>プロフィールを編集<span class="badge1">!</span><% end %></li>
+                <% end %>
               <li><%= link_to like_post_path(current_user) do %><i class="fa fa-star uncolored-star" aria-hidden="true"></i>お気に入り<% end %></li>
               <li><%= link_to "ログアウト", logout_path %></li>
             </ul>
@@ -205,9 +215,8 @@
     <span><%= link_to "www.twitter.com/curiocity_tech" do %><i class="fa fa-twitter-square" aria-hidden="true"></i><% end %></span>
     <span><a href="http://www.facebook.com/CurioCity-1008161129316726/"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></span>
   </footer>
-  
-  
 </div> <!-- footer -->
+
 </div><!--container -->
 </body>
 </html>

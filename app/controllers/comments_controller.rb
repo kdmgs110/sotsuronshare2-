@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
         @forum= Forum.find(params[:forum_id])
         @comment = @forum.comments.create(comment_params.merge(user_id: current_user.id))
         if @comment.valid?
+          RequestMailer.comment_forum(@forum.user, @comment.user).deliver
           redirect_to @forum
         else
           flash[:alert] = "Invalid attributes."
