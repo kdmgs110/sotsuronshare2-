@@ -47,7 +47,7 @@ class CommentsController < ApplicationController
  def upvote
     @comments = Comment.find(params[:id])
     @comments.liked_by current_user
-    redirect_to @comments.post
+    redirect_to :back
  end
     
   def downvote
