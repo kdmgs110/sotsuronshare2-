@@ -33,7 +33,7 @@
                 <% @mutualfriends.each do |user| %>
                     <div class="profile-left"><%= link_to user_path(user) do %><%= image_tag user.avatar_url, :size => "100x100" %><% end %></div>
                     <div class="profile-left"><span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"> <%= link_to user.username,user_path(user) %><span class="tag-button"><%= user.major %></span></div>
-                    <div class="profile-left"><i class="fa fa-facebook-square" aria-hidden="true"></i><a href="www.facebook.com"><%= user.name %></a></div>
+                    <div class="profile-left"><i class="fa fa-facebook-square" aria-hidden="true"></i> <%= user.name %></div>
                     <div class="profile-left"><i class="fa fa-envelope-open-o" aria-hidden="true"></i> <%= user.email %></div>
                     <% if user.twitter_id %>
                         <div class="profile-left"><i class="fa fa-twitter-square" aria-hidden="true"></i>@<%= link_to user.twitter_id,"http://www.twitter.com/#{user.twitter_id}" %></div>
