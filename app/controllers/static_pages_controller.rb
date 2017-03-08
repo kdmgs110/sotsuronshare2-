@@ -18,4 +18,18 @@ before_action :set_pending, except: [:home,:terms,:profile]
             set_pending
         end
     end
+    
+    def dashboard
+        if current_user.present? #ログインしてたら
+            set_pending
+        else
+            authenticate_user #ログインしてくださいにリダイレクト
+        end
+       
+        @major = current_user.major #現在のユーザーのメジャーを取得
+        @users = User.where("major = ?", @major) #現在のユーザーのメジャーと同一のメジャーのすべてを取り出す
+        @posts = Post.where("major = ?", @major)
+        @forums = Forum.where("major = ?",@major)
+    end
+
 end

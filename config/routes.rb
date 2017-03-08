@@ -82,6 +82,7 @@ resources :users
   get 'terms', to: "static_pages#terms"
   get 'papermajor', to: "posts#papermajor"
   get 'forummajor', to: "forums#forummajor"
+  get 'dashboard', to:"static_pages#dashboard"
   get 'auth/facebook', as: "login"
   get 'auth/facebook/callback', to: 'sessions#create'
   get 'logout'   => 'sessions#destroy', as: "logout"
