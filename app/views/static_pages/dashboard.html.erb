@@ -1,5 +1,7 @@
 <% provide(:title, "dashboard") %>
-
+<% unless current_user.profile.present? %>
+    
+<% end %>
 <div class="row">
     
     <div class="col-xs-12 col-sm-12 col-md-4"  id="user_profile" style="height:500px;overflow:scroll"> <!--ここに、共通の友人一覧を表示-->
