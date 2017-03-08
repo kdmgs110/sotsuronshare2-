@@ -1,10 +1,10 @@
 <% provide(:title, "dashboard") %>
-<% unless current_user.profile.present? %>
-    
+<% unless current_user.bio.present? %>
+
 <% end %>
 <div class="row">
     
-    <div class="col-xs-12 col-sm-12 col-md-4"  id="user_profile" style="height:500px;overflow:scroll"> <!--ここに、共通の友人一覧を表示-->
+    <div class="col-xs-12 col-sm-12 col-md-4"  id="user_profile" style="height:600px;overflow:scroll"> <!--ここに、共通の友人一覧を表示-->
         <div class="profile-header" style="text-align:center;padding:20px 0; color:#aaaaaa">おすすめのユーザー(<%= @users.count %>)</div>
         
     <% @users.each do |user| %>
@@ -29,7 +29,7 @@
    <% end %>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-4"  id="user_profile" style="height:500px;overflow:scroll"> <!--ここに、共通の友人一覧を表示-->
+    <div class="col-xs-12 col-sm-12 col-md-4"  id="user_profile" style="height:600px;overflow:scroll"> <!--ここに、共通の友人一覧を表示-->
         <div class="profile-header" style="text-align:center;padding:20px 0; color:#aaaaaa">おすすめの論文一覧(<%= @posts.count %>)</div>
    
     
@@ -56,7 +56,7 @@
      </div>
    
     
-    <div class="col-xs-12 col-sm-12 col-md-4" id="user_profile" style="height:500px;overflow:scroll"> <!--ここに、共通の友人一覧を表示-->
+    <div class="col-xs-12 col-sm-12 col-md-4" id="user_profile" style="height:600px;overflow:scroll"> <!--ここに、共通の友人一覧を表示-->
         <div class="profile-header" style="text-align:center;padding:20px 0; color:#aaaaaa">おすすめの質問一覧(<%= @forums.count %>)</div>
 <!-------------------------------------------------論文ページ------------------------------------------------------------->
     <% @forums.each do |forum| %>
