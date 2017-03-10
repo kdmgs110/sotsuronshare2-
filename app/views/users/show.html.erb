@@ -3,7 +3,6 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile">
          <%= link_to "ユーザー一覧",users_path %> / <%= image_tag @user.attachment, :size =>"30x30" %><%= link_to @user.username, user_path(@user) %>
-
     </div>
       <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="user_profile"> <!-- User Profile ----------------------------->
         <div class="col-xs-12 col-sm-12 col-md-12 profile-header">
@@ -59,10 +58,10 @@
             
           </div>
     </div>
-
+<!-------------------------------------------------論文ページ------------------------------------------------------------->
+<% if @posts.present? %>
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" style="text-align:center; font-size:24px">論文(<%= @posts.count %>)</div>
     
-<!-------------------------------------------------論文ページ------------------------------------------------------------->
     <% @posts.each do |post| %>
         <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile" id="posts-index"> 
                 <div class=" profile-header"><%= link_to post.title, post_path(post)%></div>
@@ -82,5 +81,9 @@
               
            </div> 
             <% end %>
+<% end %>
+            <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 profile text-center" id="user_profile">
+                 <%= link_to "ユーザー一覧",users_path %> / <%= image_tag @user.attachment, :size =>"30x30" %><%= link_to @user.username, user_path(@user) %>
+            </div>
 
 </div>

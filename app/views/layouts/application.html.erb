@@ -20,9 +20,10 @@
 <!-- HEADER + NAVBAR AREA  NON MOBILE--------------------------------------------------->
   <div class="row non-mobile-show" style="margin-bottom:30px">
     <div class="col-ms-12 col-md-12 navbar-fixed-top" id="nav-all" style="border-bottom:0px">
-      <%= link_to "CurioCity", users_path, :class => "navbar-brand", style: :"font-family: 'Patua One', cursive;" %>
+      <%= link_to "CurioCity", dashboard_path, :class => "navbar-brand", style: :"font-family: 'Patua One', cursive;" %>
       <ul class="nav nav-tabs navbar-right" style="border-bottom:0px">
         <% if current_user %>
+          <li role="presentation"><%= link_to "ホーム",dashboard_path%></li>
     			<li><%= link_to friends_user_path(current_user) do %><i class="fa fa-envelope-open-o" aria-hidden="true"></i>コンタクト<% if @pendingfriends.count >= 1 %><span class="badge1"><%= @pendingfriends.count %></span><% end %><% end %></li>
     			<li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i>ユーザーを探す<span class="caret"></span></a>
     			  <ul class="dropdown-menu col-xs-12" style="width:auto;overflow-y:scroll;">
@@ -43,6 +44,8 @@
     			   <li><%= link_to "情報科学(#{User.where(major: "情報科学").count})", major_path(major: "情報科学 ") %></li>
     			   <li><%= link_to "日本研究(#{User.where(major: "日本研究").count})", major_path(major: "日本研究") %></li>
     			   <li><%= link_to "文学(#{User.where(major: "文学").count})", major_path(major: "文学") %></li>
+    			   <li><%= link_to "言語教育(#{User.where(major: "言語教育").count})", major_path(major: "言語教育") %></li>
+    			   <li><%= link_to "開発学(#{User.where(major: "開発学").count})", major_path(major: "開発学") %></li>
     			   <li><%= link_to "言語学(#{User.where(major: "言語学").count})", major_path(major: "言語学") %></li>
     			   <li><%= link_to "メディア・コミュニケーション・文化(#{User.where(major: "メディア・コミュニケーション・文化").count})", major_path(major: "メディア・コミュニケーション・文化") %></li>
     			   <li><%= link_to "数学(#{User.where(major: "数学").count})", major_path(major: "数学") %></li>
@@ -74,6 +77,8 @@
     			   <li><%= link_to "情報科学(#{Post.where(major: "情報科学").count})", papermajor_path(major: "情報科学 ") %></li>
     			   <li><%= link_to "日本研究(#{Post.where(major: "日本研究").count})", papermajor_path(major: "日本研究") %></li>
     			   <li><%= link_to "文学(#{Post.where(major: "文学").count})", papermajor_path(major: "文学") %></li>
+    			   <li><%= link_to "言語教育(#{Post.where(major: "言語教育").count})", papermajor_path(major: "言語教育") %></li>
+    			   <li><%= link_to "開発学(#{Post.where(major: "開発学").count})", papermajor_path(major: "開発学") %></li>
     			   <li><%= link_to "言語学(#{Post.where(major: "言語学").count})", papermajor_path(major: "言語学") %></li>
     			   <li><%= link_to "メディア・コミュニケーション・文化(#{Post.where(major: "メディア・コミュニケーション・文化").count})", papermajor_path(major: "メディア・コミュニケーション・文化") %></li>
     			   <li><%= link_to "数学(#{Post.where(major: "数学").count})", papermajor_path(major: "数学") %></li>
@@ -127,7 +132,7 @@
             <ul class="dropdown-menu col-xs-12" style="width:auto">
               <li><%= link_to user_path(current_user) do%>プロフィール<% end %></li>
               <li>
-                <% if current_user.username.present?%>
+                <% if current_user.username && current_user.email.present?%>
                   <%= link_to edit_user_path(current_user) do%>プロフィールを編集<% end %></li>
                 <% else %>
                   <%= link_to edit_user_path(current_user) do%>プロフィールを編集<span class="badge1">!</span><% end %></li>
@@ -155,7 +160,7 @@
   <div class="row">
     <nav class="navbar navbar-default navbar-fixed-top mobile-show" id ="nav-all">
   		<div class="navbar-header col-xs-12">
-  			<%= link_to "CurioCity", users_path, :class => "navbar-brand", style: :"font-family: 'Patua One', cursive; padding-top:10px;" %>
+  			<%= link_to "CurioCity", dashboard_path, :class => "navbar-brand", style: :"font-family: 'Patua One', cursive; padding-top:10px;" %>
   			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample">
           <i class="fa fa-align-justify"></i>
         </button>
@@ -165,6 +170,7 @@
   		<div class="collapse navbar-collapse" id="navbarEexample">
   			<ul class="nav navbar-nav">
   			  <% if current_user %>
+  			  <li role="presentation"><%= link_to "ホーム",dashboard_path%></li>
   			  <li><%= link_to  forums_path do%><i class="fa fa-comments" aria-hidden="true"></i> 質問を探す<%end%></li>
       			<li><%= link_to posts_path do%><i class="fa fa-book" aria-hidden="true"></i>  論文を探す<% end %></li>
             <li><%= link_to users_path do%><i class="fa fa-users" aria-hidden="true"></i>  ユーザーを探す<% end %></li>

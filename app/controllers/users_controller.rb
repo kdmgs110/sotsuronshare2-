@@ -49,7 +49,7 @@ before_action :set_pending
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to user_path(@user.id)
+      redirect_to dashboard_path
     else
       render 'edit',notice:'#{current_user.username}さんのプロフィールを編集しました'
     end
