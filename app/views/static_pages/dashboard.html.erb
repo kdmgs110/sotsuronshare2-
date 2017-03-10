@@ -1,5 +1,5 @@
 <% provide(:title, "ホーム") %>
-<% if current_user.bio && current_user.username && current_user.email.present? %>
+<% if current_user.username.present? && current_user.email.present? %>
 
 <div class="row">
     
@@ -39,12 +39,23 @@
             
           </div>
     </div>
+<!-----------------------------------------------論文アップしてみない？---------------------------------------------->
+<% unless current_user.posts.present? %>
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="user_profile" >
+        <div class="profile-header" style="text-align:center">論文を投稿してみませんか</div>
+        <div class="text-center">論文を投稿すると、よりあなたの興味・関心がわかりやすくなり、コンタクトリクエストをもらいやすくなります。</br>
+            論文のタイトルと内容だけでよいので、投稿してみましょう。ファイルは後からも投稿できます。
+        </div>
+        <div class="text-center" style="margin-top:20px"><%= link_to "論文名と内容だけ登録する",new_post_path, class: :"login-button", style: :"color:#ffffff" %></div>
 
+    </div> 
+    
+<% end %>
 <!-----------------------------------------------おすすめトップ---------------------------------------------->
 
     <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1" id="user_profile" >
-        <div class="profile-header" style="text-align:center"><%= current_user.username%>さんへのおすすめ</div>
-        </div> 
+        <div class="profile-header " style="text-align:center"><%= current_user.username%>さんへのおすすめ</div>
+    </div> 
     
 <!-----------------------------------------------おすすめユーザー一覧---------------------------------------------->
 

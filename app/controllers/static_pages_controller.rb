@@ -26,6 +26,7 @@ before_action :set_pending, except: [:home,:terms,:profile,:dashboard]
             @users = User.where("major = ?", @major) #現在のユーザーのメジャーと同一のメジャーのすべてを取り出す
             @posts = Post.where("major = ?", @major)
             @forums = Forum.where("major = ?",@major)
+            
         else
             redirect_to root_path
         end
